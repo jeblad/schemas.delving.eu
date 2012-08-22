@@ -54,4 +54,13 @@
             <file name="validation.xsd" hash="DE883E80EA867145C94195FE747BCE3E"/>
         </version>
     </schema>
+    <schema prefix="lido">
+        <version number="1.0.0">
+            <author>Thomas Wikman</author>
+            <message>Initial version for Delving</message>
+            <date>2012-08-22</date>
+            <file name="record-definition.xml" hash="CE9D4AF61199EAC7E46345AD0EF92C85"/>
+            <file name="validation.xsd" hash="F0F4D1E74E42FB977A174AAC063EC668"/>
+        </version>
+    </schema>
 </schemas>
