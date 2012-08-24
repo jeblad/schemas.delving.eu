@@ -1,5 +1,13 @@
 <?xml version="1.0"?>
 <schemas>
+    <schema prefix="facts">
+        <version number="1.0.0">
+            <author>Delving</author>
+            <message>Initial version</message>
+            <date>2012-08-24</date>
+            <file name="definition-list.xml" hash="D4530C50CB9A399BCA9B2A18F331221C"/>
+        </version>
+    </schema>
     <schema prefix="icn">
         <version number="1.0.0">
             <author>Delving</author>
