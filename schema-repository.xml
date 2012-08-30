@@ -71,4 +71,13 @@
             <file name="validation.xsd" hash="F0F4D1E74E42FB977A174AAC063EC668"/>
         </version>
     </schema>
+    <schema prefix="abc">
+        <version number="0.1.0">
+            <author>Sjoerd Siebinga</author>
+            <message>Initial version for Delving</message>
+            <date>2012-08-30</date>
+            <file name="record-definition.xml" hash="245D23A6CD82DDAAFE490DACF0F7B7D7"/>
+            <file name="validation.xsd" hash="5849C2A736F83C518BA69339ED73A5BF"/>
+        </version>
+    </schema>
 </schemas>
