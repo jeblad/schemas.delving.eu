@@ -36,7 +36,7 @@
         </version>
         <version number="1.0.1">
             <author>Delving</author>
-            <message>For Brabant Libraries project</message>
+            <message>Introducing delving:imageUrl field (for Brabant Libraries project)</message>
             <date>2012-08-31</date>
             <file name="record-definition.xml" hash="8B573B976C481C3DDB238F2D3D243E79"/>
             <file name="validation.xsd" hash="27FDEE2214E3A9B3632CFCF6D0EB32B9"/>
