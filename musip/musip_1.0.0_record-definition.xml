@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<record-definition prefix="musip" version="1.0.0" flat="false">
+
+    <namespaces>
+        <namespace prefix="musip" uri="http://www.musip.nl/" schema="musip-1.0.0.xsd"/>
+    </namespaces>
+
+    <root tag="record">
+    </root>
+
+    <field-markers>
+    </field-markers>
+
+</record-definition>
+
+
