@@ -87,4 +87,13 @@
             <file name="validation.xsd" hash="5849C2A736F83C518BA69339ED73A5BF"/>
         </version>
     </schema>
+    <schema prefix="musip">
+        <version number="1.0.0">
+            <author>Manuel Bernhardt</author>
+            <message>Initial version for Delving</message>
+            <date>2012-09-04</date>
+            <file name="record-definition.xml" hash="22733CCC3CBA40AA5D836EDB9B147174"/>
+            <file name="validation.xsd" hash="D0CE5B383F482D4C13FDD5D150DC72E3"/>
+        </version>
+    </schema>
 </schemas>
