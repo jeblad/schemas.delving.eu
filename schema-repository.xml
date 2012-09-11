@@ -45,8 +45,8 @@
             <author>Sjoerd Siebinga</author>
             <message>Functions adjusted</message>
             <date>2012-09-07</date>
-            <file name="record-definition.xml" hash="5E75C5BB293314BBD49E997A79BE8456"/>
-            <file name="validation.xsd" hash="27FDEE2214E3A9B3632CFCF6D0EB32B9"/>
+            <file name="record-definition.xml" hash="A2EB160992672E83A4819D1CB0D79AC6"/>
+            <file name="validation.xsd" hash="BF15EEB7F611E34F4E26340CF0461D5D"/>
         </version>
     </schema>
     <schema prefix="ese">

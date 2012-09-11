@@ -41,7 +41,7 @@
                 <string>D:/Documents/Schilderij/010.jpg</string>
             </sample-input>
             <groovy-code>
-                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)jpg|jpeg|tif|tiff&apos;, &apos;&apos;)}/500&quot;</string>
+                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i).jpg|.jpeg|.tif|.tiff&apos;, &apos;&apos;)}/500&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="lowercase">
@@ -71,7 +71,7 @@
         </mapping-function>
         <mapping-function name="smallThumbnail">
             <groovy-code>
-                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i)jpg|jpeg|tif|tiff&apos;, &apos;&apos;)}/180&quot;</string>
+                <string>&quot;http://thuisinbrabant.delving.org/thumbnail/thuisinbrabant/${spec}/${it.replaceAll(&apos;^.*[\\/|\\\\]&apos;,&apos;&apos;).replaceAll(&apos;(?i).jpg|.jpeg|.tif|.tiff&apos;, &apos;&apos;)}/180&quot;</string>
             </groovy-code>
         </mapping-function>
         <mapping-function name="toLocalId">
@@ -200,8 +200,8 @@
         <field-marker name="PROVIDER" path="/record/europeana:provider"/>
         <field-marker name="OWNER" path="/record/europeana:dataProvider"/>
         <field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt"/>
-        <field-marker name="THUMBNAIL" path="/record/europeana:object"/>
-        <field-marker name="IMAGE_URL" path="/record/europeana:isShownBy"/>
+        <field-marker name="THUMBNAIL" path="/record/tib:thumbSmall"/>
+        <field-marker name="IMAGE_URL" path="/record/tib:thumbLarge"/>
 
         <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
         <field-marker name="SPEC"/>
