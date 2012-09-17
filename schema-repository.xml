@@ -16,6 +16,13 @@
             <file name="record-definition.xml" hash="FE20865EBCA9F010323448F29EB8057A"/>
             <file name="validation.xsd" hash="7D768B4F36D6096E7A6D089E5004032E"/>
         </version>
+        <version number="1.0.1">
+            <author>Manuel Bernhardt</author>
+            <message>Adding delving:imageUrl and icn:rijksCollection</message>
+            <date>2012-09-17</date>
+            <file name="record-definition.xml" hash="F2F90F336929253F285450678CD753A5"/>
+            <file name="validation.xsd" hash="6422B63567DBECCE77028C2AC7E064F3"/>
+        </version>
     </schema>
     <schema prefix="abm">
         <version number="1.0.0">
