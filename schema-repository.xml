@@ -22,7 +22,7 @@
             <date>2012-09-17</date>
             <file name="record-definition.xml" hash="BD0B8CB4863C645A2D1D933DCC44425D"/>
             <file name="validation.xsd" hash="6422B63567DBECCE77028C2AC7E064F3"/>
-	</version>
+        </version>
     </schema>
     <schema prefix="abm">
         <version number="1.0.0">
