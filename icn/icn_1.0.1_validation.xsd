@@ -83,6 +83,7 @@
             <xs:element name="purchasePrice" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="acquiredWithHelpFrom" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="physicalState" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="rijksCollection" minOccurs="0" maxOccurs="unbounded"/>
 
             <xs:group minOccurs="0" maxOccurs="unbounded" ref="icn:dcGroup" />
             <xs:group minOccurs="0" maxOccurs="unbounded" ref="icn:dctermsGroup" />
