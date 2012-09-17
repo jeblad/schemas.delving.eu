@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="icn" version="1.0.0" flat="true">
+<record-definition prefix="icn" version="1.0.1" flat="true">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
@@ -76,7 +76,7 @@
         <elem tag="icn:musipCollectionDisplayName" hidden="true"/>
         <elem tag="icn:musipMuseumUri"/>
         <elem tag="icn:musipMuseumDisplayName" hidden="true"/>
-        <elem tag="icn:rijksCollection fieldType="boolean" />
+        <elem tag="icn:rijksCollection" fieldType="boolean" />
 
         <elem tag="dc:title" />                    <!-- ESE 3.4 -->
         <elem tag="dc:creator" />                <!-- ESE 3.4 -->
