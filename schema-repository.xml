@@ -20,7 +20,7 @@
             <author>Manuel Bernhardt</author>
             <message>Adding delving:imageUrl and icn:rijksCollection</message>
             <date>2012-09-17</date>
-            <file name="record-definition.xml" hash="BD0B8CB4863C645A2D1D933DCC44425D"/>
+            <file name="record-definition.xml" hash="F2F90F336929253F285450678CD753A5"/>
             <file name="validation.xsd" hash="6422B63567DBECCE77028C2AC7E064F3"/>
         </version>
     </schema>
