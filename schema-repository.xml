@@ -21,7 +21,7 @@
             <message>Adding delving:imageUrl and icn:rijksCollection</message>
             <date>2012-09-17</date>
             <file name="record-definition.xml" hash="5F065A34C554D834C8183EF26AE9E1A0"/>
-            <file name="validation.xsd" hash="7D02BCB164145EFFF0D1FBCCFB0E08D0"/>
+            <file name="validation.xsd" hash="836ECCCB0B8CCC113C0D4041A83376BA"/>
         </version>
     </schema>
     <schema prefix="abm">
