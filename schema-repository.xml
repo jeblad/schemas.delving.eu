@@ -32,6 +32,13 @@
             <file name="record-definition.xml" hash="E71E6B537028BB8B19180E65A122673D"/>
             <file name="validation.xsd" hash="2DA205BE533534182710D4B96A3EA00F"/>
         </version>
+         <version number="1.0.1">
+            <author>Delving</author>
+            <message>Added UTM33 fields for east and north</message>
+            <date>2012-09-24</date>
+            <file name="record-definition.xml" hash="DDB1FAE8E37421E3BD677CACBE6E003C"/>
+            <file name="validation.xsd" hash="3B65AEC437D7BEB59E7D554B57147BFE"/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
