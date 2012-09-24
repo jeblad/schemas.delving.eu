@@ -23,6 +23,13 @@
             <file name="record-definition.xml" hash="5F065A34C554D834C8183EF26AE9E1A0"/>
             <file name="validation.xsd" hash="836ECCCB0B8CCC113C0D4041A83376BA"/>
         </version>
+        <version number="1.0.2">
+            <author>Manuel Bernhardt</author>
+            <message>Adding Rijks fields</message>
+            <date>2012-09-24</date>
+            <file name="record-definition.xml" hash="C20BBCF90A92758D1F9B86D4D98A8DB8"/>
+            <file name="validation.xsd" hash="E84A71EFEAB9FFFE772FBBA614DF8115"/>
+        </version>
     </schema>
     <schema prefix="abm">
         <version number="1.0.0">
