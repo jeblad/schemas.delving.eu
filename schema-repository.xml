@@ -39,27 +39,34 @@
             <file name="record-definition.xml" hash="E71E6B537028BB8B19180E65A122673D"/>
             <file name="validation.xsd" hash="2DA205BE533534182710D4B96A3EA00F"/>
         </version>
-         <version number="1.0.1">
+        <version number="1.0.1">
             <author>Delving</author>
             <message>Added UTM33 fields for east and north</message>
             <date>2012-09-24</date>
             <file name="record-definition.xml" hash="7A7048F97C4170E236E1FEEC9D7A5961"/>
             <file name="validation.xsd" hash="3B65AEC437D7BEB59E7D554B57147BFE"/>
         </version>
-	<version number="1.0.2">
+        <version number="1.0.2">
             <author>Delving</author>
             <message>Added UTM33 field, updated field markers, and added optList for itemType</message>
             <date>2012-10-02</date>
             <file name="record-definition.xml" hash="458C87D2A7D9A9C4123A1CFF15EE7466"/>
             <file name="validation.xsd" hash="6462467103265F890A0CEAF48DE96B9A"/>
-   	</version>
-    	<version number="1.0.3">
+        </version>
+        <version number="1.0.3">
             <author>Delving</author>
             <message>Added abm:category and more refinements to geo functionality</message>
             <date>2012-10-02</date>
             <file name="record-definition.xml" hash="A86C6D58F53DE2B43B9F9FAFC2AA4A89"/>
             <file name="validation.xsd" hash="6D2E88990AF674B4DC41D93CEE64B691"/>
-    </version>
+        </version>
+        <version number="1.0.4">
+            <author>Delving</author>
+            <message>Adjustments to make it</message>
+            <date>2012-10-02</date>
+            <file name="record-definition.xml" hash="1E99F23659DE0B1D5DF83170D6E0F2FC"/>
+            <file name="validation.xsd" hash="6D2E88990AF674B4DC41D93CEE64B691"/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
