@@ -67,6 +67,13 @@
             <file name="record-definition.xml" hash="55C6EA6FFC46638C4E4E5DD654D19A85"/>
             <file name="validation.xsd" hash="6D2E88990AF674B4DC41D93CEE64B691"/>
         </version>
+	<version number="1.0.5">
+            <author>Delving</author>
+            <message>Added the right name of the delving schema version</message>
+            <date>2012-10-02</date>
+            <file name="record-definition.xml" hash="A2F7F0653739BBF6CAFE971A0FB79A72"/>
+            <file name="validation.xsd" hash="6D2E88990AF674B4DC41D93CEE64B691"/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">

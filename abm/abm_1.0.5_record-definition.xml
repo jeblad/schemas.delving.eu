@@ -1,0 +1,240 @@
+<?xml version="1.0"?>
+<record-definition prefix="abm" version="1.0.4" flat="true">
+
+    <namespaces>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
+                   schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+        <namespace prefix="dcterms" uri="http://purl.org/dc/terms/"
+                   schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/"
+                   schema="http://www.europeana.eu/schemas/ese/ESE-V3.3.xsd"/>
+        <namespace prefix="abm" uri="http://abmu.org/abm" schema="http://abmu.org/abm.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-V1.2.xsd"/>
+    </namespaces>
+
+    <functions>
+	    <mapping-function name="latlongToUtm">
+	      <sample-input>
+		<string>59.907116,10.682953</string>
+	      </sample-input>
+	      <groovy-code>
+		<string>String[] split = it.replaceAll(&quot; &quot;, &quot;&quot;).split(&quot;,&quot;)</string>
+		<string>uk.me.jstott.jcoord.UTMRef utm = new uk.me.jstott.jcoord.LatLng(split.head().toDouble(), split.last().toDouble()).toUTMRef()</string>
+		<string>return &quot;${utm.lngZone} ${utm.latZone} ${utm.easting} ${utm.northing}&quot;</string>
+	      </groovy-code>
+	    </mapping-function>
+	    <mapping-function name="utmToLatLong">
+	      <sample-input>
+		<string>258644.154187,6648939.72091</string>
+	      </sample-input>
+	      <groovy-code>
+		<string>String[] split = it.replaceAll(&quot; &quot;, &quot;&quot;).split(&quot;,&quot;)</string>
+		<string>uk.me.jstott.jcoord.LatLng latlng =  new uk.me.jstott.jcoord.UTMRef(split.head().toDouble(),</string>
+		<string>split.last().toDouble(), &quot;V&quot; as char, 33).toLatLng()</string>
+		<string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+	      </groovy-code>
+	    </mapping-function>
+    </functions>
+
+    <root tag="record">
+        <elem tag="abm:municipality"/>
+        <elem tag="abm:aboutPerson"/>
+        <elem tag="abm:county"/>
+        <elem tag="abm:namedPlace"/>
+        <elem tag="abm:landedProperty"/>
+        <elem tag="abm:contentProvider"/>
+        <elem tag="abm:address"/>
+        <elem tag="abm:digitised"/>
+
+        <elem tag="abm:lat"/>
+        <elem tag="abm:long"/>
+        <elem tag="abm:east"/>
+        <elem tag="abm:north"/>
+        <elem tag="abm:epsgCode"/>
+        <!-- This is the full utm33 string 32 V 258644.154187 6648939.72091
+      SRID=32633;POINT(148013,6964590)
+      -->
+        <elem tag="abm:utm33"/>
+        <elem tag="abm:type"/>
+        <elem tag="abm:category"/>
+        <!-- 59.907116,10.682953 -->
+        <elem tag="abm:geo" fieldType="geohash"/>
+        <elem tag="abm:creatorUri" fieldType="string"/>
+
+        <elem tag="dc:contributor"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:coverage"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:creator"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:date"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:description"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:format"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:identifier"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:language"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:publisher"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:relation"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:rights"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:source"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:subject"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:title"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dc:type"/>
+        <!-- ESE 3.4 -->
+
+        <elem tag="dcterms:alternative"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:conformsTo"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:created"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:extent"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasFormat"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasPart"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:hasVersion"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isFormatOf"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isPartOf"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isReferencedBy"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isReplacedBy"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isRequiredBy"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:isVersionOf"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:issued"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:medium"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:provenance"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:references"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:replaces"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:requires"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:spatial"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:tableOfContents"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:temporal"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:rightsHolder"/>
+        <!-- ESE 3.4 -->
+        <elem tag="dcterms:rightsHolder"/>
+        <!-- NOT part of ESE 3.4 -->
+
+        <elem tag="europeana:isShownBy" fieldType="link"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:rights" fieldType="link"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:isShownAt" fieldType="link"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:unstored"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:object" fieldType="link"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:provider"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:dataProvider"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:type"/>
+        <!-- ESE 3.4 -->
+        <elem tag="europeana:uri" fieldType="string"/>
+        <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD-->
+        <elem tag="europeana:language"/>
+        <!-- ESE 3.4, not accepted by the office and not part of the ESE XSD -->
+        <elem tag="europeana:country"/>
+        <!-- ESE 3.4,  not accepted by the office and not part of the ESE XSD -->
+        <elem tag="europeana:collectionName"/>
+        <!-- NOT part of ESE 3.4 -->
+        <elem tag="europeana:collectionTitle"/>
+        <!-- NOT part of ESE 3.4 -->
+        <elem tag="europeana:source"/>
+        <!-- NOT part of ESE 3.4 -->
+        <!-- new -->
+        <elem tag="europeana:userTag"/>
+        <elem tag="europeana:hasDigitalObject"/>
+        <elem tag="europeana:year"/>
+    </root>
+
+    <field-markers>
+
+        <field-marker name="CREATOR" path="/record/dc:creator"/>
+        <field-marker name="TITLE" path="/record/dc:title"/>
+        <field-marker name="DESCRIPTION" path="/record/dc:description"/>
+        <field-marker name="OWNER" path="/record/europeana:dataProvider"/>
+        <field-marker name="PROVIDER" path="/record/europeana:provider"/>
+        <field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt"/>
+        <field-marker name="THUMBNAIL" path="/record/europeana:object"/>
+        <field-marker name="GEOHASH" path="/record/abm:geo"/>
+        <field-marker name="ADDRESS" path="/record/abm:address"/>
+
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <field-marker name="SPEC"/>
+        <field-marker name="DEEP_ZOOM_URL"/>
+
+        <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
+        <field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>
+        <field-marker type="search" name="SNIPPET" path="/record/europeana:collectionTitle"/>
+
+        <field-marker type="fact" name="spec" path="/record/europeana:collectionName"/>
+        <field-marker type="fact" name="name" path="/record/europeana:collectionTitle"/>
+        <field-marker type="fact" name="country" path="/record/europeana:country"/>
+        <field-marker type="fact" name="dataProvider" path="/record/europeana:dataProvider"/>
+        <field-marker type="fact" name="language" path="/record/europeana:language"/>
+        <field-marker type="fact" name="provider" path="/record/europeana:provider"/>
+        <field-marker type="fact" name="rights" path="/record/europeana:rights"/>
+        <field-marker type="fact" name="type" path="/record/europeana:type"/>
+
+    </field-markers>
+
+    <opts>
+        <opt-list dictionary="HHCat" path="/record/abm:category" displayName="Category">
+            <opt value="Archeology"/>
+            <opt value="Animals"/>
+            <opt value="Plant"/>
+            <opt value="Placenames"/>
+            <opt value="Art"/>
+            <opt value="Industrial Heritage"/>
+            <opt value="Social History"/>
+            <opt value="Architecture"/>
+            <opt value="Unknown"/>
+        </opt-list>
+    </opts>
+
+
+    <docs>
+        <doc path="/record/dc:contributor">
+            <string name="Dublin Core definition">An entity responsible for making contributions to the content of the
+                resource. Examples of a Contributor include a person, an organization or a
+                service. Typically, the name of a Contributor should be used to indicate the entity.
+            </string>
+            <string name="Europeana definition">An entity responsible for making contributions to the resource</string>
+            <string name="Europeana note">The name of contributors to the original analog or born digital object. This
+                could be a person, an organisation or a service.
+            </string>
+        </doc>
+        <!-- ... -->
+    </docs>
+
+</record-definition>
+
+
