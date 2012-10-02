@@ -46,6 +46,13 @@
             <file name="record-definition.xml" hash="7A7048F97C4170E236E1FEEC9D7A5961"/>
             <file name="validation.xsd" hash="3B65AEC437D7BEB59E7D554B57147BFE"/>
         </version>
+	<version number="1.0.2">
+            <author>Delving</author>
+            <message>Added UTM33 field, updated field markers, and added optList for itemType</message>
+            <date>2012-09-24</date>
+            <file name="record-definition.xml" hash="458C87D2A7D9A9C4123A1CFF15EE7466"/>
+            <file name="validation.xsd" hash="6462467103265F890A0CEAF48DE96B9A"/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
