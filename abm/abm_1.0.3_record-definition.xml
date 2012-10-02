@@ -205,7 +205,7 @@
 
 
     <docs>
-	<doc>
+        <doc path="/record/dc:contributor">
             <string name="Dublin Core definition">An entity responsible for making contributions to the content of the resource. Examples of a Contributor include a person, an organization or a
                 service. Typically, the name of a Contributor should be used to indicate the entity.
             </string>
