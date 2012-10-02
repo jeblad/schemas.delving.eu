@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="abm" version="1.0.4" flat="true">
+<record-definition prefix="abm" version="1.0.5" flat="true">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
