@@ -190,7 +190,7 @@
     </field-markers>
 
  <opts>
-      <opt-list path="/record/abm:category" displayName="Category">
+      <opt-list dictionary="HHCat" path="/record/abm:category" displayName="Category">
 	  <opt value="Archeology"/>
           <opt value="Animals"/>
           <opt value="Plant"/>

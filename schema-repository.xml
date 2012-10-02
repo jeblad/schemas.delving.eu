@@ -57,8 +57,8 @@
             <author>Delving</author>
             <message>Added abm:category and more refinements to geo functionality</message>
             <date>2012-10-02</date>
-            <file name="record-definition.xml" hash="C97F018AEBDFE5DFC03345C7E90D4A37"/>
-            <file name="validation.xsd" hash="AC889FE13EA97795F035BC363003E612"/>
+            <file name="record-definition.xml" hash="A86C6D58F53DE2B43B9F9FAFC2AA4A89"/>
+            <file name="validation.xsd" hash="6D2E88990AF674B4DC41D93CEE64B691"/>
     </version>
     </schema>
     <schema prefix="tib">

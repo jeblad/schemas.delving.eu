@@ -83,7 +83,7 @@
             <xs:element name="epsgCode" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="utm33" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="type" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="category" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="category" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="geo" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="creatorUri" minOccurs="0" maxOccurs="unbounded"/>
 
