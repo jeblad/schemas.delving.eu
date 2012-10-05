@@ -182,18 +182,18 @@
     </field-markers>
 
     <opts>
-      <opt-list path="/record/legalStatus" displayName="Legal Status">
+      <opt-list dictionary="LEGAL" path="/record/legalStatus" displayName="Legal Status">
           <opt value="Eigenaar: Rijks"/>
           <opt value="Eigenaar: Anders dan Rijk"/>
           <opt value="Aan de zorg van het Rijk toevertrouwd"/>
           <opt value="Bruikleen van X"/>
           <opt value="Onbekend"/>
       </opt-list>
-      <opt-list path="/record/acceptedStateCharges" displayName="Accepted State Charges">
+      <opt-list dictionary="CHARGES" path="/record/acceptedStateCharges" displayName="Accepted State Charges">
           <opt value="No"/>
           <opt value="Yes"/>
       </opt-list>
-      <opt-list path="/record/expulsionMeans" displayName="Expulsion means">
+      <opt-list dictionary="EXPULSION" path="/record/expulsionMeans" displayName="Expulsion means">
           <opt value="Sale"/>
           <opt value="Destruction"/>
           <opt value="Gift"/>

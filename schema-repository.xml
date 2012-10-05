@@ -27,7 +27,7 @@
             <author>Manuel Bernhardt</author>
             <message>Adding Rijks fields</message>
             <date>2012-09-24</date>
-            <file name="record-definition.xml" hash="C20BBCF90A92758D1F9B86D4D98A8DB8"/>
+            <file name="record-definition.xml" hash="146B51C2E2392A4A585E3004F1999975"/>
             <file name="validation.xsd" hash="E84A71EFEAB9FFFE772FBBA614DF8115"/>
         </version>
     </schema>
