@@ -134,11 +134,20 @@
             <file name="validation.xsd" hash="F0F4D1E74E42FB977A174AAC063EC668"/>
         </version>
     </schema>
+     <schema prefix="oaidc">
+        <version number="1.0.0">
+            <author>Sjoerd Siebinga</author>
+            <message>Initial version for Delving</message>
+            <date>2012-10-16</date>
+            <file name="record-definition.xml" hash="7D8573E4763D75840B3ABE63355288EF"/>
+            <file name="validation.xsd" hash="13C8C0E3E72F2032E4134865D4BAB84B"/>
+        </version>
+    </schema>
     <schema prefix="abc">
         <version number="1.0.0">
             <author>Sjoerd Siebinga</author>
             <message>Initial version for Delving</message>
-            <date>2012-08-30</date>
+            <date>12-08-30</date>
             <file name="record-definition.xml" hash="245D23A6CD82DDAAFE490DACF0F7B7D7"/>
             <file name="validation.xsd" hash="5849C2A736F83C518BA69339ED73A5BF"/>
         </version>

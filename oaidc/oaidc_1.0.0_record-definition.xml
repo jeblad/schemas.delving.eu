@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<record-definition prefix="oaidc" version="1.0.0" flat="true">
+
+    <namespaces>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+        <namespace prefix="oai_dc" uri="http://www.openarchives.org/OAI/2.0/oai_dc/"" schema="http://www.openarchives.org/OAI/2.0/oai_dc.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.0.xsd"/>
+    </namespaces>
+
+    <root tag="oai_dc:dc">
+	    <element ref="dc:title"/>
+	    <element ref="dc:creator"/>
+	    <element ref="dc:subject"/>
+	    <element ref="dc:description"/>
+	    <element ref="dc:publisher"/>
+	    <element ref="dc:contributor"/>
+	    <element ref="dc:date"/>
+	    <element ref="dc:type"/>
+	    <element ref="dc:format"/>
+	    <element ref="dc:identifier"/>
+	    <element ref="dc:source"/>
+	    <element ref="dc:language"/>
+	    <element ref="dc:relation"/>
+	    <element ref="dc:coverage"/>
+	    <element ref="dc:rights"/>
+   </root>
+
+    <field-markers>
+
+        <field-marker name="CREATOR" path="/record/dc:creator"/>
+        <field-marker name="TITLE" path="/record/dc:title"/>
+        <field-marker name="DESCRIPTION" path="/record/dc:description"/>
+        <field-marker name="OWNER" path="/record/dc:publisher"/>
+        <field-marker name="PROVIDER" path="/record/dc:publisher"/>
+        <field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt"/>
+        <field-marker name="THUMBNAIL" path="/record/dc:format"/>
+        
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <field-marker name="SPEC"/>
+        <field-marker name="DEEP_ZOOM_URL"/>
+
+   </field-markers>
+
+    <docs>
+        <doc path="/record/dc:contributor">
+            <string name="Dublin Core definition">An entity responsible for making contributions to the content of the resource. Examples of a Contributor include a person, an organization or a
+                service. Typically, the name of a Contributor should be used to indicate the entity.
+            </string>
+            <string name="Europeana definition">An entity responsible for making contributions to the resource</string>
+            <string name="Europeana note">The name of contributors to the original analog or born digital object. This could be a person, an organisation or a service.</string>
+        </doc>
+        <!-- ... -->
+    </docs>
+
+</record-definition>
+
+
