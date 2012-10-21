@@ -23,7 +23,9 @@
         <attr tag="nameTitleGroup"/>
         <attr tag="collection"/>  <!--yes-->
         <attr tag="manuscript"/>  <!--yes-->
-        <attr tag="shareable"/>
+        <attr tag="shareable"/>  <!--no-->
+        <attr tag="order"/>
+        <attr tag="objectPart"/>
 
     </attrs>
 
@@ -62,14 +64,23 @@
         <elem tag="role"/>
         <elem tag="roleTerm"/>
         <elem tag="description"/>
+
+        <elem tag="recordContentSource"/>
+        <elem tag="recordCreationDate"/>
+        <elem tag="recordChangeDate"/>
+        <elem tag="recordIdentifier"/>
+        <elem tag="recordOrigin"/>
+        <elem tag="languageOfCataloging"/>
+        <elem tag="languageTerm"/>
+        <elem tag="scriptTerm"/>
+        <elem tag="descriptionStandard"/>
     </elems>
 
-    <root tag="mods" attrs="" required="true">
+    <root tag="mods" required="true">
         <!--todo: what todo with modsCollection-->
 
-        <!--1. titleInfo-->
-        <elem tag="titleInfo" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup, nameTitleGroup
-">
+        <!--1. titleInfo -->
+        <elem tag="titleInfo" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup, nameTitleGroup">
             <elem tag="title" attrs="lang, xml:lang, script, transliteration" required="true"/>
             <elem tag="subTitle" attrs="lang, xml:lang, script, transliteration"/>
             <elem tag="partNumber" attrs="lang, xml:lang, script, transliteration"/>
@@ -97,38 +108,141 @@
         <elem tag="genre" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, type, displayLabel, usage, altRepGroup"/>
 
         <!-- 5. originInfo -->
-        <elem tag="originInfo" attrs="lang, xml:lang, script, transliteration">
-
+        <elem tag="originInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="place">
+                <elem tag="placeTerm"/>
+            </elem>
+            <elem tag="publisher"/>
+            <elem tag="dateIssued"/>
+            <elem tag="dateCreated"/>
+            <elem tag="dateCaptured"/>
+            <elem tag="dateValid"/>
+            <elem tag="dateModified"/>
+            <elem tag="copyrightDate"/>
+            <elem tag="dateOther"/>
+            <elem tag="edition"/>
+            <elem tag="issuance"/>
+            <elem tag="frequency"/>
         </elem>
 
 
         <!--6. language-->
+        <elem tag="language" attrs="objectPart, lang, xml:lang, script, transliteration, displayLabel, usage, altRepGroup">
+            <elem tag="languageTerm"/>
+            <elem tag="scriptTerm"/>
+        </elem>
 
         <!--7. physicalDescription-->
+        <elem tag="physicalDescription" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="form"/>
+            <elem tag="reformattingQuality"/>
+            <elem tag="internetMediaType"/>
+            <elem tag="extent"/>
+            <elem tag="digitalOrigin"/>
+            <elem tag="note"/>
+        </elem>
 
         <!--8. abstract-->
+        <elem tag="abstract" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--9. tableOfContents-->
+        <elem tag="tableOfContents" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--10. targetAudience-->
+        <elem tag="targetAudience" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, type, altRepGroup"/>
+        <!--@authority (see: http://www.loc.gov/standards/sourcelist/target-audience.html);-->
 
         <!--11. note-->
+        <elem tag="note" attrs="ID, xlink, displayLabel, type, altRepGroup"/>
+        <!--@type (For a list of implemented note types, see: www.loc.gov/standards/mods/mods-notes.html)-->
 
         <!--12. subject-->
+        <elem tag="subject" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
+            <elem tag="topic"/>
+            <elem tag="geographic"/>
+            <elem tag="temporal"/>
+            <elem tag="geographicCode"/>
+            <elem tag="hierarchicalGeographic">
+                <elem tag="continent"/>
+                <elem tag="country"/>
+                <elem tag="province"/>
+                <elem tag="region"/>
+                <elem tag="state"/>
+                <elem tag="territory"/>
+                <elem tag="county"/>
+                <elem tag="city"/>
+                <elem tag="island"/>
+                <elem tag="area"/>
+                <elem tag="extraterrestrialArea"/>
+                <elem tag="citySection"/>
+            </elem>
+            <elem tag="cartographics" ordered="true">
+                <elem tag="scale"/>
+                <elem tag="projection"/>
+                <elem tag="coordinates"/>
+            </elem>
+            <elem tag="occupation"/>
+        </elem>
 
         <!--13. classification-->
+        <elem tag="classification" attrs="lang, xml:lang, script, transliteration, authority, authorityURI; valueURI, edition, displayLabel, usage, altRepGroup"/>
+        <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!--14. relatedItem-->
+        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type" elems="abstract, accessCondition, classification, extension, genre, identifier, language, location, name, note, originInfo, part, physicalDescription, recordInfo, relatedItem, subject, tableOfContents, targetAudience, titleInfo, typeOfResource">
+            <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
+        </elem>
 
         <!--15. identifier-->
+        <elem tag="identifier" attrs="lang, xml:lang, script, transliteration, type, displayLabel, invalid, altRepGroup"/>
+         <!--type = hdl, doi, isbn, isrc, ismn, issn, issue number, istc, lccn, local,-->
+        <!--matrix number, music publisher, music plate, sici, uri, upc, videorecording identifier,-->
+        <!--stock number-->
+
 
         <!--16. location [ordered]-->
+        <elem tag="location" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup" ordered="true">
+            <elem tag="physicalLocation"/>
+            <elem tag=""/>
+            <elem tag=""/>
+            <elem tag="holdingSimple" singular="true">
+                <elem tag="copyInformation" ordered="true">
+                    <elem tag="form" singular="true"/>
+                    <elem tag="subLocation"/>
+                    <elem tag="shelfLocator"/>
+                    <elem tag="electronicLocator"/>
+                    <elem tag="note"/>
+                    <elem tag="enumerationAndChronology"/>
+                </elem>
+            </elem>
+            <elem tag="holdingExternal" singular="true"/>
+
+        </elem>
 
         <!--17. accessCondition-->
+        <elem tag="accessCondition" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
+        <!--type: values = restriction on access; use and reproduction-->
 
         <!--18. part-->
+        <elem tag="part" attrs="ID, type, order, lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="detail">
+                <elem tag="number"/>
+                <elem tag="caption"/>
+                <elem tag="title"/>
+            </elem>
+            <!--Ordered-->
+            <elem tag="extent">
+                <elem tag="start"/>
+                <elem tag="end"/>
+                <elem tag="total"/>
+                <elem tag="list"/>
+            </elem>
+            <elem tag="date"/>
+            <elem tag="text"/>
+        </elem>
 
-        <!--19. extension-->
+        <!--19. extension (complete)-->
+        <elem tag="extension"  attrs="displayLabel"/>
 
         <!--20. recordInfo-->
         <elem tag="recordInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
@@ -193,6 +307,7 @@
        <doc tag="lang">
            <string name="Definition"></string>
            <string name="Application"></string>
+           <string name="schemaDefinition"></string>
            <string name="Examples">
                <![CDATA[ ]]>
            </string>
@@ -214,6 +329,7 @@
                ]]>
            </string>
        </doc>
+
        <doc attr="xml:lang">
            <string name="Definition"></string>
            <string name="Application"></string>
