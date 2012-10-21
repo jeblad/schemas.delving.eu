@@ -152,6 +152,15 @@
             <file name="validation.xsd" hash="13C8C0E3E72F2032E4134865D4BAB84B"/>
         </version>
     </schema>
+    <schema prefix="mods">
+        <version number="3.4.0">
+            <author>Sjoerd Siebinga</author>
+            <message>Initial version for Delving</message>
+            <date>2012-10-21</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
     <schema prefix="abc">
         <version number="1.0.0">
             <author>Sjoerd Siebinga</author>
