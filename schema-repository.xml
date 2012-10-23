@@ -121,8 +121,8 @@
                 <author>Thomas Wikman</author>
                 <message>Initial version for Delving</message>
                 <date>2012-10-04</date>
-                <file name="record-definition.xml" hash="9FBCAA8C2E7800F04C256591FB54885C"/>
-                <file name="validation.xsd" hash="150401127434FA37496D3E144274B55C"/>
+                <file name="record-definition.xml" hash="68EE87AC4B9E87B68ECEDFE13D5F8A58"/>
+                <file name="validation.xsd" hash="E4EB745EAEA7BB9A19204439781CE2D1"/>
             </version>
     </schema>
     <schema prefix="itin">
