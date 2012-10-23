@@ -266,26 +266,25 @@
 
 
     <opts>
-        <opt-list path="/mods/titleInfo" value="@type" displayName="titleType">  <!--using type attribute-->
-            <opt value="enumerated"/>
-            <opt value="abbreviated"/>
-            <opt value="translated"/>
-            <opt value="alternative"/>
-            <opt value="uniform"/>
+        <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
+            <opt key="enumerated"/>
+            <opt key="abbreviated"/>
+            <opt key="translated"/>
+            <opt key="alternative"/>
+            <opt key="uniform"/>
         </opt-list>
-        <opt-list path="/mods/typeOfResource" key="@key" value="@type" displayName="Type of Resource">  <!--using type attribute-->
-            <opt key="" value="text"/>
-            <opt key="" value="cartographic"/>
-            <opt key="" value="notated music"/>
-            <opt key="" value="sound recording-musical"/>
-            <opt key="" value="sound recording-nonmusical"/>
-            <opt key="" value="sound recording"/>
-            <opt key="" value="still image"/>
-            <opt key="" value="moving image"/>
-            <opt key="" value="three dimensional object"/>
-            <opt key="" value="software, multimedia"/>
-            <opt key="" value="mixed material"/>
-            <opt key="" value=""/>
+        <opt-list path="/mods/typeOfResource" key="@type" displayName="Type of Resource">  <!--using type attribute-->
+            <opt key="text"/>
+            <opt key="cartographic"/>
+            <opt key="notated music"/>
+            <opt key="sound recording-musical"/>
+            <opt key="sound recording-nonmusical"/>
+            <opt key="sound recording"/>
+            <opt key="still image"/>
+            <opt key="moving image"/>
+            <opt key="three dimensional object"/>
+            <opt key="software, multimedia"/>
+            <opt key="mixed material"/>
         </opt-list>
 
     </opts>
