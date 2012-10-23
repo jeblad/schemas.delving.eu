@@ -55,82 +55,39 @@
     </attr-groups>
 
     <elems>
-        <!--top-level elements-->
-        <elem tag="abstract"/>
-        <elem tag="accessCondition"/>
-        <elem tag="classification"/>
-        <elem tag="extension"/>
-        <elem tag="genre"/>
-        <elem tag="identifier"/>
-        <elem tag="language"/>
-        <elem tag="location"/>
-        <elem tag="name"/>
-        <elem tag="note"/>
-        <elem tag="originInfo"/>
-        <elem tag="part"/>
-        <elem tag="physicalDescription"/>
-        <elem tag="recordInfo"/>
-        <elem tag="relatedItem"/>
-        <elem tag="subject"/>
-        <elem tag="tableOfContents"/>
-        <elem tag="targetAudience"/>
-        <elem tag="titleInfo"/>
-        <elem tag="typeOfResource"/>
-        <!--other elements-->
 
-        <elem tag="title" />
-        <elem tag="subTitle"/>
-        <elem tag="partNumber"/>
-        <elem tag="partName"/>
-        <elem tag="nonSort"/>
-        <elem tag="namePart"/>
-        <elem tag="displayForm"/>
-        <elem tag="affiliation"/>
-        <elem tag="role"/>
-        <elem tag="roleTerm"/>
-        <elem tag="description"/>
-
-        <elem tag="recordContentSource"/>
-        <elem tag="recordCreationDate"/>
-        <elem tag="recordChangeDate"/>
-        <elem tag="recordIdentifier"/>
-        <elem tag="recordOrigin"/>
-        <elem tag="languageOfCataloging"/>
-        <elem tag="languageTerm"/>
-        <elem tag="scriptTerm"/>
-        <elem tag="descriptionStandard"/>
-    </elems>
-
-    <root tag="mods" required="true">
-        <!--todo: what todo with modsCollection-->
-
-        <!--1. titleInfo -->
-        <elem tag="titleInfo" attr-group="base1" attrs="nameTitleGroup">
+        <elem tag="titleInfo" attr-group="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
             <elem tag="title" attr-group="subElemBase" required="true"/>
             <elem tag="subTitle" attr-group="subElemBase"/>
             <elem tag="partNumber" attr-group="subElemBase"/>
             <elem tag="partName" attr-group="subElemBase"/>
             <elem tag="nonSort" attr-group="subElemBase"/>
-        </elem>
 
-        <!--2. name-->
-        <elem tag="name" attrs="">
-            <elem tag="namePart"/>
-            <elem tag="displayForm"/>
-            <elem tag="affiliation"/>
-            <elem tag="role">
-                <!--(see:http://www.loc.gov/standards/sourcelist/relator-role.html)-->
-                <elem tag="roleTerm"/>
-            </elem>
-            <elem tag="description"/>
-        </elem>
+        <elem tag="name" attrs="" elems="namePart, displayForm, affiliation, role, description "/>
+                  <elem tag="namePart"/>
+                  <elem tag="displayForm"/>
+                  <elem tag="affiliation"/>
+                  <elem tag="role" elems="roleTerm"/>
+                      <!--(see:http://www.loc.gov/standards/sourcelist/relator-role.html)-->
+                      <elem tag="roleTerm"/>
+                  <elem tag="description"/>
 
-        <!-- 3. typeOfResource -->
         <elem tag="typeOfResource" attrs="collection, manuscript, displayLabel, usage, altRepGroup"/> <!--has opt list -->
 
-        <!-- 4. genre -->
-        <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
         <elem tag="genre" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, type, displayLabel, usage, altRepGroup"/>
+
+   </elems>
+
+    <root tag="mods" elems="titleInfo, name, typeOfResource, genre" required="true">
+
+
+        <!-- todo: what todo with modsCollection -->
+
+        <!--1. titleInfo from elems-->
+        <!--2. name from elems-->
+¨       <!-- 3. typeOfResource from elems-->
+        <!-- 4. genre from elems-->
+        <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
 
         <!-- 5. originInfo -->
         <elem tag="originInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
@@ -149,7 +106,6 @@
             <elem tag="issuance"/>
             <elem tag="frequency"/>
         </elem>
-
 
         <!--6. language-->
         <elem tag="language" attrs="objectPart, lang, xml:lang, script, transliteration, displayLabel, usage, altRepGroup">
@@ -214,16 +170,14 @@
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!--14. relatedItem-->
-        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type" elems="abstract, accessCondition, classification, extension, genre, identifier, language, location, name, note, originInfo, part, physicalDescription, recordInfo, relatedItem, subject, tableOfContents, targetAudience, titleInfo, typeOfResource">
+        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type"/>
             <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
-        </elem>
 
         <!--15. identifier-->
         <elem tag="identifier" attrs="lang, xml:lang, script, transliteration, type, displayLabel, invalid, altRepGroup"/>
          <!--type = hdl, doi, isbn, isrc, ismn, issn, issue number, istc, lccn, local,-->
         <!--matrix number, music publisher, music plate, sici, uri, upc, videorecording identifier,-->
         <!--stock number-->
-
 
         <!--16. location [ordered]-->
         <elem tag="location" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup" ordered="true">
@@ -241,7 +195,6 @@
                 </elem>
             </elem>
             <elem tag="holdingExternal" singular="true"/>
-
         </elem>
 
         <!--17. accessCondition-->
@@ -285,6 +238,8 @@
 
     </root>
 
+
+
     <field-markers>
         <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
         <field-marker name="CREATOR"/>
@@ -298,6 +253,7 @@
         <field-marker name="SPEC"/>
         <field-marker name="DEEP_ZOOM_URL"/>
     </field-markers>
+
 
     <opts>
         <opt-list path="/mods/titleInfo" value="@type" displayName="titleType">  <!--using type attribute-->
