@@ -5,7 +5,6 @@
     </namespaces>
 
 
-
     <attrs>
         <attr tag="ID"/>
         <attr tag="xlink"/>
@@ -14,69 +13,80 @@
         <attr tag="xml:lang"/>
         <attr tag="script"/>
         <attr tag="transliteration"/>
-        <attr tag="type"/> <!--(enumerated: abbreviated, translated, alternative, uniform) -->
+        <attr tag="type"/>
+        <!--(enumerated: abbreviated, translated, alternative, uniform) -->
         <attr tag="authority"/>
         <attr tag="authorityURI"/>
         <attr tag="valueURI"/>
         <attr tag="displayLabel"/>
-        <attr tag="supplied"/>   <!--yes-->
-        <attr tag="usage"/> <!--primary-->
+        <attr tag="supplied"/>
+        <!--yes-->
+        <attr tag="usage"/>
+        <!--primary-->
         <attr tag="altRepGroup"/>
         <attr tag="nameTitleGroup"/>
-        <attr tag="collection"/>  <!--yes-->
-        <attr tag="manuscript"/>  <!--yes-->
-        <attr tag="shareable"/>  <!--no-->
+        <attr tag="collection"/>
+        <!--yes-->
+        <attr tag="manuscript"/>
+        <!--yes-->
+        <attr tag="shareable"/>
+        <!--no-->
         <attr tag="order"/>
         <attr tag="objectPart"/>
+
+        <!--added by gdj-->
+        <attr tag="edition"/>
+        <attr tag="invalid"/>
 
     </attrs>
 
     <attr-groups>
         <attr-group name="base1">
-            <attr>ID</attr>
-            <attr>xlink</attr>
-            <attr>lang</attr>
-            <attr>xml:lang</attr>
-            <attr>script</attr>
-            <attr>transliteration</attr>
-            <attr>type</attr>
-            <attr>authority</attr>
-            <attr>displayLabel</attr>
-            <attr>supplied</attr>
-            <attr>usage</attr>
-            <attr>altRepGroup</attr>
-         </attr-group>
+            <string>ID</string>
+            <string>xlink</string>
+            <string>lang</string>
+            <string>xml:lang</string>
+            <string>script</string>
+            <string>transliteration</string>
+            <string>type</string>
+            <string>authority</string>
+            <string>displayLabel</string>
+            <string>supplied</string>
+            <string>usage</string>
+            <string>altRepGroup</string>
+        </attr-group>
         <attr-group name="subElemBase">
-            <attr>lang</attr>
-            <attr>xml:lang</attr>
-            <attr>script</attr>
-            <attr>transliteration</attr>
+            <string>lang</string>
+            <string>xml:lang</string>
+            <string>script</string>
+            <string>transliteration</string>
         </attr-group>
     </attr-groups>
 
     <elems>
 
         <elem tag="titleInfo" attr-group="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
-            <elem tag="title" attr-group="subElemBase" required="true"/>
-            <elem tag="subTitle" attr-group="subElemBase"/>
-            <elem tag="partNumber" attr-group="subElemBase"/>
-            <elem tag="partName" attr-group="subElemBase"/>
-            <elem tag="nonSort" attr-group="subElemBase"/>
+        <elem tag="title" attr-group="subElemBase" required="true"/>
+        <elem tag="subTitle" attr-group="subElemBase"/>
+        <elem tag="partNumber" attr-group="subElemBase"/>
+        <elem tag="partName" attr-group="subElemBase"/>
+        <elem tag="nonSort" attr-group="subElemBase"/>
 
-        <elem tag="name" attrs="" elems="namePart, displayForm, affiliation, role, description "/>
-                  <elem tag="namePart"/>
-                  <elem tag="displayForm"/>
-                  <elem tag="affiliation"/>
-                  <elem tag="role" elems="roleTerm"/>
-                      <!--(see:http://www.loc.gov/standards/sourcelist/relator-role.html)-->
-                      <elem tag="roleTerm"/>
-                  <elem tag="description"/>
+        <elem tag="name" elems="namePart, displayForm, affiliation, role, description "/>
+        <elem tag="namePart"/>
+        <elem tag="displayForm"/>
+        <elem tag="affiliation"/>
+        <elem tag="role" elems="roleTerm"/>
+        <!--(see:http://www.loc.gov/standards/sourcelist/relator-role.html)-->
+        <elem tag="roleTerm"/>
+        <elem tag="description"/>
 
-        <elem tag="typeOfResource" attrs="collection, manuscript, displayLabel, usage, altRepGroup"/> <!--has opt list -->
+        <elem tag="typeOfResource" attrs="collection, manuscript, displayLabel, usage, altRepGroup"/>
+        <!--has opt list -->
 
         <elem tag="genre" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, type, displayLabel, usage, altRepGroup"/>
 
-   </elems>
+    </elems>
 
     <root tag="mods" elems="titleInfo, name, typeOfResource, genre" required="true">
 
@@ -85,7 +95,7 @@
 
         <!--1. titleInfo from elems-->
         <!--2. name from elems-->
-¨       <!-- 3. typeOfResource from elems-->
+        ¨       <!-- 3. typeOfResource from elems-->
         <!-- 4. genre from elems-->
         <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
 
@@ -166,16 +176,16 @@
         </elem>
 
         <!--13. classification-->
-        <elem tag="classification" attrs="lang, xml:lang, script, transliteration, authority, authorityURI; valueURI, edition, displayLabel, usage, altRepGroup"/>
+        <elem tag="classification" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, usage, altRepGroup"/>
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!--14. relatedItem-->
         <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type"/>
-            <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
+        <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
 
         <!--15. identifier-->
         <elem tag="identifier" attrs="lang, xml:lang, script, transliteration, type, displayLabel, invalid, altRepGroup"/>
-         <!--type = hdl, doi, isbn, isrc, ismn, issn, issue number, istc, lccn, local,-->
+        <!--type = hdl, doi, isbn, isrc, ismn, issn, issue number, istc, lccn, local,-->
         <!--matrix number, music publisher, music plate, sici, uri, upc, videorecording identifier,-->
         <!--stock number-->
 
@@ -220,7 +230,7 @@
         </elem>
 
         <!--19. extension (complete)-->
-        <elem tag="extension"  attrs="displayLabel"/>
+        <elem tag="extension" attrs="displayLabel"/>
 
         <!--20. recordInfo-->
         <elem tag="recordInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
@@ -233,11 +243,11 @@
                 <elem tag="languageTerm"/>
                 <elem tag="scriptTerm"/>
             </elem>
-            <elem tag="descriptionStandard"/>  <!--(see:http://www.loc.gov/standards/sourcelist/descriptive-conventions.html)-->
+            <elem tag="descriptionStandard"/>
+            <!--(see:http://www.loc.gov/standards/sourcelist/descriptive-conventions.html)-->
         </elem>
 
     </root>
-
 
 
     <field-markers>
@@ -281,24 +291,25 @@
     </opts>
 
 
-   <docs>
-       <!--<doc tag="actor">-->
-               <!--<string name="Definition">Describes and identifies an actor, i.e. a person, corporation, family or group, containing structured sub-elements for indexing and identification references. </string>-->
-           <!--</doc>-->
-       <doc tag="lang">
-           <string name="Definition"></string>
-           <string name="Application"></string>
-           <string name="schemaDefinition"></string>
-           <string name="Examples">
-               <![CDATA[ ]]>
-           </string>
-       </doc>
+    <docs>
+        <!--<doc tag="actor">-->
+        <!--<string name="Definition">Describes and identifies an actor, i.e. a person, corporation, family or group, containing structured sub-elements for indexing and identification references. </string>-->
+        <!--</doc>-->
+        <!--<doc tag="lang">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--<string name="schemaDefinition"></string>-->
+        <!--<string name="Examples">-->
+        <!--<![CDATA[ ]]>-->
+        <!--</string>-->
+        <!--</doc>-->
 
-       <!--Attributes used throughout the schema, see also http://www.loc.gov/standards/mods/v3/mods-userguide-generalapp.html#list -->
-       <doc tag="@lang">
-           <string name="Definition"><![CDATA[This attribute is used to specify the language used within individual elements, using the codes from ISO 639-2/b. This is equivalent to authority="iso639-2b" used with the <language> element (which gives a language of the resource described in the record), but is applied to the language used as content of the metadata elements. There is no MARC 21 equivalent for this attribute since language cannot be currently indicated at the element level.]]></string>
-           <string name="Examples">
-               <![CDATA[
+        <!--Attributes used throughout the schema, see also http://www.loc.gov/standards/mods/v3/mods-userguide-generalapp.html#list -->
+        <doc tag="@lang">
+            <string name="Definition">
+                <![CDATA[This attribute is used to specify the language used within individual elements, using the codes from ISO 639-2/b. This is equivalent to authority="iso639-2b" used with the <language> element (which gives a language of the resource described in the record), but is applied to the language used as content of the metadata elements. There is no MARC 21 equivalent for this attribute since language cannot be currently indicated at the element level.]]></string>
+            <string name="Examples">
+                <![CDATA[
                <name type="personal">
                    <namePart type="given">Jack</namePart>
                    <namePart type="family">May</namePart>
@@ -307,20 +318,20 @@
                    <description lang="fre">Préfet de région</description>
                </name>
                ]]>
-           </string>
+            </string>
         </doc>
-       <doc tag="@xml:lang">
-           <string name="Definition"></string>
-           <string name="Application"></string>
-       </doc>
-       <doc tag="@script">
-           <string name="Definition"></string>
-           <string name="Application"></string>
-       </doc>
-       <doc tag="@transliteration">
-           <string name="Definition"></string>
-           <string name="Application"></string>
-       </doc>
+        <!--<doc tag="@xml:lang">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
+        <!--<doc tag="@script">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
+        <!--<doc tag="@transliteration">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
     </docs>
 
 </record-definition>
