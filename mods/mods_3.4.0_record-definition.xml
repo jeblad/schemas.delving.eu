@@ -266,12 +266,31 @@
 
     <opts>
         <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
-            <opt key="abbreviated"/>
-            <opt key="translated"/>
-            <opt key="alternative"/>
-            <opt key="uniform"/>
+            <opt key="abbreviated" hidden="true"/>
+            <opt key="translated" hidden="true"/>
+            <opt key="alternative" hidden="true"/>
+            <opt key="uniform" hidden="true"/>
         </opt-list>
+
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
+
+        <!--<opt-list dictionary="TypeOfResource"-->
+              <!--path="/modsCollection/"-->
+              <!--key="typeOfResource"-->
+              <!--displayName="Type Of Resource">-->
+            <!--<opt key="text"/>-->
+            <!--<opt key="cartographic"/>-->
+            <!--<opt key="notated music"/>-->
+            <!--<opt key="sound recording-musical"/>-->
+            <!--<opt key="sound recording-nonmusical"/>-->
+            <!--<opt key="sound recording"/>-->
+            <!--<opt key="still image"/>-->
+            <!--<opt key="moving image"/>-->
+            <!--<opt key="three dimensional object"/>-->
+            <!--<opt key="software, multimedia"/>-->
+            <!--<opt key="mixed material"/>-->
+               <!--</opt-list>-->
+
         <!--<opt-list path="/mods/typeOfResource" key="@type" displayName="Type of Resource">  &lt;!&ndash;using type attribute&ndash;&gt;-->
             <!--<opt key="text"/>-->
             <!--<opt key="cartographic"/>-->
