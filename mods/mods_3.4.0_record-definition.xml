@@ -2,11 +2,12 @@
 <record-definition prefix="mods" version="3.4.0" elementFormDefaultQualified="true" attributeFormDefaultQualified="false">
     <namespaces>
         <namespace prefix="mods" uri="http://www.loc.gov/mods/v3" schema="http://www.loc.gov/standards/mods/mods.xsd"/>
+        <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink" schema="http://www.loc.gov/standards/xlink/xlink.xsd"/>
     </namespaces>
 
     <attrs>
         <attr tag="ID"/>
-        <attr tag="xlink"/>
+        <attr tag="xlink:simpleLink"/>
 
         <attr tag="lang"/>
         <attr tag="xml:lang"/>
@@ -42,7 +43,7 @@
     <attr-groups>
         <attr-group name="base1">
             <string>ID</string>
-            <string>xlink</string>
+            <string>xlink:simpleLink</string>
             <string>lang</string>
             <string>xml:lang</string>
             <string>script</string>
@@ -94,7 +95,7 @@
 
         <!--1. titleInfo from elems-->
         <!--2. name from elems-->
-        ¨       <!-- 3. typeOfResource from elems-->
+        <!-- 3. typeOfResource from elems-->
         <!-- 4. genre from elems-->
         <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
 
@@ -133,21 +134,21 @@
         </elem>
 
         <!--8. abstract-->
-        <elem tag="abstract" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+        <elem tag="abstract" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--9. tableOfContents-->
-        <elem tag="tableOfContents" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+        <elem tag="tableOfContents" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--10. targetAudience-->
         <elem tag="targetAudience" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, type, altRepGroup"/>
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/target-audience.html);-->
 
         <!--11. note-->
-        <elem tag="note" attrs="ID, xlink, displayLabel, type, altRepGroup"/>
+        <elem tag="note" attrs="ID, xlink:simpleLink, displayLabel, type, altRepGroup"/>
         <!--@type (For a list of implemented note types, see: www.loc.gov/standards/mods/mods-notes.html)-->
 
         <!--12. subject-->
-        <elem tag="subject" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
+        <elem tag="subject" attrs="ID, xlink:simpleLink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
             <elem tag="topic"/>
             <elem tag="geographic"/>
             <elem tag="temporal"/>
@@ -179,7 +180,7 @@
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!--14. relatedItem-->
-        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type"/>
+        <elem tag="relatedItem" attrs="ID, xlink:simpleLink, displayLabel, type"/>
         <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
 
         <!--15. identifier-->
@@ -206,7 +207,7 @@
         </elem>
 
         <!--17. accessCondition-->
-        <elem tag="accessCondition" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
+        <elem tag="accessCondition" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
         <!--type: values = restriction on access; use and reproduction-->
 
         <!--18. part-->
