@@ -1,0 +1,336 @@
+<?xml version="1.0"?>
+<record-definition prefix="mods" version="3.4.0" elementFormDefaultQualified="true" attributeFormDefaultQualified="false">
+    <namespaces>
+        <namespace prefix="mods" uri="http://www.loc.gov/mods/v3" schema="http://www.loc.gov/standards/mods/mods.xsd"/>
+    </namespaces>
+
+    <attrs>
+        <attr tag="ID"/>
+        <attr tag="xlink"/>
+
+        <attr tag="lang"/>
+        <attr tag="xml:lang"/>
+        <attr tag="script"/>
+        <attr tag="transliteration"/>
+        <attr tag="type"/>
+        <!--(enumerated: abbreviated, translated, alternative, uniform) -->
+        <attr tag="authority"/>
+        <attr tag="authorityURI"/>
+        <attr tag="valueURI"/>
+        <attr tag="displayLabel"/>
+        <attr tag="supplied"/>
+        <!--yes-->
+        <attr tag="usage"/>
+        <!--primary-->
+        <attr tag="altRepGroup"/>
+        <attr tag="nameTitleGroup"/>
+        <attr tag="collection"/>
+        <!--yes-->
+        <attr tag="manuscript"/>
+        <!--yes-->
+        <attr tag="shareable"/>
+        <!--no-->
+        <attr tag="order"/>
+        <attr tag="objectPart"/>
+
+        <!--added by gdj-->
+        <attr tag="edition"/>
+        <attr tag="invalid"/>
+
+    </attrs>
+
+    <attr-groups>
+        <attr-group name="base1">
+            <string>ID</string>
+            <string>xlink</string>
+            <string>lang</string>
+            <string>xml:lang</string>
+            <string>script</string>
+            <string>transliteration</string>
+            <string>type</string>
+            <string>authority</string>
+            <string>displayLabel</string>
+            <string>supplied</string>
+            <string>usage</string>
+            <string>altRepGroup</string>
+        </attr-group>
+        <attr-group name="subElemBase">
+            <string>lang</string>
+            <string>xml:lang</string>
+            <string>script</string>
+            <string>transliteration</string>
+        </attr-group>
+    </attr-groups>
+
+    <elems>
+
+        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
+        <elem tag="title" attr-groups="subElemBase" required="true"/>
+        <elem tag="subTitle" attr-groups="subElemBase"/>
+        <elem tag="partNumber" attr-groups="subElemBase"/>
+        <elem tag="partName" attr-groups="subElemBase"/>
+        <elem tag="nonSort" attr-groups="subElemBase"/>
+
+        <elem tag="name" elems="namePart, displayForm, affiliation, role, description "/>
+        <elem tag="namePart"/>
+        <elem tag="displayForm"/>
+        <elem tag="affiliation"/>
+        <elem tag="role" elems="roleTerm"/>
+        <!--(see:http://www.loc.gov/standards/sourcelist/relator-role.html)-->
+        <elem tag="roleTerm"/>
+        <elem tag="description"/>
+
+        <elem tag="typeOfResource" attrs="collection, manuscript, displayLabel, usage, altRepGroup"/>
+        <!--has opt list -->
+
+        <elem tag="genre" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, type, displayLabel, usage, altRepGroup"/>
+
+    </elems>
+
+    <root tag="mods" elems="titleInfo, name, typeOfResource, genre" required="true">
+
+
+        <!-- todo: what todo with modsCollection -->
+
+        <!--1. titleInfo from elems-->
+        <!--2. name from elems-->
+        ¨       <!-- 3. typeOfResource from elems-->
+        <!-- 4. genre from elems-->
+        <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
+
+        <!-- 5. originInfo -->
+        <elem tag="originInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="place">
+                <elem tag="placeTerm"/>
+            </elem>
+            <elem tag="publisher"/>
+            <elem tag="dateIssued"/>
+            <elem tag="dateCreated"/>
+            <elem tag="dateCaptured"/>
+            <elem tag="dateValid"/>
+            <elem tag="dateModified"/>
+            <elem tag="copyrightDate"/>
+            <elem tag="dateOther"/>
+            <elem tag="edition"/>
+            <elem tag="issuance"/>
+            <elem tag="frequency"/>
+        </elem>
+
+        <!--6. language-->
+        <elem tag="language" attrs="objectPart, lang, xml:lang, script, transliteration, displayLabel, usage, altRepGroup">
+            <elem tag="languageTerm"/>
+            <elem tag="scriptTerm"/>
+        </elem>
+
+        <!--7. physicalDescription-->
+        <elem tag="physicalDescription" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="form"/>
+            <elem tag="reformattingQuality"/>
+            <elem tag="internetMediaType"/>
+            <elem tag="extent"/>
+            <elem tag="digitalOrigin"/>
+            <elem tag="note"/>
+        </elem>
+
+        <!--8. abstract-->
+        <elem tag="abstract" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+
+        <!--9. tableOfContents-->
+        <elem tag="tableOfContents" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+
+        <!--10. targetAudience-->
+        <elem tag="targetAudience" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, type, altRepGroup"/>
+        <!--@authority (see: http://www.loc.gov/standards/sourcelist/target-audience.html);-->
+
+        <!--11. note-->
+        <elem tag="note" attrs="ID, xlink, displayLabel, type, altRepGroup"/>
+        <!--@type (For a list of implemented note types, see: www.loc.gov/standards/mods/mods-notes.html)-->
+
+        <!--12. subject-->
+        <elem tag="subject" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
+            <elem tag="topic"/>
+            <elem tag="geographic"/>
+            <elem tag="temporal"/>
+            <elem tag="geographicCode"/>
+            <elem tag="hierarchicalGeographic">
+                <elem tag="continent"/>
+                <elem tag="country"/>
+                <elem tag="province"/>
+                <elem tag="region"/>
+                <elem tag="state"/>
+                <elem tag="territory"/>
+                <elem tag="county"/>
+                <elem tag="city"/>
+                <elem tag="island"/>
+                <elem tag="area"/>
+                <elem tag="extraterrestrialArea"/>
+                <elem tag="citySection"/>
+            </elem>
+            <elem tag="cartographics" ordered="true">
+                <elem tag="scale"/>
+                <elem tag="projection"/>
+                <elem tag="coordinates"/>
+            </elem>
+            <elem tag="occupation"/>
+        </elem>
+
+        <!--13. classification-->
+        <elem tag="classification" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, usage, altRepGroup"/>
+        <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
+
+        <!--14. relatedItem-->
+        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type"/>
+        <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
+
+        <!--15. identifier-->
+        <elem tag="identifier" attrs="lang, xml:lang, script, transliteration, type, displayLabel, invalid, altRepGroup"/>
+        <!--type = hdl, doi, isbn, isrc, ismn, issn, issue number, istc, lccn, local,-->
+        <!--matrix number, music publisher, music plate, sici, uri, upc, videorecording identifier,-->
+        <!--stock number-->
+
+        <!--16. location [ordered]-->
+        <elem tag="location" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup" ordered="true">
+            <elem tag="physicalLocation"/>
+            <elem tag="url"/>
+            <elem tag="holdingSimple" singular="true">
+                <elem tag="copyInformation" ordered="true">
+                    <elem tag="form" singular="true"/>
+                    <elem tag="subLocation"/>
+                    <elem tag="shelfLocator"/>
+                    <elem tag="electronicLocator"/>
+                    <elem tag="note"/>
+                    <elem tag="enumerationAndChronology"/>
+                </elem>
+            </elem>
+            <elem tag="holdingExternal" singular="true"/>
+        </elem>
+
+        <!--17. accessCondition-->
+        <elem tag="accessCondition" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
+        <!--type: values = restriction on access; use and reproduction-->
+
+        <!--18. part-->
+        <elem tag="part" attrs="ID, type, order, lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="detail">
+                <elem tag="number"/>
+                <elem tag="caption"/>
+                <elem tag="title"/>
+            </elem>
+            <!--Ordered-->
+            <elem tag="extent">
+                <elem tag="start"/>
+                <elem tag="end"/>
+                <elem tag="total"/>
+                <elem tag="list"/>
+            </elem>
+            <elem tag="date"/>
+            <elem tag="text"/>
+        </elem>
+
+        <!--19. extension (complete)-->
+        <elem tag="extension" attrs="displayLabel"/>
+
+        <!--20. recordInfo-->
+        <elem tag="recordInfo" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup">
+            <elem tag="recordContentSource"/>
+            <elem tag="recordCreationDate"/>
+            <elem tag="recordChangeDate"/>
+            <elem tag="recordIdentifier"/>
+            <elem tag="recordOrigin"/>
+            <elem tag="languageOfCataloging">
+                <elem tag="languageTerm"/>
+                <elem tag="scriptTerm"/>
+            </elem>
+            <elem tag="descriptionStandard"/>
+            <!--(see:http://www.loc.gov/standards/sourcelist/descriptive-conventions.html)-->
+        </elem>
+
+    </root>
+
+
+    <field-markers>
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <field-marker name="CREATOR"/>
+        <field-marker name="TITLE"/>
+        <field-marker name="DESCRIPTION"/>
+        <field-marker name="OWNER"/>
+        <field-marker name="PROVIDER"/>
+        <field-marker name="LANDING_PAGE"/>
+        <field-marker name="THUMBNAIL"/>
+        <field-marker name="THUMBNAIL"/>
+        <field-marker name="SPEC"/>
+        <field-marker name="DEEP_ZOOM_URL"/>
+    </field-markers>
+
+
+    <opts>
+        <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
+            <opt key="abbreviated"/>
+            <opt key="translated"/>
+            <opt key="alternative"/>
+            <opt key="uniform"/>
+        </opt-list>
+        <!--todo: revive this if type of resource is supposed to be a dictionary-->
+        <!--<opt-list path="/mods/typeOfResource" key="@type" displayName="Type of Resource">  &lt;!&ndash;using type attribute&ndash;&gt;-->
+            <!--<opt key="text"/>-->
+            <!--<opt key="cartographic"/>-->
+            <!--<opt key="notated music"/>-->
+            <!--<opt key="sound recording-musical"/>-->
+            <!--<opt key="sound recording-nonmusical"/>-->
+            <!--<opt key="sound recording"/>-->
+            <!--<opt key="still image"/>-->
+            <!--<opt key="moving image"/>-->
+            <!--<opt key="three dimensional object"/>-->
+            <!--<opt key="software, multimedia"/>-->
+            <!--<opt key="mixed material"/>-->
+        <!--</opt-list>-->
+
+    </opts>
+
+
+    <docs>
+        <!--<doc tag="actor">-->
+        <!--<string name="Definition">Describes and identifies an actor, i.e. a person, corporation, family or group, containing structured sub-elements for indexing and identification references. </string>-->
+        <!--</doc>-->
+        <!--<doc tag="lang">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--<string name="schemaDefinition"></string>-->
+        <!--<string name="Examples">-->
+        <!--<![CDATA[ ]]>-->
+        <!--</string>-->
+        <!--</doc>-->
+
+        <!--Attributes used throughout the schema, see also http://www.loc.gov/standards/mods/v3/mods-userguide-generalapp.html#list -->
+        <doc tag="@lang">
+            <paras>
+                <para name="Definition">
+                    <![CDATA[This attribute is used to specify the language used within individual elements, using the codes from ISO 639-2/b. This is equivalent to authority="iso639-2b" used with the <language> element (which gives a language of the resource described in the record), but is applied to the language used as content of the metadata elements. There is no MARC 21 equivalent for this attribute since language cannot be currently indicated at the element level.]]></para>
+                <para name="Examples">
+                    <![CDATA[
+               <name type="personal">
+                   <namePart type="given">Jack</namePart>
+                   <namePart type="family">May</namePart>
+                   <namePart type="termsOfAddress">I</namePart>
+                   <description lang="eng">District Commissioner</description>
+                   <description lang="fre">Préfet de région</description>
+               </name>
+               ]]>
+                </para>
+            </paras>
+        </doc>
+        <!--<doc tag="@xml:lang">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
+        <!--<doc tag="@script">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
+        <!--<doc tag="@transliteration">-->
+        <!--<string name="Definition"></string>-->
+        <!--<string name="Application"></string>-->
+        <!--</doc>-->
+    </docs>
+
+</record-definition>
