@@ -65,14 +65,14 @@
 
     <elems>
 
-        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
+        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort" hidden="true"/>
         <elem tag="title" attr-groups="subElemBase" required="true"/>
         <elem tag="subTitle" attr-groups="subElemBase"/>
         <elem tag="partNumber" attr-groups="subElemBase"/>
         <elem tag="partName" attr-groups="subElemBase"/>
         <elem tag="nonSort" attr-groups="subElemBase"/>
 
-        <elem tag="name" elems="namePart, displayForm, affiliation, role, description "/>
+        <elem tag="name" elems="namePart, displayForm, affiliation, role, description"/>
         <elem tag="namePart"/>
         <elem tag="displayForm"/>
         <elem tag="affiliation"/>
@@ -266,10 +266,14 @@
 
     <opts>
         <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
-            <opt key="abbreviated" hidden="true"/>
-            <opt key="translated" hidden="true"/>
-            <opt key="alternative" hidden="true"/>
-            <opt key="uniform" hidden="true"/>
+            <opt key="abbreviated" value="abbreviated"/>
+            <opt key="translated" value="translated"/>
+            <opt key="alternative" value="alternative"/>
+            <opt key="uniform" value="uniform"/>
+        </opt-list>
+        <opt-list path="/mods/name/role/roleTerm"  dictionary="RoleTerm" displayName="Role Term">
+            <opt key="creator" value="creator" hidden="true"/>
+            <opt key="contributor" value="contributor" hidden="true"/>
         </opt-list>
 
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
