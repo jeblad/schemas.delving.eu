@@ -271,10 +271,11 @@
             <opt key="alternative" value="alternative"/>
             <opt key="uniform" value="uniform"/>
         </opt-list>
-        <opt-list path="/mods/name/role/roleTerm"  dictionary="RoleTerm" displayName="Role Term">
-            <opt key="creator" value="creator" hidden="true"/>
-            <opt key="contributor" value="contributor" hidden="true"/>
-        </opt-list>
+
+        <!--<opt-list path="/mods/name"  key="role/roleTerm" displayName="Role Term">-->
+            <!--<opt key="creator" value="creator"/>-->
+            <!--<opt key="contributor" value="contributor" hidden="true"/>-->
+        <!--</opt-list>-->
 
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
 
