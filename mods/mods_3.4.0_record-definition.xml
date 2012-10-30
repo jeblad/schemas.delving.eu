@@ -37,7 +37,6 @@
         <!--added by gdj-->
         <attr tag="edition"/>
         <attr tag="invalid"/>
-
     </attrs>
 
     <attr-groups>
@@ -65,7 +64,7 @@
 
     <elems>
 
-        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort" hidden="true"/>
+        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
         <elem tag="title" attr-groups="subElemBase" required="true"/>
         <elem tag="subTitle" attr-groups="subElemBase"/>
         <elem tag="partNumber" attr-groups="subElemBase"/>
@@ -266,9 +265,9 @@
 
     <opts>
         <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
-            <opt key="abbreviated" value="abbreviated"/>
-            <opt key="translated" value="translated"/>
-            <opt key="alternative" value="alternative"/>
+            <opt key="abbreviated" value="abbreviated" hidden="true"/>
+            <opt key="translated" value="translated" hidden="true"/>
+            <opt key="alternative" value="alternative" hidden="true"/>
             <opt key="uniform" value="uniform"/>
         </opt-list>
 
