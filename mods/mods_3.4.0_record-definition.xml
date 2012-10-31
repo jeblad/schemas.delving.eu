@@ -280,6 +280,11 @@
             <opt key="object in context"/>
         </opt-list>
 
+        <opt-list path="/mods/name"  key="role/roleTerm" displayName="Role Term">
+            <opt key="creator" value="creator"/>
+            <opt key="contributor" value="contributor"/>
+        </opt-list>
+
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
 
         <!--<opt-list dictionary="TypeOfResource"-->
