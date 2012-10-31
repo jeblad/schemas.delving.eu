@@ -275,9 +275,9 @@
         <!--</opt-list>-->
 
         <opt-list path="/mods/location/url"  key="@access" displayName="AccessType">
-            <opt key="preview" value="preview"/>
-            <opt key="raw object" value="raw object"/>
-            <opt key="object in context" value="object in context"/>
+            <opt key="preview"/>
+            <opt key="raw object"/>
+            <opt key="object in context"/>
         </opt-list>
 
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
