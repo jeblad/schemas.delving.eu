@@ -2,11 +2,12 @@
 <record-definition prefix="mods" version="3.4.0" elementFormDefaultQualified="true" attributeFormDefaultQualified="false">
     <namespaces>
         <namespace prefix="mods" uri="http://www.loc.gov/mods/v3" schema="http://www.loc.gov/standards/mods/mods.xsd"/>
+        <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink" schema="http://www.loc.gov/standards/xlink/xlink.xsd"/>
     </namespaces>
 
     <attrs>
         <attr tag="ID"/>
-        <attr tag="xlink"/>
+        <attr tag="xlink:simpleLink"/>
 
         <attr tag="lang"/>
         <attr tag="xml:lang"/>
@@ -18,6 +19,9 @@
         <attr tag="authorityURI"/>
         <attr tag="valueURI"/>
         <attr tag="displayLabel"/>
+        <attr tag="dataLastAccessed"/>
+        <attr tag="access"/>
+        <attr tag="note"/>
         <attr tag="supplied"/>
         <!--yes-->
         <attr tag="usage"/>
@@ -36,13 +40,12 @@
         <!--added by gdj-->
         <attr tag="edition"/>
         <attr tag="invalid"/>
-
     </attrs>
 
     <attr-groups>
         <attr-group name="base1">
             <string>ID</string>
-            <string>xlink</string>
+            <string>xlink:simpleLink</string>
             <string>lang</string>
             <string>xml:lang</string>
             <string>script</string>
@@ -71,7 +74,7 @@
         <elem tag="partName" attr-groups="subElemBase"/>
         <elem tag="nonSort" attr-groups="subElemBase"/>
 
-        <elem tag="name" elems="namePart, displayForm, affiliation, role, description "/>
+        <elem tag="name" elems="namePart, displayForm, affiliation, role, description"/>
         <elem tag="namePart"/>
         <elem tag="displayForm"/>
         <elem tag="affiliation"/>
@@ -94,7 +97,7 @@
 
         <!--1. titleInfo from elems-->
         <!--2. name from elems-->
-        ¨       <!-- 3. typeOfResource from elems-->
+        <!-- 3. typeOfResource from elems-->
         <!-- 4. genre from elems-->
         <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
 
@@ -133,21 +136,21 @@
         </elem>
 
         <!--8. abstract-->
-        <elem tag="abstract" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+        <elem tag="abstract" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--9. tableOfContents-->
-        <elem tag="tableOfContents" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
+        <elem tag="tableOfContents" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, shareable, altRepGroup"/>
 
         <!--10. targetAudience-->
         <elem tag="targetAudience" attrs="lang, xml:lang, script, transliteration, authority, authorityURI, valueURI, edition, displayLabel, type, altRepGroup"/>
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/target-audience.html);-->
 
         <!--11. note-->
-        <elem tag="note" attrs="ID, xlink, displayLabel, type, altRepGroup"/>
+        <elem tag="note" attrs="ID, xlink:simpleLink, displayLabel, type, altRepGroup"/>
         <!--@type (For a list of implemented note types, see: www.loc.gov/standards/mods/mods-notes.html)-->
 
         <!--12. subject-->
-        <elem tag="subject" attrs="ID, xlink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
+        <elem tag="subject" attrs="ID, xlink:simpleLink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
             <elem tag="topic"/>
             <elem tag="geographic"/>
             <elem tag="temporal"/>
@@ -179,7 +182,7 @@
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!--14. relatedItem-->
-        <elem tag="relatedItem" attrs="ID, xlink, displayLabel, type"/>
+        <elem tag="relatedItem" attrs="ID, xlink:simpleLink, displayLabel, type"/>
         <!--@type (enumerated: preceding, succeeding, original, host, constituent, series, otherVersion, otherFormat, isReferencedBy, references, reviewOf)-->
 
         <!--15. identifier-->
@@ -191,7 +194,7 @@
         <!--16. location [ordered]-->
         <elem tag="location" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup" ordered="true">
             <elem tag="physicalLocation"/>
-            <elem tag="url"/>
+            <elem tag="url" attrs="displayLabel, dataLastAccessed, note, access, usage"/>
             <elem tag="holdingSimple" singular="true">
                 <elem tag="copyInformation" ordered="true">
                     <elem tag="form" singular="true"/>
@@ -206,7 +209,7 @@
         </elem>
 
         <!--17. accessCondition-->
-        <elem tag="accessCondition" attrs="xlink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
+        <elem tag="accessCondition" attrs="xlink:simpleLink, lang, xml:lang, script, transliteration, displayLabel, type, altRepGroup"/>
         <!--type: values = restriction on access; use and reproduction-->
 
         <!--18. part-->
@@ -264,13 +267,43 @@
 
 
     <opts>
-        <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
-            <opt key="abbreviated"/>
-            <opt key="translated"/>
-            <opt key="alternative"/>
-            <opt key="uniform"/>
+        <!--<opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  &lt;!&ndash;using type attribute&ndash;&gt;-->
+            <!--<opt key="abbreviated" value="abbreviated"/>-->
+            <!--<opt key="translated" value="translated"/>-->
+            <!--<opt key="alternative" value="alternative"/>-->
+            <!--<opt key="uniform" value="uniform"/>-->
+        <!--</opt-list>-->
+
+        <opt-list path="/mods/location/url"  key="@access" displayName="AccessType">
+            <opt key="preview"/>
+            <opt key="raw object"/>
+            <opt key="object in context"/>
         </opt-list>
+
+        <opt-list path="/mods/name"  key="role/roleTerm" displayName="Role Term">
+            <opt key="creator" value="creator"/>
+            <opt key="contributor" value="contributor"/>
+        </opt-list>
+
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
+
+        <!--<opt-list dictionary="TypeOfResource"-->
+              <!--path="/modsCollection/"-->
+              <!--key="typeOfResource"-->
+              <!--displayName="Type Of Resource">-->
+            <!--<opt key="text"/>-->
+            <!--<opt key="cartographic"/>-->
+            <!--<opt key="notated music"/>-->
+            <!--<opt key="sound recording-musical"/>-->
+            <!--<opt key="sound recording-nonmusical"/>-->
+            <!--<opt key="sound recording"/>-->
+            <!--<opt key="still image"/>-->
+            <!--<opt key="moving image"/>-->
+            <!--<opt key="three dimensional object"/>-->
+            <!--<opt key="software, multimedia"/>-->
+            <!--<opt key="mixed material"/>-->
+               <!--</opt-list>-->
+
         <!--<opt-list path="/mods/typeOfResource" key="@type" displayName="Type of Resource">  &lt;!&ndash;using type attribute&ndash;&gt;-->
             <!--<opt key="text"/>-->
             <!--<opt key="cartographic"/>-->
