@@ -19,6 +19,9 @@
         <attr tag="authorityURI"/>
         <attr tag="valueURI"/>
         <attr tag="displayLabel"/>
+        <attr tag="dataLastAccessed"/>
+        <attr tag="access"/>
+        <attr tag="note"/>
         <attr tag="supplied"/>
         <!--yes-->
         <attr tag="usage"/>
@@ -65,7 +68,7 @@
 
     <elems>
 
-        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort" hidden="true"/>
+        <elem tag="titleInfo" attr-groups="base1" attrs="nameTitleGroup" elems="title, subTitle, partNumber, partName, nonSort"/>
         <elem tag="title" attr-groups="subElemBase" required="true"/>
         <elem tag="subTitle" attr-groups="subElemBase"/>
         <elem tag="partNumber" attr-groups="subElemBase"/>
@@ -192,7 +195,7 @@
         <!--16. location [ordered]-->
         <elem tag="location" attrs="lang, xml:lang, script, transliteration, displayLabel, altRepGroup" ordered="true">
             <elem tag="physicalLocation"/>
-            <elem tag="url"/>
+            <elem tag="url" attrs="displayLabel, dataLastAccessed, note, access, usage"/>
             <elem tag="holdingSimple" singular="true">
                 <elem tag="copyInformation" ordered="true">
                     <elem tag="form" singular="true"/>
@@ -265,17 +268,18 @@
 
 
     <opts>
-        <opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  <!--using type attribute-->
-            <opt key="abbreviated" value="abbreviated"/>
-            <opt key="translated" value="translated"/>
-            <opt key="alternative" value="alternative"/>
-            <opt key="uniform" value="uniform"/>
-        </opt-list>
-
-        <!--<opt-list path="/mods/name"  key="role/roleTerm" displayName="Role Term">-->
-            <!--<opt key="creator" value="creator"/>-->
-            <!--<opt key="contributor" value="contributor" hidden="true"/>-->
+        <!--<opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  &lt;!&ndash;using type attribute&ndash;&gt;-->
+            <!--<opt key="abbreviated" value="abbreviated"/>-->
+            <!--<opt key="translated" value="translated"/>-->
+            <!--<opt key="alternative" value="alternative"/>-->
+            <!--<opt key="uniform" value="uniform"/>-->
         <!--</opt-list>-->
+
+        <opt-list path="/mods/location/url"  key="@access" displayName="AccessType">
+            <opt key="preview" value="preview"/>
+            <opt key="raw object" value="raw object"/>
+            <opt key="object in context" value="object in context"/>
+        </opt-list>
 
         <!--todo: revive this if type of resource is supposed to be a dictionary-->
 
