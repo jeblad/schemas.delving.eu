@@ -40,7 +40,6 @@
         <!--added by gdj-->
         <attr tag="edition"/>
         <attr tag="invalid"/>
-
     </attrs>
 
     <attr-groups>
