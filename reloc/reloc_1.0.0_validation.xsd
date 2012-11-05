@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:dc="http://purl.org/dc/elements/1.1/"
+           xmlns="http://schemas.delving.eu/reloc/"
+           targetNamespace="http://schemas.delving.eu/reloc/"
+           version="3.4"
+           elementFormDefault="qualified"
+           attributeFormDefault="unqualified">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            This schema validates the "reloc" records.
+        </xs:documentation>
+    </xs:annotation>
+
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace"
+               schemaLocation="http://www.w3.org/2001/03/xml.xsd"/>
+
+    <xs:import namespace="http://purl.org/dc/elements/1.1/"
+               schemaLocation="http://www.dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+
+    <xs:group name="fields">
+        <xs:choice>
+            <xs:element ref="dc:identifier"/>
+            <xs:element ref="dc:title"/>
+            <xs:element ref="dc:description"/>
+            <xs:element ref="dc:creator"/>
+            <xs:element ref="dc:date"/>
+            <xs:element ref="dc:subject"/>
+
+            <xs:element name="reasonForPlacement" type="xs:string"/>
+            <xs:element name="owner"  type="xs:string"/>
+            <xs:element name="provider" type="xs:string"/>
+            <xs:element name="landingPage" type="xs:anyURI"/>
+            <xs:element name="thumbnail" type="xs:anyURI"/>
+
+            <xs:element name="creationPlace" type="xs:string"/>
+            <xs:element name="material" type="xs:string"/>
+
+            <xs:element name="length" type="xs:string"/>
+            <xs:element name="height" type="xs:string"/>
+            <xs:element name="width" type="xs:string"/>
+            <xs:element name="depth" type="xs:string"/>
+            <xs:element name="diameter" type="xs:string"/>
+
+            <xs:element name="condition" type="xs:string"/>
+            <xs:element name="lamoCompleted" type="xs:boolean"/>
+            <xs:element name="docsAvailable" type="xs:boolean"/>
+            <xs:element name="upForAuction" type="xs:boolean"/>
+
+            <xs:element name="contactName" type="xs:string"/>
+            <xs:element name="contactPhone" type="xs:string"/>
+            <xs:element name="contactAddress" type="xs:string"/>
+
+            <xs:element name="comments" type="xs:string"/>
+            <xs:element name="physicalState" type="xs:string"/>
+        </xs:choice>
+    </xs:group>
+
+    <xs:element name="record">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:group minOccurs="0" maxOccurs="unbounded" ref="fields"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

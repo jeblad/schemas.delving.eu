@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<record-definition prefix="reloc" version="1.0.0" flat="true">
+
+    <namespaces>
+        <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+        <namespace prefix="reloc" uri="http://schemas.delving.eu/reloc/" schema="http://schemas.delving.eu/reloc/reloc_1.0.0_validation.xsd"/>
+    </namespaces>
+
+    <root tag="record">
+        <!--* Inventarisnummer *-->
+        <elem tag="dc:identifier"/>
+
+        <!--* Titel *-->
+        <elem tag="dc:title"/>
+
+        <!--Beschrijving-->
+        <elem tag="dc:description"/>
+
+        <!--Reden van plaatsing-->
+        <elem tag="reasonForPlacement"/>
+
+        <!--* Vervaardiger *-->
+        <elem tag="dc:creator"/>
+
+        <!--Datum Plaatsing-->
+        <elem tag="dc:date"/>
+
+        <!--* Trefwoorden *-->
+        <elem tag="dc:subject"/>
+
+        <!--Organisatie-->
+        <elem tag="owner"/>
+
+        <!--who is provider?-->
+        <elem tag="provider"/>
+
+        <!--addition: is there a landing page?-->
+        <elem tag="landingPage"/>
+
+        <!--Foto-->
+        <elem tag="thumbnail"/>
+
+        <!--Vervaardigingsplaats-->
+        <elem tag="creationPlace"/>
+
+        <!--* Materiaal *-->
+        <elem tag="material"/>
+
+        <!--Afmetingen object-->
+        <elem tag="length"/>
+        <elem tag="height"/>
+        <elem tag="width"/>
+        <elem tag="depth"/>
+        <elem tag="diameter"/>
+
+        <!--Conditie-->
+        <elem tag="condition"/>
+
+        <!--Leidraad afstoting (LAMO) is doorlopen (boolean) -->
+        <elem tag="lamoCompleted"/>
+
+        <!--Documentatie beschikbaar (boolean-->
+        <elem tag="docsAvailable"/>
+
+        <!--Plaats onder veiling tab-->
+        <elem tag="upForAuction"/>
+
+        <!--Contact-->
+        <elem tag="contactName"/>
+        <elem tag="contactPhone"/>
+        <elem tag="contactAddress"/>
+
+        <!--Opmerkingen-->
+        <elem tag="comments"/>
+
+        <!--Fysieke staat-->
+        <elem tag="physicalState"/>
+
+    </root>
+
+    <field-markers>
+        <!-- system fields -->
+        <field-marker name="CREATOR" path="/record/dc:creator"/>
+        <field-marker name="TITLE" path="/record/dc:title"/>
+        <field-marker name="DESCRIPTION" path="/record/dc:description"/>
+        <field-marker name="OWNER" path="/record/owner"/>
+        <field-marker name="PROVIDER" path="/record/provider"/>
+        <field-marker name="LANDING_PAGE" path="/record/landingPage"/>
+        <field-marker name="THUMBNAIL" path="/record/thumbnail"/>
+
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <field-marker name="SPEC"/>
+        <field-marker name="DEEP_ZOOM_URL"/>
+
+        <field-marker type="fact" name="dataProvider" path="/record/owner"/>
+        <field-marker type="fact" name="provider" path="/record/provider"/>
+    </field-markers>
+
+</record-definition>
+
+
+
