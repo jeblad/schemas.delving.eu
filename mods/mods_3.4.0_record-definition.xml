@@ -9,6 +9,7 @@
         <attr tag="ID"/>
         <attr tag="xlink:simpleLink"/>
 
+        <attr tag="source"/>
         <attr tag="lang"/>
         <attr tag="xml:lang"/>
         <attr tag="script"/>
@@ -238,7 +239,7 @@
             <elem tag="recordContentSource"/>
             <elem tag="recordCreationDate"/>
             <elem tag="recordChangeDate"/>
-            <elem tag="recordIdentifier"/>
+            <elem tag="recordIdentifier" attrs="source, lang, xml:lang, script, transliteration"/>
             <elem tag="recordOrigin"/>
             <elem tag="languageOfCataloging">
                 <elem tag="languageTerm"/>
