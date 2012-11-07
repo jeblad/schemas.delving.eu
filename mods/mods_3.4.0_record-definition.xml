@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <record-definition prefix="mods" version="3.4.0" elementFormDefaultQualified="true" attributeFormDefaultQualified="false">
     <namespaces>
-        <namespace prefix="mods" uri="http://www.loc.gov/mods/v3" schema="http://www.loc.gov/standards/mods/mods.xsd"/>
+        <namespace prefix="mods" uri="http://www.loc.gov/mods/v3" schema="http://www.loc.gov/standards/mods/v3/mods-3-4.xsd"/>
         <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink" schema="http://www.loc.gov/standards/xlink/xlink.xsd"/>
     </namespaces>
 
