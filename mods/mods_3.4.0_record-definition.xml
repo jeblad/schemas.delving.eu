@@ -151,7 +151,10 @@
         <!--@type (For a list of implemented note types, see: www.loc.gov/standards/mods/mods-notes.html)-->
 
         <!--12. subject-->
-        <elem tag="subject" attrs="ID, xlink:simpleLink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup" elems="titleInfo, name, genre">
+        <elem tag="subject"
+              attrs="ID, xlink:simpleLink, lang, xml:lang, script, transliteration, type, authority, displayLabel, supplied, usage, altRepGroup"
+              discriminator="authority"
+              elems="titleInfo, name, genre">
             <elem tag="topic"/>
             <elem tag="geographic"/>
             <elem tag="temporal"/>

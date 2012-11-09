@@ -157,7 +157,7 @@
             <author>Sjoerd Siebinga</author>
             <message>Initial version for Delving</message>
             <date>2012-10-21</date>
-            <file name="record-definition.xml" hash="ABE8F157A8A39464DB9F09774CA89EC6"/>
+            <file name="record-definition.xml" hash="4D448D78DA5FDEB111338493580316D3"/>
             <file name="validation.xsd" hash="8B028AD67294C0B6DF87BC845F435C64"/>
         </version>
     </schema>
