@@ -34,8 +34,8 @@
             <author>Sjoerd Siebinga</author>
             <message>added delving:geohash field</message>
             <date>2012-11-14</date>
-            <file name="record-definition.xml" hash="A506AA8578B24F428244C49A2977D50E"/>
-            <file name="validation.xsd" hash="4D145BB96675C1369460D7DFCB611E88"/>
+            <file name="record-definition.xml" hash="50D7E7511C32739DE4987C9F928178FF"/>
+            <file name="validation.xsd" hash="B0D07B25F49559B40547780908742165"/>
         </version>
     </schema>
     <schema prefix="abm">

@@ -4,9 +4,9 @@
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
         <namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
-        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.3.xsd"/>
+        <namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>
         <namespace prefix="icn" uri="http://www.icn.nl/schemas/icn/" schema="ICN-V1.0.xsd"/>
-        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.0.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.2.xsd"/>
     </namespaces>
 
     <functions>
