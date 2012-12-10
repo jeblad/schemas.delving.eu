@@ -117,7 +117,7 @@
             <xs:element type="aff:simpleCategoryType" name="category" minOccurs="1" maxOccurs="1"/>
             <xs:element name="displayIdentification"  type="xs:string" minOccurs="1" maxOccurs="1"/>
             <xs:element name="displayTitle" minOccurs="0" maxOccurs="1"/>
-            <xs:element name="displayDescription" minOccurs="0" maxOccurs="1"/>
+            <xs:element name="displayDescription" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="displayInscription" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:dimensionsType" name="dimensions"  minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:yearsType" name="years" minOccurs="0" maxOccurs="1"/>
@@ -207,7 +207,7 @@
 
     <xs:complexType name="conceptType">
         <xs:sequence>
-            <xs:element type="aff:simpleConceptType" name="displayConcept" maxOccurs="1" minOccurs="0" />
+            <xs:element type="aff:simpleConceptType" name="displayConcept" maxOccurs="unbounded" minOccurs="0" />
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:key"/>
@@ -234,6 +234,7 @@
 
     <xs:complexType name="eventType">
         <xs:sequence>
+            <xs:element type="aff:dateType" name="date"  minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayDate" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayEvent" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element name="displayPeriod" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -241,7 +242,6 @@
             <xs:element name="displayDescription" type="xs:string" minOccurs="0" maxOccurs="1"/>
             <xs:element type="aff:eventActorType" name="eventActor" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element type="aff:eventPlaceType" name="eventPlace" minOccurs="0"  maxOccurs="unbounded"/>
-            <xs:element type="aff:dateType" name="date"  minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:key"/>

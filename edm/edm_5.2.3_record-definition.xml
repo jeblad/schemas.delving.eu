@@ -21,7 +21,7 @@
 
     <root tag="record">
 
-        <elem tag="edm:ProvidedCHO">
+        <elem tag="edm:ProvidedCHO" attrs="rdf:about">
             <elem tag="owl:sameAs"/>
             <elem tag="rdf:type"/>
             <elem tag="dc:contributor"/>
@@ -43,8 +43,8 @@
             <elem tag="dcterms:conformsTo"/>
             <elem tag="dcterms:created"/>
             <elem tag="dcterms:extent"/>
-            <elem tag="dcterms:hasFormat"/>
-            <elem tag="dcterms:hasPart"/>
+            <elem tag="dcterms:hasFormat" attrs="rdf:resource"/>
+            <elem tag="dcterms:hasPart" attrs="rdf:resource"/>
             <elem tag="dcterms:hasVersion"/>
             <elem tag="dcterms:isFormatOf"/>
             <elem tag="dcterms:isPartOf"/>
@@ -64,20 +64,20 @@
             <elem tag="edm:type"/>
             <elem tag="edm:unstored"/>
             <elem tag="edm:currentLocation"/>
-            <elem tag="edm:hasMet"/>
-            <elem tag="edm:hasType"/>
-            <elem tag="edm:incorporates"/>
-            <elem tag="edm:isDerivativeOf"/>
-            <elem tag="edm:isNextInSequence"/>
-            <elem tag="edm:isRelatedTo"/>
-            <elem tag="edm:isRepresentationOf"/>
-            <elem tag="edm:isSimilarTo"/>
-            <elem tag="edm:isSuccessorOf"/>
-            <elem tag="edm:realizes"/>
-            <elem tag="edm:wasPresentAt"/>
+            <elem tag="edm:hasMet" attrs="rdf:resource"/>
+            <elem tag="edm:hasType" attrs="rdf:resource"/>
+            <elem tag="edm:incorporates" attrs="rdf:resource"/>
+            <elem tag="edm:isDerivativeOf" attrs="rdf:resource"/>
+            <elem tag="edm:isNextInSequence" attrs="rdf:resource"/>
+            <elem tag="edm:isRelatedTo" attrs="rdf:resource"/>
+            <elem tag="edm:isRepresentationOf" attrs="rdf:resource"/>
+            <elem tag="edm:isSimilarTo" attrs="rdf:resource"/>
+            <elem tag="edm:isSuccessorOf" attrs="rdf:resource"/>
+            <elem tag="edm:realizes" attrs="rdf:resource"/>
+            <elem tag="edm:wasPresentAt" attrs="rdf:resource"/>
         </elem>
 
-        <elem tag="edm:WebResource">
+        <elem tag="edm:WebResource" attrs="rdf:about">
             <elem tag="dc:description"/>
             <elem tag="dc:format"/>
             <elem tag="dc:rights"/>
@@ -93,9 +93,9 @@
         </elem>
 
         <elem tag="ore:Aggregation" attrs="rdf:about">
-            <elem tag="ore:aggregates"/>
+            <elem tag="ore:aggregates" attrs="rdf:resource"/>
             <elem tag="edm:aggregatedCHO" attrs="rdf:resource"/>
-            <elem tag="edm:dataProvider"/>
+            <elem tag="edm:dataProvider" attrs="rdf:resource"/>
             <elem tag="edm:hasView" attrs="rdf:resource"/>
             <elem tag="edm:isShownBy" attrs="rdf:resource"/>
             <elem tag="edm:isShownAt" attrs="rdf:resource"/>
@@ -106,9 +106,9 @@
             <elem tag="edm:unstored"/>
         </elem>
 
-        <elem tag="edm:Agent">
+        <elem tag="edm:Agent" attrs="rdf:about">
             <elem tag="edm:wasPresentAt"/>
-            <elem tag="edm:hasMet"/>
+            <elem tag="edm:hasMet" attrs="rdf:resource"/>
             <elem tag="edm:isRelatedTo"/>
             <elem tag="skos:prefLabel"/>
             <elem tag="skos:altLabel"/>
@@ -129,7 +129,7 @@
             <elem tag="edm:end"/>
         </elem>
 
-        <elem tag="edm:Place">
+        <elem tag="edm:Place" attrs="rdf:about">
             <elem tag="wgs84_pos:lat"/>
             <elem tag="wgs84_pos:long"/>
             <elem tag="wgs84_pos:alt"/>
@@ -143,7 +143,7 @@
             <elem tag="owl:sameAs"/>
         </elem>
 
-        <elem tag="edm:TimeSpan">
+        <elem tag="edm:TimeSpan" attrs="rdf:about">
             <elem tag="skos:prefLabel"/>
             <elem tag="skos:altLabel"/>
             <elem tag="skos:note"/>
@@ -156,7 +156,7 @@
             <elem tag="edm:end"/>
         </elem>
 
-        <elem tag="skos:Concept">
+        <elem tag="skos:Concept" attrs="rdf:about">
             <elem tag="skos:prefLabel"/>
             <elem tag="skos:altLabel"/>
             <elem tag="skos:broader"/>

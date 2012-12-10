@@ -99,8 +99,8 @@
         </elem>
 
         <elem tag="concepts" singular="true" unmappable="true">
-            <elem tag="concept" attrs="type, key, conceptType, localId, lang, schema, schemaUri">
-                <elem tag="displayConcept"/>
+            <elem tag="concept" attrs="type, key">
+                <elem tag="displayConcept" attrs="conceptType, localId, lang, schema, schemaUri"/>
             </elem>
         </elem>
 
