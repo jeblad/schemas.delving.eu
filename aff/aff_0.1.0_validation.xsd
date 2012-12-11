@@ -299,7 +299,7 @@
             <xs:element name="displayDescription" type="xs:string" minOccurs="0"/>
             <xs:element name="lat" type="xs:string" minOccurs="0"/>
             <xs:element name="long" type="xs:string" minOccurs="0"/>
-            <xs:element type="aff:partOfPlaceType" name="displayPlaceAdmin"  minOccurs="0" maxOccurs="1"/>
+            <xs:element type="aff:partOfPlaceType" name="partOfPlace"  minOccurs="0" maxOccurs="1"/>
         </xs:sequence>
         <xs:attribute ref="aff:type"/>
         <xs:attribute ref="aff:key"/>
