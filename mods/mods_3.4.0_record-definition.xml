@@ -17,7 +17,8 @@
         <attr tag="script"/>
         <attr tag="transliteration"/>
         <attr tag="type"/>
-        <attr tag="authority"/><!--(enumerated: abbreviated, translated, alternative, uniform) -->
+        <attr tag="authority"/>
+        <!--(enumerated: abbreviated, translated, alternative, uniform) -->
         <attr tag="authorityURI"/>
         <attr tag="valueURI"/>
         <attr tag="displayLabel"/>
@@ -112,7 +113,7 @@
         <!--typeOfResource has values from opt-list below-->
 
         <!-- 4. genre -->
-        <elem tag="genre" attr-groups="base-four, top-level-a" attrs="type"/>
+        <elem tag="genre" attr-groups="base-four, top-level-a, authority" attrs="type"/>
         <!--authority (see: http://www.loc.gov/standards/sourcelist/genre-form.html);-->
 
     </elems>
@@ -203,7 +204,8 @@
         </elem>
 
         <!--13. classification -->
-        <elem tag="classification" attr-groups="base-four, authority" attrs="edition, displayLabel, usage, altRepGroup"/>
+        <elem tag="classification" attr-groups="base-four, authority"
+              attrs="edition, displayLabel, usage, altRepGroup"/>
         <!--@authority (see: http://www.loc.gov/standards/sourcelist/classification.html);-->
 
         <!-- 14. relatedItem -->
@@ -293,12 +295,19 @@
 
 
     <opts>
-        <!--<opt-list path="/mods/titleInfo" key="@type" displayName="Title Type">  &lt;!&ndash;using type attribute&ndash;&gt;-->
-        <!--<opt key="abbreviated" value="abbreviated"/>-->
-        <!--<opt key="translated" value="translated"/>-->
-        <!--<opt key="alternative" value="alternative"/>-->
-        <!--<opt key="uniform" value="uniform"/>-->
-        <!--</opt-list>-->
+        <opt-list path="/mods/titleInfo" value="@type" displayName="Title Type">
+            <opt value="abbreviated"/>
+            <opt value="translated"/>
+            <opt value="alternative"/>
+            <opt value="uniform"/>
+        </opt-list>
+
+        <opt-list path="/mods/name" value="@type" displayName="Name Type">
+            <opt value="personal"/>
+            <opt value="corporate"/>
+            <opt value="conference"/>
+            <opt value="family"/>
+        </opt-list>
 
         <opt-list path="/mods/location/url" key="@access" displayName="AccessType">
             <opt key="preview"/>
@@ -311,22 +320,21 @@
             <opt key="contributor" value="contributor"/>
         </opt-list>
 
-        <!--todo: revive this if type of resource is supposed to be a dictionary-->
-        <opt-list dictionary="TypeOfResource"
-                  path="/mods/typeOfResource"
-                  displayName="Type Of Resource">
+        <opt-list path="/mods/typeOfResource" displayName="Type Of Resource">
             <opt value="text"/>
-            <opt value="cartographic"/>
-            <opt value="notated music"/>
-            <opt value="sound recording-musical"/>
-            <opt value="sound recording-nonmusical"/>
-            <opt value="sound recording"/>
+            <opt value="cartographic" hidden="true"/>
+            <opt value="notated music" hidden="true"/>
+            <opt value="sound recording-musical" hidden="true"/>
+            <opt value="sound recording-nonmusical" hidden="true"/>
+            <opt value="sound recording" hidden="true"/>
             <opt value="still image"/>
-            <opt value="moving image"/>
-            <opt value="three dimensional object"/>
-            <opt value="software, multimedia"/>
-            <opt value="mixed material"/>
+            <opt value="moving image" hidden="true"/>
+            <opt value="three dimensional object" hidden="true"/>
+            <opt value="software, multimedia" hidden="true"/>
+            <opt value="mixed material" hidden="true"/>
         </opt-list>
+
+
 
         <!--<opt-list path="/mods/typeOfResource" key="@type" displayName="Type of Resource">  &lt;!&ndash;using type attribute&ndash;&gt;-->
         <!--<opt key="text"/>-->
@@ -388,6 +396,71 @@
         <!--<string name="Definition"></string>-->
         <!--<string name="Application"></string>-->
         <!--</doc>-->
+
+        <doc path="/mods/name/@authority">
+            <paras>
+                <para name="abne" >Autoridades de la Biblioteca Nacional de España (Madrid: Biblioteca Nacional de España)</para>
+                <para name="banqa" >Fichier d'autorité local de Bibliothèque et Archives nationales du Québec (Bibliothèque et Archives nationales du Québec)</para>
+                <para name="bibalex" >Bibliotheca Alexandrina name and subject authority file (Alexandria, Egypt: Bibliotheca Alexandrina)</para>
+                <para name="conorsi" >CONOR.SI (name authority file) (Maribor, Slovenia: Institut informacijskih znanosti (IZUM))</para>
+                <para name="gkd" >Gemeinsame Körperschaftsdatei (Leipzig, Frankfurt: Deutsche Nationalbibliothek)</para>
+                <para name="gnd" >Gemeinsame Normdatei (Leipzig, Frankfurt: Deutsche Nationalbibliothek)</para>
+                <para name="hapi" >HAPI thesaurus and name authority, 1970-2000 (Los Angeles, CA: UCLC Latin America Center Pubs.)</para>
+                <para name="hkcan" >Hong Kong Chinese Authority File (Name) - HKCAN (Honk Kong: JULAC)</para>
+                <para name="lacnaf" >Library Archives Canada name authority file (Ottawa: ON: Library Archives Canada) [equivalent to second indicator value 5 in name and title headings]</para>
+                <para name="naf" >NACO authority file</para>
+                <para name="nalnaf" >National Agricultural Library name authority file (Beltsville, Maryland; National Agricultural Library) [equivalent to second indicator value 3 in name and title headings]</para>
+                <para name="nlmnaf" >National Library of Medicine name authority file (Bethesda, Maryland: National Library of Medicine) [equivalent to second indicator value 2 in name and title headings]</para>
+                <para name="nznb" >New Zealand national bibliographic (Wellington: National Library of New Zealand)</para>
+                <para name="sanb" >South African national bibliography authority file</para>
+                <para name="ulan" >Union list of artist names (Los Angeles: Getty Research Institute)</para>
+                <para name="unbisn" >UNBIS name authority list (New York, NY: Dag Hammarskjöld Library, United Nations; [London]: Chadwyck-Healey)</para>
+            </paras>
+        </doc>
+
+        <doc path="/mods/genre/@authority">
+            <paras>
+                <para name="amg">Audiovisual material glossary (Dublin, OH: Online Computer Library Center, Inc.)</para>
+                <para name="barngf">Svenska ämnesord för barn - Genre/Form (Stockholm: Kungliga Biblioteket)</para>
+                <para name="bgtchm">Basic genre terms for cultural heritage materials</para>
+                <para name="dct">Dublin Core list of resource types</para>
+                <para name="estc">Eighteenth century short title catalogue, the cataloguing rules. New ed. (London: The British Library)</para>
+                <para name="fbg">Films by genre (Jefferson, NC: McFarland)</para>
+                <para name="fgtpcm">Form/genre terms for printed cartoon material (Bowling Green, OH: Consortium of Popular Culture Collections in the Midwest)</para>
+                <para name="ftamc">Form terms for archival and manuscripts control (Stanford: The Research Libraries Group, Inc.)[Note: used prior to August 1991; term list subsumed by Art and Architecture Thesaurus at that time]</para>
+                <para name="gatbeg">Gattungsbegriffe (Leipzig &amp; Frankfort: Deutsche Nationalbibliothek)</para>
+                <para name="gmd">Anglo-American Cataloguing Rules general material designation (Rule 1.1C)</para>
+                <para name="gmgpc">Thesaurus for graphic materials: TGM II, Genre and physical characteristic terms (Washington, DC: Library of Congress, Cataloging Distribution Service)</para>
+                <para name="gsafd">Guidelines on subject access to individual works of fiction, drama, etc (Chicago: American Library Association)</para>
+                <para name="gtlm">Genre terms for law materials: a thesaurus (Littleton, CO: Rothman Pubs.)</para>
+                <para name="lcgft">Library of Congress genre/form terms for library and archival materials (Washington, DC: Library of Congress, Cataloging Distribution Service)</para>
+                <para name="marccategory">MARC form category term list</para>
+                <para name="marcform">MARC form of item term list</para>
+                <para name="marcgt">MARC genre terms (Washington, DC: Library of Congress)</para>
+                <para name="marcsmd">MARC specific material form term list</para>
+                <para name="migfg">Moving image genre-form guide (Washington, DC: Library of Congress. MBRS)</para>
+                <para name="mim">Moving image materials: genre terms (Washington: Motion Picture Broadcasting and Recorded Sound Division, Library of Congress)</para>
+                <para name="muzeukv">MuzeVideo UK DVD and UMD film genre classification (London: Muze Europe Ltd)</para>
+                <para name="ngl">Newspaper genre list [online only] (Seattle, WA: University of Washington, Library Microform and Newspaper Collections)</para>
+                <para name="nimafc">NIMA form codes (Bethesda, MD: National Imagery and Mapping Agency)</para>
+                <para name="nmc">Revised nomenclature for museum cataloging: a revised and expanded version of Robert C. Chenhall's system for classifying man-made objects (Walnut Creek, Calif.: AltaMira Press)</para>
+                <para name="radfg">Radio form / genre terms guide (Washington, DC: Library of Congress, MBRS, Recorded Sound Section)</para>
+                <para name="rbbin">Binding terms: a thesaurus for use in rare book and special collections cataloguing (Chicago: Association of College and Research Libraries, ALA)</para>
+                <para name="rbgenr">Genre terms: a thesaurus for use in rare book and special collections cataloguing (Chicago: Association of College and Research Libraries)</para>
+                <para name="rbpap">Paper terms: a thesaurus for use in rare book and special collections cataloging (Chicago: Association of College and Research Libraries, ALA) [used for printing terms.]</para>
+                <para name="rbpri">Printing &amp; publishing evidence: a thesaurus for use in rare book and special collections cataloging (Chicago: Association of College and Research Libraries, ALA) [used for printing terms.]</para>
+                <para name="rbprov">Provenance evidence: a thesaurus for use in rare book and special collections cataloging (Chicago: Association of College and Research Libraries, ALA)</para>
+                <para name="rbpub">Printing and publishing evidence: a thesaurus for use in rare book and special collections cataloging (Chicago: Association of College and Research Libraries, ALA) [used for publishing terms.]</para>
+                <para name="rbtyp">Type evidence: a thesaurus for use in rare book and special collections cataloging (Chicago: Association of College and Research Libraries, ALA) [used for printing terms.]</para>
+                <para name="rdacarrier">Term and code list for RDA carrier types</para>
+                <para name="rdacontent">Term and code list for RDA content types</para>
+                <para name="rdamedia">Term and code list for RDA media types</para>
+                <para name="reveal">REVEAL: fiction indexing and genre headings (Bath: UKOLN)</para>
+                <para name="saogf">Svenska ämnesord - Genre/Form (Stockholm: Kungliga Biblioteket)</para>
+                <para name="sgp">Svenska genrebeteckningar för periodika (Stockholm: Kunglige Biblioteket)</para>
+            </paras>
+        </doc>
+
     </docs>
 
 </record-definition>
