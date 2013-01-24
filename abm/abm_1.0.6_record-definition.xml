@@ -56,13 +56,13 @@
       SRID=32633;POINT(148013,6964590)
       -->
         <elem tag="abm:utm"/>
-	<elem tag="abm:polygon_utm33"/>
-	<elem tag="abm:polygon_latlong"/>
+	<elem tag="abm:polygon_utm"/>
+	<elem tag="abm:polygon_latLong"/>
         <!-- 59.907116,10.682953 -->
-        <elem tag="abm:geo" fieldType="geohash"/>
+        <elem tag="abm:latLong" fieldType="geohash"/>
 
 	<elem tag="abm:type"/>
-	<!-- knet, knreise, all --!>
+	<!-- knet, knreise, all -->
 	<elem tag="abm:collectionType"/>
         <elem tag="abm:category"/>
 
@@ -234,7 +234,7 @@
 
     <docs>
 
-	<doc path="/record/">
+	<!--doc path="/record/">
             <paras>
                 <para name="Definition">
 			<![CDATA[
@@ -400,7 +400,7 @@
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc--> 
 
 	<doc path="/record/dc:coverage">
             <paras>

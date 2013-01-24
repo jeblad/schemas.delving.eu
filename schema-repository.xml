@@ -78,7 +78,7 @@
             <author>Delving</author>
             <message>Adding documentation and adding the new required fields</message>
             <date>2012-10-02</date>
-            <file name="record-definition.xml" hash="05FDE014243A187FF0FE06794E9F693B"/>
+            <file name="record-definition.xml" hash="1830E15571A95C430FFB79E8DC3B5625"/>
             <file name="validation.xsd" hash="15A0534C39011519D513383B2F6A14FF"/>
         </version>
     </schema>
