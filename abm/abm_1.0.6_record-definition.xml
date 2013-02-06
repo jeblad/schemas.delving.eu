@@ -45,9 +45,9 @@
         <elem tag="abm:country"/>
         <elem tag="abm:namedPlace"/>
         <elem tag="abm:estateName"/>
+        <elem tag="abm:estateNr"/>
         <elem tag="abm:propertyName"/>
         <elem tag="abm:propertyNr"/>
-        <elem tag="abm:estateNr"/>
         <elem tag="abm:contentProvider"/>
         <elem tag="abm:address"/>
         <elem tag="abm:digitised"/>
