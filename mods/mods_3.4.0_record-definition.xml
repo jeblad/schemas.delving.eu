@@ -220,7 +220,7 @@
         <!--stock number-->
 
         <!-- 16. location [ordered] -->
-        <elem tag="location" attr-groups="base-four" attrs="displayLabel, altRepGroup" ordered="true">
+        <elem tag="location" attr-groups="base-four" attrs="displayLabel, altRepGroup" ordered="true" required="true">
             <elem tag="physicalLocation" attr-groups="authority" attrs="type, displayLabel, xlink"/>
             <!--http://www.loc.gov/marc/sourcecode/organization/organizationsource.html-->
             <elem tag="url" attrs="displayLabel, dataLastAccessed, note, access, usage"/>
@@ -309,15 +309,15 @@
             <opt value="family"/>
         </opt-list>
 
-        <opt-list path="/mods/location/url" key="@access" displayName="AccessType">
-            <opt key="preview"/>
-            <opt key="raw object"/>
-            <opt key="object in context"/>
+        <opt-list path="/mods/location/url" dictionary="URL" value="@access" displayName="AccessType">
+            <opt value="preview"/>
+            <opt value="raw object"/>
+            <opt value="object in context"/>
         </opt-list>
 
-        <opt-list path="/mods/name" key="role/roleTerm" displayName="Role Term">
-            <opt key="creator" value="creator"/>
-            <opt key="contributor" value="contributor"/>
+        <opt-list path="/mods/name/role/roleTerm" displayName="Role Term">
+            <opt value="creator"/>
+            <opt value="contributor"/>
         </opt-list>
 
         <opt-list path="/mods/typeOfResource" displayName="Type Of Resource">

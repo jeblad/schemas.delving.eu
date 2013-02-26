@@ -156,10 +156,6 @@
 
     </root>
 
-    <dicts>
-        <!--this is where the non-embedded dicts appear-->
-    </dicts>
-
     <opts>
 
         <!--<opt-list dictionary="CLUMP"-->
@@ -181,16 +177,16 @@
             <!--<opt key="crm_e31" scehamUri="http://www.cidoc-crm.org/rdfs/E31.Document" value="Document"/>-->
         <!--</opt-list>-->
 
-        <opt-list path="/record/findingAid/c" key="@key" value="@type" displayName="FindingAid">
-            <opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds" value="root">
-                <dicts>
-                    <dict path="/record/facets/facet" key="@key" value="@type" name="Facets">
-                        <entry value="A"/>
-                        <entry value="B"/>
-                    </dict>
-                </dicts>
-            </opt>
-        </opt-list>
+        <!--<opt-list path="/record/findingAid/c" key="@key" value="@type" displayName="FindingAid">-->
+            <!--<opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds" value="root">-->
+                <!--<dicts>-->
+                    <!--<dict path="/record/facets/facet" key="@key" value="@type" name="Facets">-->
+                        <!--<entry value="A"/>-->
+                        <!--<entry value="B"/>-->
+                    <!--</dict>-->
+                <!--</dicts>-->
+            <!--</opt>-->
+        <!--</opt-list>-->
 
         <opt-list path="/record/findingAid/c/c" key="@key" value="@type" displayName="FindingAid">
             <opt hidden="true" key="http://id.culturecloud.eu/concepts/#fond" value="level_1"/>
@@ -302,8 +298,11 @@
         <field-marker name="TITLE" path="/record/thing/displayTitle"/>
         <field-marker name="DESCRIPTION" path="/record/thing/displayDescription"/>
         <field-marker name="OWNER" path="/record/admin/displayDataProvider"/>
-        <field-marker name="LANDING_PAGE" path="/record/resources/resource[http://id.culturecloud.eu/concepts/#landingPage]/resourceUrl"/>
-        <field-marker name="THUMBNAIL" path="/record/resources/resource[http://id.culturecloud.eu/concepts/#thumbnail]/resourceUrl"/>
+        <!--<field-marker name="LANDING_PAGE" path="/record/resources/resource[http://id.culturecloud.eu/concepts/#landingPage]/resourceUrl"/>-->
+        <!--<field-marker name="THUMBNAIL" path="/record/resources/resource[http://id.culturecloud.eu/concepts/#thumbnail]/resourceUrl"/>-->
+        <!--todo: the new version does not create these opt branches beforehand-->
+        <field-marker name="LANDING_PAGE"/>
+        <field-marker name="THUMBNAIL"/>
 
         <!-- todo: these should have paths, because currently their presence is checked but they are not resolved-->
         <field-marker name="SPEC"/>
