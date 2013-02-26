@@ -309,7 +309,7 @@
             <opt value="family"/>
         </opt-list>
 
-        <opt-list path="/mods/location/url" dictionary="URL" value="@access" displayName="AccessType">
+        <opt-list path="/mods/location/url" value="@access" displayName="AccessType">
             <opt value="preview"/>
             <opt value="raw object"/>
             <opt value="object in context"/>
