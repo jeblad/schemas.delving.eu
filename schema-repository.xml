@@ -163,6 +163,13 @@
             <file name="record-definition.xml" hash=""/>
             <file name="validation.xsd" hash=""/>
         </version>
+        <version number="1.0.2">
+            <author>Gerald de Jong</author>
+            <message>refined</message>
+            <date>2013-02-28</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
     </schema>
      <schema prefix="oaidc">
         <version number="1.0.0">
