@@ -108,7 +108,7 @@
             <author>Sjoerd Siebinga</author>
             <message>Functions adjusted</message>
             <date>2012-09-07</date>
-            <file name="record-definition.xml" hash="A2EB160992672E83A4819D1CB0D79AC6"/>
+            <file name="record-definition.xml" hash="A5897AD757CC6CE6063AC7D40CB46E57"/>
             <file name="validation.xsd" hash="BF15EEB7F611E34F4E26340CF0461D5D"/>
         </version>
     </schema>
