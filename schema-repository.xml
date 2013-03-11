@@ -216,5 +216,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="exhib">
+        <version number="0.1.0">
+            <author>Thomas Wikman</author>
+            <message>Exhibitions NKM</message>
+            <date>2013-13-06</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
+
 
 </schemas>
