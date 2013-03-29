@@ -88,6 +88,13 @@
             <file name="record-definition.xml" hash="85B5916DF97D3311E68053D691339AF7"/>
             <file name="validation.xsd" hash="15A0534C39011519D513383B2F6A14FF"/>
         </version>
+	<version number="1.0.7">
+            <author>Delving</author>
+            <message>Added lucene-spatial latlong validation</message>
+            <date>2013-03-27</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
