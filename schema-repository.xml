@@ -232,6 +232,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="ead">
+        <version number="1.2.3">
+            <author>Thomas Wikman</author>
+            <message>APE EAD</message>
+            <date>2013-04-03</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 
 
 </schemas>
