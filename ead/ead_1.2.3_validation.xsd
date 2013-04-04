@@ -1511,13 +1511,13 @@
             <xs:choice maxOccurs="unbounded">
                 <xs:element name="c">
                     <!-- type="c" -->
-                    <xs:alternative
-                            test="@level != 'series' and @level != 'subseries' and @level != 'file' and @level != 'item'"
-                            type="c.highlevel"/>
-                    <xs:alternative test="@level = 'series'" type="c.serieslevel"/>
-                    <xs:alternative test="@level = 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level = 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level = 'item'" type="c.itemlevel"/>
+                    <!--<xs:alternative-->
+                            <!--test="@level != 'series' and @level != 'subseries' and @level != 'file' and @level != 'item'"-->
+                            <!--type="c.highlevel"/>-->
+                    <!--<xs:alternative test="@level = 'series'" type="c.serieslevel"/>-->
+                    <!--<xs:alternative test="@level = 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level = 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level = 'item'" type="c.itemlevel"/>-->
                     <!--
                     <xs:assert test="if(@level eq 'fonds') then (c/@level = 'fonds' or c/@level = 'series' or c/@level = 'subseries' or c/@level = 'file' or c/@level = 'item') else
                     -->
@@ -1548,14 +1548,14 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.highlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'fonds'" type="c.highlevel"/>
-                    <xs:alternative test="@level eq 'series'" type="c.serieslevel"/>
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative
-                            test="(@level ne 'fonds') and (@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                            type="c.errorlevelfonds"/>
+                    <!--<xs:alternative test="@level eq 'fonds'" type="c.highlevel"/>-->
+                    <!--<xs:alternative test="@level eq 'series'" type="c.serieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative-->
+                            <!--test="(@level ne 'fonds') and (@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                            <!--type="c.errorlevelfonds"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1579,13 +1579,13 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.highlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'series'" type="c.serieslevel"/>
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative
-                            test="(@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                            type="c.errorlevelseries"/>
+                    <!--<xs:alternative test="@level eq 'series'" type="c.serieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative-->
+                            <!--test="(@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                            <!--type="c.errorlevelseries"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1608,11 +1608,11 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.highlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative test="(@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                                    type="c.errorlevelsubseries"/>
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative test="(@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                                    <!--type="c.errorlevelsubseries"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1634,8 +1634,8 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.highlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative test="(@level ne 'item')" type="c.errorlevelitem"/>
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative test="(@level ne 'item')" type="c.errorlevelitem"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1657,14 +1657,14 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.highlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'fonds'" type="c.highlevel"/>
-                    <xs:alternative test="@level eq 'series'" type="c.serieslevel"/>
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative
-                            test="(@level ne 'fonds') and (@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                            type="c.errorlevelfonds"/>
+                    <!--<xs:alternative test="@level eq 'fonds'" type="c.highlevel"/>-->
+                    <!--<xs:alternative test="@level eq 'series'" type="c.serieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative-->
+                            <!--test="(@level ne 'fonds') and (@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                            <!--type="c.errorlevelfonds"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1680,13 +1680,13 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.lowlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'series'" type="c.serieslevel"/>
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative
-                            test="(@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                            type="c.errorlevelseries"/>
+                    <!--<xs:alternative test="@level eq 'series'" type="c.serieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative-->
+                            <!--test="(@level ne 'series') and (@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                            <!--type="c.errorlevelseries"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1701,11 +1701,11 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.lowlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>
-                    <xs:alternative test="@level eq 'file'" type="c.filelevel"/>
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative test="(@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"
-                                    type="c.errorlevelsubseries"/>
+                    <!--<xs:alternative test="@level eq 'subseries'" type="c.subserieslevel"/>-->
+                    <!--<xs:alternative test="@level eq 'file'" type="c.filelevel"/>-->
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative test="(@level ne 'subseries') and (@level ne 'file') and (@level ne 'item')"-->
+                                    <!--type="c.errorlevelsubseries"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
@@ -1720,8 +1720,8 @@
             <xs:group maxOccurs="unbounded" minOccurs="0" ref="m.desc.base.lowlevels"/>
             <xs:choice maxOccurs="unbounded" minOccurs="0">
                 <xs:element name="c">
-                    <xs:alternative test="@level eq 'item'" type="c.itemlevel"/>
-                    <xs:alternative test="(@level ne 'item')" type="c.errorlevelitem"/>
+                    <!--<xs:alternative test="@level eq 'item'" type="c.itemlevel"/>-->
+                    <!--<xs:alternative test="(@level ne 'item')" type="c.errorlevelitem"/>-->
                 </xs:element>
             </xs:choice>
         </xs:sequence>
