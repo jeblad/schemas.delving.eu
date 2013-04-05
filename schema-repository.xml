@@ -92,7 +92,7 @@
             <author>Delving</author>
             <message>Added lucene-spatial latlong validation and finished the documentation</message>
             <date>2013-03-27</date>
-            <file name="record-definition.xml" hash="6180DF0093905F31CE69AB1750C63CBE"/>
+            <file name="record-definition.xml" hash="63AC3C77494058B80E55DFA457485326"/>
             <file name="validation.xsd" hash="15A0534C39011519D513383B2F6A14FF"/>
         </version>
     </schema>

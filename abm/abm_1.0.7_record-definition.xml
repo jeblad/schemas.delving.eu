@@ -337,21 +337,6 @@
             </paras>
         </doc>	 
 	
-	<doc path="/record/abm:aboutOrganisation">
-            <paras>
-                <para name="Definition">
-			<![CDATA[
-			An organisation that is the subject of the described resource. Recommended best practice is to use an authorised Organisation registry, or register the org name according to a Syntax Encoding Scheme for organisations. In lack of any of these, just a literal string.
-		        ]]>
-                </para>    
-                <para name="Requirements">
-		   <![CDATA[
-			Optional			
-                    ]]>
-                </para>
-            </paras>
-        </doc>	 
-	
 	<doc path="/record/abm:aboutPerson">
             <paras>
                 <para name="Definition">
@@ -662,7 +647,7 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
             </paras>
         </doc> 
 
-	<doc path="/record/dc:temporal">
+	<doc path="/record/dcterms:temporal">
             <paras>
                 <para name="Definition">
 			<![CDATA[
@@ -763,7 +748,7 @@ Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
             </paras>
         </doc> 
 
-	<doc path="/record/dc:medium">
+	<doc path="/record/dcterms:medium">
             <paras>
                 <para name="Definition">
 			<![CDATA[
