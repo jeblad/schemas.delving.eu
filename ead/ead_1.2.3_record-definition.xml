@@ -69,8 +69,8 @@
         <elem tag="table" elems="head, tgroup"/>
         <elem tag="head"/>
         <elem tag="tgroup" elems="thead, tbody" attrs="cols"/>
-        <elem tag="thead" elems="row, entry"/>
-        <elem tag="tbody" elems="row, entry"/>
+        <elem tag="thead" elems="row"/>
+        <elem tag="tbody" elems="row"/>
         <elem tag="row">
             <elem tag="entry"/>
         </elem>
