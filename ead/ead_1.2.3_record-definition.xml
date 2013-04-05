@@ -50,7 +50,7 @@
         <elem tag="address" elems="addressline"/>
         <elem tag="addressline"/>
 
-        <elem tag="language" attrs="langcode, scriptcode, encodinganalog"/>
+        <elem tag="language" attrs="langcode, scriptcode"/>
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
@@ -61,6 +61,8 @@
         <elem tag="list" elems="item" attrs="type, type, numeration"/>
         <elem tag="item"/>
 
+        <elem tag="publisher" attrs="encodinganalog"/>
+
         <!-- table -->
         <elem tag="table" elems="head, tgroup"/>
         <elem tag="head"/>
@@ -70,9 +72,6 @@
         <elem tag="row">
             <elem tag="entry"/>
         </elem>
-
-
-        <elem tag="dao" attrs="xlink:href, xlink:title"/>
 
         <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
 
@@ -86,9 +85,11 @@
         <elem tag="publisher"/>
         <elem tag="geogname"/>
 
+        <elem tag="dao" attrs="xlink:href, xlink:title"/>
+
         <!-- did -->
-        <elem tag="did" elems="dao">
-            <elem tag="unitid" attrs="encodinganalog"/>
+        <elem tag="did">
+            <elem tag="unitid" attrs="encodinganalog, type"/>
             <elem tag="unittitle" attrs="encodinganalog"/>
             <elem tag="unitdate" attrs="calendar, era, normal, encodinganalog"/>
             <elem tag="origination" attrs="label, label, label, encodinganalog"> <!---OBS!!! -->
@@ -97,16 +98,18 @@
                 <elem tag="famname" attrs="authfilenumber"/>
                 <elem tag="name" attrs="authfilenumber"/>
             </elem>
-            <elem tag="langmaterial" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
+            <elem tag="langmaterial" attrs="encodinganalog" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
             <elem tag="repository" elems="address, extref"/>
             <elem tag="physloc" attrs="label"/>
             <elem tag="materialspec"/>
+            <elem tag="container" attrs="type"/>
             <elem tag="physdesc" attrs="encodinganalog">
                 <elem tag="physfacet" attrs="type, type"/>
                 <elem tag="extent" attrs="unit"/>
                 <elem tag="genreform"/>
                 <elem tag="dimensions" attrs="type, unit"/>
             </elem>
+            <elem tag="dao" attrs="xlink:href, xlink:title"/>
             <elem tag="note" elems="p" attrs="encodinganalog, label"/>
         </elem>
 
@@ -123,15 +126,15 @@
                     <elem tag="subtitle" elems="lb, emph" attrs="type, encodinganalog"/>
                     <elem tag="author" attrs="encodinganalog"/>
                 </elem>
-                <elem tag="publicationstmt" elems="date, address">
-                    <elem tag="publisher" attrs="encodinganalog"/>
-                </elem>
+                <elem tag="publicationstmt" elems="publisher, date, address"/>
                 <elem tag="seriesstmt">
-                    <elem tag="titleproper"/>
+                    <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
                 </elem>
             </elem>
             <elem tag="profiledesc">
-                <elem tag="creation" elems="date, language"/>
+                <elem tag="creation" elems="date"/>
+                <elem tag="langusage" elems="language"/>
+                <elem tag="descrules"/>
             </elem>
             <elem tag="revisiondesc">
                 <elem tag="change" elems="date">
@@ -163,14 +166,12 @@
             <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
 
 
-            <elem tag="scopecontent"/> <!-- OBS content summary-->
+            <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
             <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
-            <elem tag="scopecontent"/> <!-- OBS Preface-->
+            <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+            <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
 
-
-            <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog">
-
-                <elem tag="controlaccess" elems="head, p">
+            <elem tag="controlaccess" elems="head, p">
                     <elem tag="name"/>
                     <elem tag="geogname"/>
                     <elem tag="famname"/>
@@ -180,10 +181,9 @@
                     <elem tag="function"/>
                     <elem tag="title"/>
                     <elem tag="genreform"/>
-                </elem>
-
-
             </elem>
+
+
 
 
             <!-- Detailed descriptions -->
@@ -191,31 +191,81 @@
 
                 <!-- Fonds -->
                 <elem tag="c" elems="did" attrs="level, encodinganalog, id">
-                    <elem tag="scopecontent"/> <!-- OBS content summary-->
+
                     <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                    <elem tag="arrangement" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                    <elem tag="fileplan" elems="head, p, list, table"/>
+
                     <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="acqinfo" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="separatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="originalsloc" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="prefercite" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="otherfindaid" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+
+
+                    <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
                     <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
                     <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
+
                     <elem tag="controlaccess" elems="head, p">
-                        <elem tag="name"/>
-                        <elem tag="geogname"/>
-                        <elem tag="famname"/>
-                        <elem tag="subject"/>
-                        <elem tag="persname"/>
-                        <elem tag="occupation"/>
-                        <elem tag="function"/>
-                        <elem tag="title"/>
-                        <elem tag="genreform"/>
+                            <elem tag="name"/>
+                            <elem tag="geogname"/>
+                            <elem tag="famname"/>
+                            <elem tag="subject"/>
+                            <elem tag="persname"/>
+                            <elem tag="occupation"/>
+                            <elem tag="function"/>
+                            <elem tag="title"/>
+                            <elem tag="genreform"/>
                     </elem>
 
+                    <elem tag="c" elems="did" attrs="level, encodinganalog, id">
+
+                        <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                        <elem tag="arrangement" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                        <elem tag="fileplan" elems="head, p, list, table"/>
+
+                        <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="acqinfo" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="separatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="originalsloc" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="prefercite" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="otherfindaid" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+
+
+                        <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                        <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
+                        <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
+
+                        <elem tag="controlaccess" elems="head, p">
+                                <elem tag="name"/>
+                                <elem tag="geogname"/>
+                                <elem tag="famname"/>
+                                <elem tag="subject"/>
+                                <elem tag="persname"/>
+                                <elem tag="occupation"/>
+                                <elem tag="function"/>
+                                <elem tag="title"/>
+                                <elem tag="genreform"/>
+                        </elem>
+                    </elem>
 
                 </elem>
 
@@ -231,6 +281,5 @@
         <!--<field-marker name="provider" type="fact" path="/record/admin/displayProvider"/>-->
 
     </field-markers>
-
 
 </record-definition>
