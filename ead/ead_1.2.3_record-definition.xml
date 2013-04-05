@@ -54,7 +54,7 @@
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
-        <elem tag="p" elems="lb, emph, emph, expan, abbr, extref"/> <!-- OBS emph emph -->
+        <elem tag="p" elems="lb, emph, expan, abbr, extref"/> <!-- OBS emph emph -->
         <elem tag="abbr" attrs="expan"/>
         <elem tag="expan" attrs="abbr"/>
 
@@ -84,7 +84,7 @@
         <elem tag="publisher"/>
         <elem tag="geogname"/>
 
-        <!-- bibref -->
+        <!-- did -->
         <elem tag="did" elems="dao">
             <elem tag="unitid" attrs="encodinganalog"/>
             <elem tag="unittitle" attrs="encodinganalog"/>
@@ -107,7 +107,6 @@
             </elem>
             <elem tag="note" elems="p" attrs="encodinganalog, label"/>
         </elem>
-
 
     </elems>
 
