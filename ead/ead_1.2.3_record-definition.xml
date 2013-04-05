@@ -50,7 +50,7 @@
         <elem tag="address" elems="addressline"/>
         <elem tag="addressline"/>
 
-        <elem tag="language" attrs="langcode, scriptcode"/>
+        <elem tag="language" attrs="langcode, scriptcode, encodinganalog"/>
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
@@ -99,7 +99,7 @@
                 <elem tag="name" attrs="authfilenumber"/>
             </elem>
             <elem tag="langmaterial" attrs="encodinganalog" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
-            <elem tag="repository" elems="address, extref"/>
+            <elem tag="repository" elems="address"/>
             <elem tag="physloc" attrs="label"/>
             <elem tag="materialspec"/>
             <elem tag="container" attrs="type"/>
@@ -123,7 +123,7 @@
             <elem tag="filedesc">
                 <elem tag="titlestmt">
                     <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
-                    <elem tag="subtitle" elems="lb, emph" attrs="type, encodinganalog"/>
+                    <elem tag="subtitle" elems="lb, emph"/>
                     <elem tag="author" attrs="encodinganalog"/>
                 </elem>
                 <elem tag="publicationstmt" elems="publisher, date, address"/>
@@ -167,15 +167,18 @@
 
 
             <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-            <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
-            <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+            <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
+            <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
 
-            <elem tag="controlaccess" elems="head, p">
+            <elem tag="controlaccess" elems="head">
+                <elem tag="p" elems="lb, emph, extref"/>
+
                     <elem tag="name"/>
                     <elem tag="geogname"/>
                     <elem tag="famname"/>
                     <elem tag="subject"/>
+                    <elem tag="corpname"/>
                     <elem tag="persname"/>
                     <elem tag="occupation"/>
                     <elem tag="function"/>
@@ -195,8 +198,8 @@
                     <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-                    <elem tag="arrangement" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                    <elem tag="bioghist" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="arrangement" elems="head, p, list, table" attrs="encodinganalog"/>
                     <elem tag="fileplan" elems="head, p, list, table"/>
 
                     <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
@@ -212,15 +215,21 @@
                     <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
 
 
-                    <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-                    <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
+                    <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
+                    <elem tag="bibliography" attrs="encodinganalog">
+                        <elem tag="head"/>
+                        <elem tag="p"/>
+                        <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
+                    </elem>
                     <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
 
-                    <elem tag="controlaccess" elems="head, p">
+                    <elem tag="controlaccess" elems="head">
+                        <elem tag="p" elems="lb, emph, extref"/>
                             <elem tag="name"/>
                             <elem tag="geogname"/>
                             <elem tag="famname"/>
                             <elem tag="subject"/>
+                        <elem tag="corpname"/>
                             <elem tag="persname"/>
                             <elem tag="occupation"/>
                             <elem tag="function"/>
@@ -233,8 +242,8 @@
                         <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-                        <elem tag="arrangement" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+                        <elem tag="bioghist" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="arrangement" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="fileplan" elems="head, p, list, table"/>
 
                         <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
@@ -250,21 +259,28 @@
                         <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
 
 
-                        <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-                        <elem tag="bibliography" elems="head, p, bibref, scopecontent, list, table" attrs="encodinganalog"/>
+                        <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
+                        <elem tag="bibliography" attrs="encodinganalog">
+                            <elem tag="head"/>
+                            <elem tag="p"/>
+                            <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
+                        </elem>
                         <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
 
-                        <elem tag="controlaccess" elems="head, p">
+                        <elem tag="controlaccess" elems="head">
+                            <elem tag="p" elems="lb, emph, extref"/>
                                 <elem tag="name"/>
                                 <elem tag="geogname"/>
                                 <elem tag="famname"/>
                                 <elem tag="subject"/>
+                            <elem tag="corpname"/>
                                 <elem tag="persname"/>
                                 <elem tag="occupation"/>
                                 <elem tag="function"/>
                                 <elem tag="title"/>
                                 <elem tag="genreform"/>
                         </elem>
+
                     </elem>
 
                 </elem>
