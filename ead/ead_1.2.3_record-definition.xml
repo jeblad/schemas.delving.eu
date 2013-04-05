@@ -54,11 +54,7 @@
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
-<<<<<<< HEAD
-        <elem tag="p" elems="lb, emph, expan, abbr, extref"/> <!-- OBS emph emph -->
-=======
         <elem tag="p" elems="lb, emph, abbr, expan, extref"/> <!-- OBS emph emph -->
->>>>>>> EAD, change in order of stuff
         <elem tag="abbr" attrs="expan"/>
         <elem tag="expan" attrs="abbr"/>
 
@@ -74,6 +70,7 @@
         <elem tag="row">
             <elem tag="entry"/>
         </elem>
+
 
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
 
