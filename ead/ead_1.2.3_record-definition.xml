@@ -43,7 +43,7 @@
     </attrs>
 
     <elems>
-        <elem tag="emph" render="bold, italic"/>  <!-- OPTION -->
+        <elem tag="emph" attrs="render"/>  <!-- OPTION -->
         <elem tag="lb"/>
         <elem tag="date" attrs="calendar, era, normal, encodinganalog"/>
 
@@ -54,7 +54,11 @@
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
+<<<<<<< HEAD
         <elem tag="p" elems="lb, emph, expan, abbr, extref"/> <!-- OBS emph emph -->
+=======
+        <elem tag="p" elems="lb, emph, abbr, expan, extref"/> <!-- OBS emph emph -->
+>>>>>>> EAD, change in order of stuff
         <elem tag="abbr" attrs="expan"/>
         <elem tag="expan" attrs="abbr"/>
 
@@ -67,8 +71,9 @@
         <elem tag="tgroup" elems="thead, tbody" attrs="cols"/>
         <elem tag="thead" elems="row, entry"/>
         <elem tag="tbody" elems="row, entry"/>
-        <elem tag="row"/>
-        <elem tag="entry"/>
+        <elem tag="row">
+            <elem tag="entry"/>
+        </elem>
 
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
 
