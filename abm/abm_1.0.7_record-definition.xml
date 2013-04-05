@@ -20,7 +20,7 @@
 	      <groovy-code>
 		<string>String[] split = it.replaceAll(&quot; &quot;, &quot;&quot;).split(&quot;,&quot;)</string>
 		<string>uk.me.jstott.jcoord.UTMRef utm = new uk.me.jstott.jcoord.LatLng(split.head().toDouble(), split.last().toDouble()).toUTMRef()</string>
-		<string>return &quot;${utm.lngZone} ${utm.latZone} ${utm.easting} ${utm.northing}&quot;</string>
+		<string>return &quot;SRID=326${utm.lngZone};POINT(${utm.easting},${utm.northing})&quot;</string>
 	      </groovy-code>
 	    </mapping-function>
 	    <mapping-function name="utmToLatLong">
@@ -233,25 +233,237 @@
 
     <opts>
         <opt-list dictionary="HHCat" path="/record/abm:category" displayName="Category">
-            <opt value="Archeology"/>
-            <opt value="Animals"/>
-            <opt value="Plant"/>
-            <opt value="Placenames"/>
-            <opt value="Art"/>
-            <opt value="Industrial Heritage"/>
-            <opt value="Social History"/>
-            <opt value="Architecture"/>
-            <opt value="Unknown"/>
-        </opt-list>
+		<opt value="Arkeologi"/>
+		<opt value="Kulturminner"/>
+		<opt value="Kulturhistorie"/>
+		<opt value="Arkitektur"/>
+		<opt value="Dyreliv"/>
+		<opt value="Planteliv"/>
+		<opt value="Verneområder"/>
+		<opt value="Kunst"/>
+       </opt-list>
     </opts>
 
 
     <docs>
 
-	<!--doc path="/record/">
+	<doc path="/record/dc:title">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			A name given to the resource.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory to supply either dc:title or dc:description	
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dcterms:alternative">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			An alternative name for the resource.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dc:creator">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Name of the creator of object
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/abm:creatorUri">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Unique identifier (URI) of the creator
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dc:subject">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			The topic of the resource, e.g. History, nature etc
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory to supply either dc:subject or dc:type or dc:coverage or dcterms:spatial
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/abm:category">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Select from the predetermined list, relevant for Kultur-og Naturreise prosjekt: Eg. Archeology, Animals, Plant, Place names. Art, Industrial Heritage, Social history. Categorization can be applied to a mapping of a Virtual Collection of Digitalt Fortalt data. This will be “Facetable”.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/abm:aboutOrganisation">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			An organisation that is the subject of the described resource. Recommended best practice is to use an authorised Organisation registry, or register the org name according to a Syntax Encoding Scheme for organisations. In lack of any of these, just a literal string.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/abm:aboutPerson">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			A person that is the subject of the described resource, eg. Persons described in documents,  persons depicted in photos, paintings and statues/busts, etc
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+
+	<doc path="/record/dc:description">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			A description of the original analog or born digital object.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory to supply either dc:title or dc:description		
+                    ]]>
+                </para>
+            </paras>
+        </doc>	
+
+	<doc path="/record/europeana:dataProvider">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Name of the organisation who supplies data to Europeana indirectly via an aggregator to be recorded and displayed in the portal. 
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+		   Mandatory (max 1)				
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/abm:contentProvider">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Same as Europeana:dataprovider
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dcterms:provenance">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			This element is to record a statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation. This may include a description of any changes successive custodians made to the resource. Eg. <dcterms:provenance>Donated by The National Library in 1965</dcterms:provenance>
+NB. For Europeana this relates particularly to the ownership and custody of the original analog or born-digital object.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/europeana:provider">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Name of the organization that delivers data to Europeana. Eg. Kulturrådet
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+		   Mandatory (max 1)			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dcterms:rightsHolder">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			A person or organisation owning or managing rights over the resource
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc>	 
+	
+	<doc path="/record/dc:rights">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			If possible the value in this element will include or refer to the name of the rights holder as in the example; <dc:rights>Copyright © British Library Board</dc:rights>
+			It is important to distinguish between this element and the mandatory europeana:rights element. The value in dc:rights can be any additional information about intellectual property rights, access rights or license arrangements for the digital object that has not been captured in the controlled value in europeana:rights element. It should not just duplicate the value in europeana:rights.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -262,10 +474,77 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+				
+	<doc path="/record/europeana:rights">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Information about copyright of the digital object that is specified in isShownBy and isShownAt, URL constructed according to the specifications in the “Rights Guidelines” document on the Technical Requirements page at: http://pro.europeana.eu/technical-requirements
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory (max 1)
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+
+	<doc path="/record/europeana:isShownAt">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			URL that will be active in the Europeana interface. It will lead users to the digital object displayed on the provider’s web site in its full information context.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory (for drupal schema) (max 1)			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+
+	<doc path="/record/europeana:isShownBy">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			URL which leads users directly to the digital object on the provider’s website where they can view or play it.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory (for drupal schema) (max 1)			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+
+	<doc path="/record/europeana:object">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			URL of a suitable source image in the best resolution available on the web site of the data provider from which small images could be generated for use in the portal. This will often be the same URL as given in europeana:isShownBy.
+In the event of video and sound files which also have an image Digitalt Fortalt for example, you can link to the image here and the sound file in “isShownBy”
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory (for drupal schema) (max 1)			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+
+	<doc path="/record/dcterms:tableOfContents">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			 A list of subunits of the resource, eg. <dcterms:tableOfContents>1. Introduction, 2. Contents of Elements, 3. Mapping, 4. Changes Made for MODS Version 3.2</dc:terms:tableOfContents>
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -276,10 +555,12 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+
+	<doc path="/record/dc:publisher">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Refers to the publishing house but this can be interpreted more loosely for things that are not traditional books or articles etc.  dc:publisher refers only to the "original analogue or born digital object".  So for a book (or a picture in a book that has been digitised individually) then it would indeed be the name of the publishing house. 
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -290,10 +571,12 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+
+	<doc path="/record/dc:contributor">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			dc:contributor varies between cultural heritage sectors and collections, e.g. Libraries may use it for all roles other than the author(s) when describing a book.  The author(s) would be dc:creator and it could be the illustrator or the person who wrote the Foreword as dc:contributor.  An academic thesis may have the Supervisor and the Examiner as contributors.  Sound recordings may have the composer as the creator and the orchestra playing the music as a contributor.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -304,10 +587,41 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dc:date">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+				This date element should be used to contain the most significant date in the life of the digital object or the original physical object in the case of a digitisation. We recommend the use of ISO 8601 starting with the year and hyphenating the day and month parts: YYYY-MM-DD.
+				The values in the date elements will be used by the europeana normalisation process to generate values for europeana:year element. europeana:year will contain a standard four digit year of the Gregorian calendar (e.g. 1523). Before the Common Era, Before Christ or Before Present dates 
+				Currently, the Europeana portal cannot use BC, BCE or BP dates but such dates should be retained in the mapped metadata (i.e. dc:date) in order to be present for future development of the portal. 
+				Textual date values 
+				Textual time periods will display in a result list but cannot be represented in the Timeline or Date facet and should also be provided as numeric dates. 
+				Example where the provider has a specific time period defined: 
+				<localtimeperiod>Roman Britain</localtimeperiod> 
+				Transform and map as e.g. <dc:date>0043</dc:date> and <dc:date>0410</dc:date> 
+				which will generate 
+				<europeana:year>0043</europeana:year> and <europeana:year>0410</europeana:year> 
+				Example where text is used: 
+				<localtimeperiod>17th century</localtimeperiod> 
+				Transform and map also as <dc:date>1601</dc:date> and <dc:date>1700</dc:date> 
+				which will generate: 
+				<europeana:year>1601</europeana:year> and <europeana:year>1700</europeana:year>
+							]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Optional			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+
+	<doc path="/record/dcterms:created">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			Date of creation of the resource.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -318,10 +632,11 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dcterms:issued">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Date of formal issuance (e.g., publication) of the resource.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -332,10 +647,11 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/abm:digitised">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Date resource was digitised
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -346,10 +662,11 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dc:temporal">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Temporal characteristics of the digital object or the original physical object in the case of a digitisation i.e. what the resource is about or depicts in terms of time. This is in contrast to dc:date which relates to an event in the life of the object itself (e.g. the creation or the art work or publication of the book.) NB. Values in this element will appear in the Time period line of a full result display in Europeana.Eg. <dcterms:temporal>Roman</dcterms:temporal>
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -360,10 +677,67 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/europeana:year">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+Used in the Europeana timeline and the date facet. A point of time associated with an event in the life of the original analog or born digital object, e.g. 1814
+It is derived from dc:date and its refinements. It is used in the Europeana timeline and the date facet.
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			N/A	
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+	<doc path="/record/dc:type">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			The nature or genre of the resource. Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]
+			Collection
+			Dataset
+			Event
+			Image
+			Interactive Resource
+			Service
+			Software
+			Sound
+			Text
+			]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory to supply either dc:type or dc:subject or dcterms:spatial or dc:coverage			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+	<doc path="/record/europeana:type">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			All digital objects in Europeana must be classified as one of the 4
+Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
+		        ]]>
+                </para>    
+                <para name="Requirements">
+		   <![CDATA[
+			Mandatory (max 1)			
+                    ]]>
+                </para>
+            </paras>
+        </doc> 
+
+	<doc path="/record/dc:format">
+            <paras>
+                <para name="Definition">
+			<![CDATA[
+			 The file format, physical medium, or dimensions of the resource. Recommended to use a controlled vocabulary such as the list of Internet Media Types [MIME].
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -374,10 +748,11 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dcterms:extent">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Size or duration of the digital object and the original object may be recorded.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -388,10 +763,11 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dc:medium">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			The material or physical carrier of the resource.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -402,10 +778,13 @@
             </paras>
         </doc> 
 
-	<doc path="/record/">
+	<doc path="/record/dc:identifier">
             <paras>
                 <para name="Definition">
 			<![CDATA[
+			Unique identifier – URI This is the identifier for the original analog or born digital object. Use europeana:isShownBy for the URL of the digital object. If the URL is
+already included in the dc:identifier element in the existing metadata,
+keep it and repeat the information in europeana:isShownBy.
 		        ]]>
                 </para>    
                 <para name="Requirements">
@@ -414,7 +793,7 @@
                     ]]>
                 </para>
             </paras>
-        </doc--> 
+        </doc> 
 
 	<doc path="/record/dc:coverage">
             <paras>
