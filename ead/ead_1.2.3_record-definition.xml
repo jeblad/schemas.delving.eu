@@ -2,7 +2,7 @@
 <record-definition prefix="ead" version="1.2.3" flat="false">
 
     <namespaces>
-        <namespace prefix="ead" uri="" schema=""/>
+        <namespace prefix="ead" uri="urn:isbn:1-931666-22-9" schema="http://schemas.archivesportaleurope.net/profiles/apeEAD.xsd"/>
     </namespaces>
 
     <attrs>
