@@ -26,7 +26,7 @@
         <attr tag="mainagencycode"/>
         <attr tag="normal"/>
         <attr tag="numeration"/>
-        <attr tag="render"/> <!-- OBS CHECK IN ELEMS -->
+        <attr tag="render"/>
         <attr tag="relatedencoding"/>
         <attr tag="repositoryencoding"/>
         <attr tag="scriptcode"/>
@@ -43,7 +43,8 @@
     </attrs>
 
     <elems>
-        <elem tag="emph" attrs="render"/>  <!-- OPTION -->
+        <elem tag="emph" attrs="render"/>
+        <!-- OPTION -->
         <elem tag="lb"/>
         <elem tag="date" attrs="calendar, era, normal, encodinganalog"/>
 
@@ -54,7 +55,8 @@
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
 
-        <elem tag="p" elems="lb, emph, abbr, expan, extref"/> <!-- OBS emph emph -->
+        <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
+        <!-- OBS emph emph -->
         <elem tag="abbr" attrs="expan"/>
         <elem tag="expan" attrs="abbr"/>
 
@@ -80,7 +82,8 @@
         <elem tag="name"/>
         <elem tag="title"/>
         <elem tag="imprint" elems="publisher, geogname">
-            <elem tag="date"/> <!-- OBS YEAR of publ. different from the date above -->
+            <elem tag="date"/>
+            <!-- OBS YEAR of publ. different from the date above -->
         </elem>
         <elem tag="publisher"/>
         <elem tag="geogname"/>
@@ -94,7 +97,8 @@
 
     <root tag="ead" attrs="xmlns, xmlns:xlink, xmlns:xsi, xsi:schemaLocation, audience ">
 
-        <elem tag="eadheader" attrs="countryencoding, dateencoding, langencoding, repositoryencoding, scriptencoding, relatedencoding">
+        <elem tag="eadheader"
+              attrs="countryencoding, dateencoding, langencoding, repositoryencoding, scriptencoding, relatedencoding">
             <elem tag="eadid" attrs="countrycode, identifier, mainagencycode, url"/>
             <elem tag="filedesc">
                 <elem tag="titlestmt">
@@ -133,7 +137,8 @@
                     <elem tag="famname" attrs="authfilenumber"/>
                     <elem tag="name" attrs="authfilenumber"/>
                 </elem>
-                <elem tag="langmaterial" attrs="encodinganalog" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
+                <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
+                <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
                 <elem tag="repository" elems="address"/>
                 <elem tag="extref" attrs="xlink:href, xlink:title"/>
                 <elem tag="physloc" attrs="label"/>
@@ -167,8 +172,6 @@
             <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
-
-
             <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
             <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
             <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
@@ -176,17 +179,16 @@
 
             <elem tag="controlaccess" elems="head">
                 <elem tag="p" elems="lb, emph, extref"/>
-
-                    <elem tag="name"/>
-                    <elem tag="geogname"/>
-                    <elem tag="famname"/>
-                    <elem tag="subject"/>
-                    <elem tag="corpname"/>
-                    <elem tag="persname"/>
-                    <elem tag="occupation"/>
-                    <elem tag="function"/>
-                    <elem tag="title"/>
-                    <elem tag="genreform"/>
+                <elem tag="name"/>
+                <elem tag="geogname"/>
+                <elem tag="famname"/>
+                <elem tag="subject"/>
+                <elem tag="corpname"/>
+                <elem tag="persname"/>
+                <elem tag="occupation"/>
+                <elem tag="function"/>
+                <elem tag="title"/>
+                <elem tag="genreform"/>
             </elem>
 
             <!-- Detailed descriptions -->
@@ -194,8 +196,6 @@
 
                 <!-- Fonds -->
                 <elem tag="c" attrs="level, encodinganalog, id">
-
-
                     <elem tag="did">
                         <elem tag="unitid" attrs="encodinganalog, type"/>
                         <elem tag="unittitle" attrs="encodinganalog"/>
@@ -206,7 +206,8 @@
                             <elem tag="famname" attrs="authfilenumber"/>
                             <elem tag="name" attrs="authfilenumber"/>
                         </elem>
-                        <elem tag="langmaterial" attrs="encodinganalog" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
+                        <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
+                        <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
                         <elem tag="repository" elems="address"/>
                         <elem tag="physloc" attrs="label"/>
                         <elem tag="materialspec"/>
@@ -252,16 +253,16 @@
 
                     <elem tag="controlaccess" elems="head">
                         <elem tag="p" elems="lb, emph, extref"/>
-                            <elem tag="name"/>
-                            <elem tag="geogname"/>
-                            <elem tag="famname"/>
-                            <elem tag="subject"/>
+                        <elem tag="name"/>
+                        <elem tag="geogname"/>
+                        <elem tag="famname"/>
+                        <elem tag="subject"/>
                         <elem tag="corpname"/>
-                            <elem tag="persname"/>
-                            <elem tag="occupation"/>
-                            <elem tag="function"/>
-                            <elem tag="title"/>
-                            <elem tag="genreform"/>
+                        <elem tag="persname"/>
+                        <elem tag="occupation"/>
+                        <elem tag="function"/>
+                        <elem tag="title"/>
+                        <elem tag="genreform"/>
                     </elem>
 
                     <elem tag="c" attrs="level, encodinganalog, id">
@@ -284,7 +285,8 @@
                                 <elem tag="genreform"/>
                                 <elem tag="dimensions" attrs="type, unit"/>
                             </elem>
-                            <elem tag="langmaterial" attrs="encodinganalog" elems="language"/> <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
+                            <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
+                            <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
                             <elem tag="repository" elems="address"/>
                             <elem tag="physloc" attrs="label"/>
                             <elem tag="container" attrs="type"/>
@@ -303,7 +305,6 @@
                         <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="bioghist" elems="head, p, list, table" attrs="encodinganalog"/>
-
                         <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
                         <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
@@ -321,16 +322,16 @@
 
                         <elem tag="controlaccess" elems="head">
                             <elem tag="p" elems="lb, emph, extref"/>
-                                <elem tag="name"/>
-                                <elem tag="geogname"/>
-                                <elem tag="famname"/>
-                                <elem tag="subject"/>
+                            <elem tag="name"/>
+                            <elem tag="geogname"/>
+                            <elem tag="famname"/>
+                            <elem tag="subject"/>
                             <elem tag="corpname"/>
-                                <elem tag="persname"/>
-                                <elem tag="occupation"/>
-                                <elem tag="function"/>
-                                <elem tag="title"/>
-                                <elem tag="genreform"/>
+                            <elem tag="persname"/>
+                            <elem tag="occupation"/>
+                            <elem tag="function"/>
+                            <elem tag="title"/>
+                            <elem tag="genreform"/>
                         </elem>
 
                     </elem>
