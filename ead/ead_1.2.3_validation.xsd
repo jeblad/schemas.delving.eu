@@ -1002,6 +1002,7 @@
     <xs:attributeGroup name="a.external.ptr">
         <xs:attributeGroup ref="xlink:simpleLink"/>
     </xs:attributeGroup>
+
     <xs:element name="ead">
         <xs:complexType>
             <xs:sequence>
@@ -1011,6 +1012,7 @@
             <xs:attributeGroup ref="a.common"/>
         </xs:complexType>
     </xs:element>
+
     <xs:complexType name="eadheader">
         <xs:sequence>
             <xs:element name="eadid" type="eadid"/>
@@ -1025,12 +1027,16 @@
         <xs:attribute default="iso15511" name="repositoryencoding" type="xs:NMTOKEN"/>
         <xs:attribute default="MARC21" name="relatedencoding" type="xs:NMTOKEN"/>
     </xs:complexType>
+
+
     <xs:complexType mixed="true" name="eadid">
         <xs:attribute name="url"/>
         <xs:attributeGroup ref="am.countrycode"/>
         <xs:attribute name="mainagencycode" type="data.repositorycode" use="required"/>
         <xs:attribute name="identifier" use="required"/>
     </xs:complexType>
+
+
     <xs:complexType name="filedesc">
         <xs:sequence>
             <xs:element name="titlestmt" type="titlestmt"/>
@@ -1078,6 +1084,7 @@
             <xs:element name="language" type="language"/>
         </xs:choice>
     </xs:complexType>
+
     <xs:complexType name="revisiondesc">
         <xs:choice>
             <xs:element name="list" type="list"/>
@@ -1086,6 +1093,7 @@
         <xs:attributeGroup ref="a.common"/>
         <xs:attribute name="encodinganalog"/>
     </xs:complexType>
+
     <xs:complexType name="change">
         <xs:sequence>
             <xs:element name="date" type="date"/>
