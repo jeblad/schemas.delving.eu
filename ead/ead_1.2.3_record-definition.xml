@@ -4,7 +4,7 @@
 
     <namespaces>
         <namespace prefix="ead" uri="urn:isbn:1-931666-22-9" schema="http://schemas.archivesportaleurope.net/profiles/apeEAD.xsd"/>
-        <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink" schema="http://www.w3.org/1999/xlink http://www.loc.gov/standards/xlink/xlink.xsd"/>
+        <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink" schema="http://www.loc.gov/standards/xlink/xlink.xsd"/>
     </namespaces>
 
     <attrs>
