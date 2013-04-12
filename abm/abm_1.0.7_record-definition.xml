@@ -162,7 +162,7 @@
 
         <elem tag="abm:type"/>
         <!-- knet, knreise, all -->
-        <elem tag="abm:collectionType"/>
+        <elem tag="abm:collectionType" required="true"/>
         <elem tag="abm:category"/>
 
         <elem tag="abm:creatorUri" fieldType="string"/>
