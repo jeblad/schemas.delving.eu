@@ -44,49 +44,43 @@
         <elem tag="abbr" attrs="expan"/>
         <elem tag="address" elems="addressline"/>
         <elem tag="addressline"/>
+        <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
         <elem tag="corpname" attrs="authfilenumber"/>
         <elem tag="emph" attrs="render"/>
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
         <elem tag="date" attrs="era, calendar, normal, encodinganalog"/>
         <elem tag="dimensions" attrs="type, unit"/>
         <elem tag="descrules" attrs="encodinganalog"/>
+        <elem tag="entry"/>
         <elem tag="expan" attrs="abbr"/>
         <elem tag="extent" attrs="unit"/>
         <elem tag="extref" attrs="xlink:href, xlink:title"/>
         <elem tag="famname" attrs="authfilenumber"/>
+        <elem tag="function"/>
         <elem tag="genreform"/>
         <elem tag="geogname"/>
         <elem tag="head"/>
+        <elem tag="imprint" elems="publisher, geogname, date"/>
         <elem tag="item"/>
         <!--<elem tag="item" elems="emph, lb"/>-->
         <elem tag="language" attrs="langcode, scriptcode, encodinganalog"/>
         <elem tag="lb"/>
         <elem tag="list" elems="head, item" attrs="type, numeration"/>
+        <elem tag="occupation"/>
         <elem tag="name" attrs="authfilenumber"/>
         <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
         <elem tag="persname" attrs="authfilenumber"/>
         <elem tag="physfacet" attrs="type, type"/>
         <elem tag="publisher" attrs="encodinganalog"/>
-
-
-        <elem tag="row">
-            <elem tag="entry"/>
-        </elem>
+        <elem tag="row" elems="entry"/>
         <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+        <elem tag="subject"/>
         <elem tag="table" elems="head, tgroup"/>
         <elem tag="tgroup" elems="thead, tbody" attrs="cols"/>
         <elem tag="thead" elems="row"/>
         <elem tag="tbody" elems="row"/>
-        <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
-
-        <!-- bibref -->
-        <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
-        <elem tag="name"/>
         <elem tag="title"/>
-        <elem tag="imprint" elems="publisher, geogname">
-            <elem tag="date"/>
-            <!-- OBS YEAR of publ. different from the date above -->
-        </elem>
+        <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
 
         <!-- did -->
         <elem tag="did">
@@ -150,19 +144,7 @@
             <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
             <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-            <elem tag="controlaccess" elems="head">
-                <elem tag="p" elems="lb, emph, extref"/>
-                <elem tag="name"/>
-                <elem tag="geogname"/>
-                <elem tag="famname"/>
-                <elem tag="subject"/>
-                <elem tag="corpname"/>
-                <elem tag="persname"/>
-                <elem tag="occupation"/>
-                <elem tag="function"/>
-                <elem tag="title"/>
-                <elem tag="genreform"/>
-            </elem>
+            <elem tag="controlaccess" elems="head, p, corpname, geogname, famname, name, occupation, persname, subject, function, title"/>
             <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
             <elem tag="otherfindaid" elems="head, p, list, table" attrs="encodinganalog"/>
