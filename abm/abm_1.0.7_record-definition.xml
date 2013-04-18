@@ -147,7 +147,7 @@
         <elem tag="abm:estateNr"/>
         <elem tag="abm:propertyName"/>
         <elem tag="abm:propertyNr"/>
-        <elem tag="abm:contentProvider"/>
+        <elem tag="abm:contentProvider" required="true"/>
         <elem tag="abm:address"/>
         <elem tag="abm:digitised"/>
 
@@ -287,19 +287,41 @@
 
     <field-markers>
 
-        <field-marker name="CREATOR" path="/record/dc:creator"/>
-        <field-marker name="TITLE" path="/record/dc:title"/>
-        <field-marker name="DESCRIPTION" path="/record/dc:description"/>
-        <field-marker name="OWNER" path="/record/europeana:dataProvider"/>
-        <field-marker name="PROVIDER" path="/record/europeana:provider"/>
-        <field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt" linkCheck="PAGE"/>
-        <field-marker name="THUMBNAIL" path="/record/europeana:object" linkCheck="IMAGE"/>
-        <field-marker name="GEOHASH" path="/record/abm:latLong"/>
-        <field-marker name="ADDRESS" path="/record/abm:address"/>
+        <field-marker name="delving:creator" path="/record/dc:creator"/>
+        <field-marker name="delving:title" path="/record/dc:title"/>
+        <field-marker name="delving:description" path="/record/dc:description"/>
+        <field-marker name="delving:owner" path="/record/europeana:dataProvider"/>
+        <field-marker name="delving:provider" path="/record/europeana:provider"/>
+        <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
+        <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
+        <field-marker name="delving:geohash" path="/record/abm:latLong" check="GEO_COORDINATE"/>
+        <field-marker name="delving:address" path="/record/abm:address"/>
 
         <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
         <field-marker name="SPEC"/>
-        <field-marker name="DEEP_ZOOM_URL" linkCheck="IMAGE"/>
+        <field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>
+
+	<!-- 
+	     ** check options **
+
+	LANDING_PAGE
+       	DIGITAL_OBJECT
+       	THUMBNAIL
+       	DEEP_ZOOM
+       	THESAURUS_REFERENCE
+       	LOD_REFERENCE
+       	GEO_COORDINATE
+	DATE -->
+       
+	<!-- field markers for link checking -->
+	<field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>
+	<field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/isShownBy" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/dc:date" check="DATE"/>
+
 
         <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
         <field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>
