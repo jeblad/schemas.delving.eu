@@ -17,7 +17,7 @@
             <groovy-code>
                 <string>def utmOut = true</string>
                 <string>String string = it.toString()</string>
-		<string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
+                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
                 <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
@@ -61,7 +61,7 @@
                 <string>def latitude = commaMatcher[0][1].toDouble()</string>
                 <string>def longitude = commaMatcher[0][2].toDouble()</string>
                 <string>if (utmOut) {</string>
-                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude, longitude).toUTMRef()</string>
+                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude,longitude).toUTMRef()</string>
                 <string>&quot;SRID=326${utmValue.lngZone};POINT(${utmValue.easting},${utmValue.northing})&quot;</string>
                 <string>}</string>
                 <string>else {</string>
@@ -77,7 +77,7 @@
             <groovy-code>
                 <string>def utmOut = false</string>
                 <string>String string = it.toString()</string>
-		<string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
+                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
                 <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
@@ -121,7 +121,7 @@
                 <string>def latitude = commaMatcher[0][1].toDouble()</string>
                 <string>def longitude = commaMatcher[0][2].toDouble()</string>
                 <string>if (utmOut) {</string>
-                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude, longitude).toUTMRef()</string>
+                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude,longitude).toUTMRef()</string>
                 <string>&quot;SRID=326${utmValue.lngZone};POINT(${utmValue.easting},${utmValue.northing})&quot;</string>
                 <string>}</string>
                 <string>else {</string>
@@ -301,26 +301,14 @@
         <field-marker name="SPEC"/>
         <field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>
 
-	<!-- 
-	     ** check options **
-
-	LANDING_PAGE
-       	DIGITAL_OBJECT
-       	THUMBNAIL
-       	DEEP_ZOOM
-       	THESAURUS_REFERENCE
-       	LOD_REFERENCE
-       	GEO_COORDINATE
-	DATE -->
-       
-	<!-- field markers for link checking -->
-	<field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>
-	<field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>
-	<field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
-	<field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
-	<field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
-	<field-marker path="/record/isShownBy" check="DIGITAL_OBJECT"/>
-	<field-marker path="/record/dc:date" check="DATE"/>
+        <!-- field markers for link checking -->
+        <field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>
+        <field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/isShownBy" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/dc:date" check="DATE"/>
 
 
         <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
@@ -364,7 +352,6 @@
             <opt value="Kunst"/>
         </opt-list>
     </opts>
-
 
     <docs>
 
