@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="abm" version="1.0.6" flat="true">
+<record-definition prefix="abm" version="1.0.7" flat="true">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/"
@@ -13,27 +13,126 @@
     </namespaces>
 
     <functions>
-	    <mapping-function name="latlongToUtm">
-	      <sample-input>
-		<string>59.907116,10.682953</string>
-	      </sample-input>
-	      <groovy-code>
-		<string>String[] split = it.replaceAll(&quot; &quot;, &quot;&quot;).split(&quot;,&quot;)</string>
-		<string>uk.me.jstott.jcoord.UTMRef utm = new uk.me.jstott.jcoord.LatLng(split.head().toDouble(), split.last().toDouble()).toUTMRef()</string>
-		<string>return &quot;SRID=326${utm.lngZone};POINT(${utm.easting},${utm.northing})&quot;</string>
-	      </groovy-code>
-	    </mapping-function>
-	    <mapping-function name="utmToLatLong">
-	      <sample-input>
-		<string>258644.154187,6648939.72091</string>
-	      </sample-input>
-	      <groovy-code>
-		<string>String[] split = it.replaceAll(&quot; &quot;, &quot;&quot;).split(&quot;,&quot;)</string>
-		<string>uk.me.jstott.jcoord.LatLng latlng =  new uk.me.jstott.jcoord.UTMRef(split.head().toDouble(),</string>
-		<string>split.last().toDouble(), &quot;V&quot; as char, 33).toLatLng()</string>
-		<string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
-	      </groovy-code>
-	    </mapping-function>
+        <mapping-function name="convertToUTM">
+            <groovy-code>
+                <string>def utmOut = true</string>
+                <string>String string = it.toString()</string>
+                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
+                <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>if (sridMatcher.matches()) {</string>
+                <string>def id = sridMatcher[0][1].toInteger()</string>
+                <string>def zone = id % 100</string>
+                <string>def east = sridMatcher[0][2].toDouble()</string>
+                <string>def north = sridMatcher[0][3].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;${it}&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, zone).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (utm33Matcher.matches()) {</string>
+                <string>def zone = utm33Matcher[0][1].toInteger()</string>
+                <string>def east = utm33Matcher[0][2].toDouble()</string>
+                <string>def north = utm33Matcher[0][3].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;SRID=326${zone};POINT(${east},${north})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, zone).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (spaceMatcher.matches()) {</string>
+                <string>def east = spaceMatcher[0][1].toDouble()</string>
+                <string>def north = spaceMatcher[0][2].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;SRID=32633;POINT(${east},${north})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, 33).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (commaMatcher.matches()) {</string>
+                <string>def latitude = commaMatcher[0][1].toDouble()</string>
+                <string>def longitude = commaMatcher[0][2].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude,longitude).toUTMRef()</string>
+                <string>&quot;SRID=326${utmValue.lngZone};POINT(${utmValue.easting},${utmValue.northing})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&quot;${latitude},${longitude}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&apos;&apos;</string>
+                <string>}</string>
+            </groovy-code>
+        </mapping-function>
+        <mapping-function name="convertToLATLONG">
+            <groovy-code>
+                <string>def utmOut = false</string>
+                <string>String string = it.toString()</string>
+                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
+                <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
+                <string>if (sridMatcher.matches()) {</string>
+                <string>def id = sridMatcher[0][1].toInteger()</string>
+                <string>def zone = id % 100</string>
+                <string>def east = sridMatcher[0][2].toDouble()</string>
+                <string>def north = sridMatcher[0][3].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;${it}&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, zone).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (utm33Matcher.matches()) {</string>
+                <string>def zone = utm33Matcher[0][1].toInteger()</string>
+                <string>def east = utm33Matcher[0][2].toDouble()</string>
+                <string>def north = utm33Matcher[0][3].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;SRID=326${zone};POINT(${east},${north})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, zone).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (spaceMatcher.matches()) {</string>
+                <string>def east = spaceMatcher[0][1].toDouble()</string>
+                <string>def north = spaceMatcher[0][2].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>&quot;SRID=32633;POINT(${east},${north})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>uk.me.jstott.jcoord.LatLng latlng = new uk.me.jstott.jcoord.UTMRef(east, north, &apos;V&apos; as char, 33).toLatLng()</string>
+                <string>&quot;${latlng.lat},${latlng.lng}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else if (commaMatcher.matches()) {</string>
+                <string>def latitude = commaMatcher[0][1].toDouble()</string>
+                <string>def longitude = commaMatcher[0][2].toDouble()</string>
+                <string>if (utmOut) {</string>
+                <string>uk.me.jstott.jcoord.UTMRef utmValue = new uk.me.jstott.jcoord.LatLng(latitude,longitude).toUTMRef()</string>
+                <string>&quot;SRID=326${utmValue.lngZone};POINT(${utmValue.easting},${utmValue.northing})&quot;</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&quot;${latitude},${longitude}&quot;</string>
+                <string>}</string>
+                <string>}</string>
+                <string>else {</string>
+                <string>&apos;&apos;</string>
+                <string>}</string>
+            </groovy-code>
+        </mapping-function>
     </functions>
 
     <root tag="record">
@@ -48,29 +147,29 @@
         <elem tag="abm:estateNr"/>
         <elem tag="abm:propertyName"/>
         <elem tag="abm:propertyNr"/>
-        <elem tag="abm:contentProvider"/>
+        <elem tag="abm:contentProvider" required="true"/>
         <elem tag="abm:address"/>
         <elem tag="abm:digitised"/>
 
         <!-- This is the full utm33 string 32 V 258644.154187 6648939.72091
       SRID=32633;POINT(148013,6964590)
       -->
-        <elem tag="abm:utm"/>
-	<elem tag="abm:polygon_utm"/>
-	<elem tag="abm:polygon_latLong"/>
+        <elem tag="abm:utm" function="convertToUTM"/>
+        <elem tag="abm:polygon_utm"/>
+        <elem tag="abm:polygon_latLong"/>
         <!-- 59.907116,10.682953 -->
-        <elem tag="abm:latLong" fieldType="geohash"/>
+        <elem tag="abm:latLong" fieldType="geohash" function="convertToLATLONG"/>
 
-	<elem tag="abm:type"/>
-	<!-- knet, knreise, all -->
-	<elem tag="abm:collectionType"/>
+        <elem tag="abm:type"/>
+        <!-- knet, knreise, all -->
+        <elem tag="abm:collectionType" required="true"/>
         <elem tag="abm:category"/>
 
         <elem tag="abm:creatorUri" fieldType="string"/>
-	<elem tag="abm:videoUri" fieldType="string"/>
-	<elem tag="abm:soundUri" fieldType="string"/>
-	<elem tag="abm:imageUri" fieldType="string"/>
-	<elem tag="abm:textUri" fieldType="string"/>
+        <elem tag="abm:videoUri" fieldType="string"/>
+        <elem tag="abm:soundUri" fieldType="string"/>
+        <elem tag="abm:imageUri" fieldType="string"/>
+        <elem tag="abm:textUri" fieldType="string"/>
 
         <elem tag="dc:contributor"/>
         <!-- ESE 3.4 -->
@@ -188,19 +287,29 @@
 
     <field-markers>
 
-        <field-marker name="CREATOR" path="/record/dc:creator"/>
-        <field-marker name="TITLE" path="/record/dc:title"/>
-        <field-marker name="DESCRIPTION" path="/record/dc:description"/>
-        <field-marker name="OWNER" path="/record/europeana:dataProvider"/>
-        <field-marker name="PROVIDER" path="/record/europeana:provider"/>
-        <field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt"/>
-        <field-marker name="THUMBNAIL" path="/record/europeana:object"/>
-        <field-marker name="GEOHASH" path="/record/abm:latLong"/>
-        <field-marker name="ADDRESS" path="/record/abm:address"/>
+        <field-marker name="delving:creator" path="/record/dc:creator"/>
+        <field-marker name="delving:title" path="/record/dc:title"/>
+        <field-marker name="delving:description" path="/record/dc:description"/>
+        <field-marker name="delving:owner" path="/record/europeana:dataProvider"/>
+        <field-marker name="delving:provider" path="/record/europeana:provider"/>
+        <field-marker name="delving:landingPage" path="/record/europeana:isShownAt" check="LANDING_PAGE"/>
+        <field-marker name="delving:thumbnail" path="/record/europeana:object" check="THUMBNAIL"/>
+        <field-marker name="delving:geohash" path="/record/abm:latLong" check="GEO_COORDINATE"/>
+        <field-marker name="delving:address" path="/record/abm:address"/>
 
         <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
         <field-marker name="SPEC"/>
-        <field-marker name="DEEP_ZOOM_URL"/>
+        <field-marker name="DEEP_ZOOM_URL" check="DEEP_ZOOM"/>
+
+        <!-- field markers for link checking -->
+        <field-marker path="/record/creatorUri" check="LOD_REFERENCE"/>
+        <field-marker path="/record/videoUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/dc:date" check="DATE"/>
+
 
         <field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>
         <field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>
@@ -221,11 +330,11 @@
         <assert xpath="//abm:latLong/text()">
             <code>
                 try {
-                    org.apache.lucene.spatial.DistanceUtils.parseLatitudeLongitude(it);
-                    '' // no error
+                org.apache.lucene.spatial.DistanceUtils.parseLatitudeLongitude(it);
+                '' // no error
                 }
                 catch (Exception e) {
-                    "Invalid Lat/Long [${it}} : ${e.message}"
+                "Invalid Lat/Long [${it}} : ${e.message}"
                 }
             </code>
         </assert>
@@ -233,349 +342,348 @@
 
     <opts>
         <opt-list dictionary="HHCat" path="/record/abm:category" displayName="Category">
-		<opt value="Arkeologi"/>
-		<opt value="Kulturminner"/>
-		<opt value="Kulturhistorie"/>
-		<opt value="Arkitektur"/>
-		<opt value="Dyreliv"/>
-		<opt value="Planteliv"/>
-		<opt value="Verneområder"/>
-		<opt value="Kunst"/>
-       </opt-list>
+            <opt value="Arkeologi"/>
+            <opt value="Kulturminner"/>
+            <opt value="Kulturhistorie"/>
+            <opt value="Arkitektur"/>
+            <opt value="Dyreliv"/>
+            <opt value="Planteliv"/>
+            <opt value="Verneområder"/>
+            <opt value="Kunst"/>
+        </opt-list>
     </opts>
-
 
     <docs>
 
-	<doc path="/record/dc:title">
+        <doc path="/record/dc:title">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A name given to the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:title or dc:description	
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dcterms:alternative">
+        </doc>
+
+        <doc path="/record/dcterms:alternative">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			An alternative name for the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dc:creator">
+        </doc>
+
+        <doc path="/record/dc:creator">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Name of the creator of object
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/abm:creatorUri">
+        </doc>
+
+        <doc path="/record/abm:creatorUri">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Unique identifier (URI) of the creator
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dc:subject">
+        </doc>
+
+        <doc path="/record/dc:subject">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			The topic of the resource, e.g. History, nature etc
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:subject or dc:type or dc:coverage or dcterms:spatial
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/abm:category">
+        </doc>
+
+        <doc path="/record/abm:category">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Select from the predetermined list, relevant for Kultur-og Naturreise prosjekt: Eg. Archeology, Animals, Plant, Place names. Art, Industrial Heritage, Social history. Categorization can be applied to a mapping of a Virtual Collection of Digitalt Fortalt data. This will be “Facetable”.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/abm:aboutPerson">
+        </doc>
+
+        <doc path="/record/abm:aboutPerson">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A person that is the subject of the described resource, eg. Persons described in documents,  persons depicted in photos, paintings and statues/busts, etc
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
+        </doc>
 
-	<doc path="/record/dc:description">
+        <doc path="/record/dc:description">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A description of the original analog or born digital object.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:title or dc:description		
                     ]]>
                 </para>
             </paras>
-        </doc>	
+        </doc>
 
-	<doc path="/record/europeana:dataProvider">
+        <doc path="/record/europeana:dataProvider">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Name of the organisation who supplies data to Europeana indirectly via an aggregator to be recorded and displayed in the portal. 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 		   Mandatory (max 1)				
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/abm:contentProvider">
+        </doc>
+
+        <doc path="/record/abm:contentProvider">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Same as Europeana:dataprovider
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dcterms:provenance">
+        </doc>
+
+        <doc path="/record/dcterms:provenance">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			This element is to record a statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity and interpretation. This may include a description of any changes successive custodians made to the resource. Eg. <dcterms:provenance>Donated by The National Library in 1965</dcterms:provenance>
 NB. For Europeana this relates particularly to the ownership and custody of the original analog or born-digital object.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/europeana:provider">
+        </doc>
+
+        <doc path="/record/europeana:provider">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Name of the organization that delivers data to Europeana. Eg. Kulturrådet
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 		   Mandatory (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dcterms:rightsHolder">
+        </doc>
+
+        <doc path="/record/dcterms:rightsHolder">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A person or organisation owning or managing rights over the resource
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>	 
-	
-	<doc path="/record/dc:rights">
+        </doc>
+
+        <doc path="/record/dc:rights">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			If possible the value in this element will include or refer to the name of the rights holder as in the example; <dc:rights>Copyright © British Library Board</dc:rights>
 			It is important to distinguish between this element and the mandatory europeana:rights element. The value in dc:rights can be any additional information about intellectual property rights, access rights or license arrangements for the digital object that has not been captured in the controlled value in europeana:rights element. It should not just duplicate the value in europeana:rights.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-				
-	<doc path="/record/europeana:rights">
+
+        <doc path="/record/europeana:rights">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Information about copyright of the digital object that is specified in isShownBy and isShownAt, URL constructed according to the specifications in the “Rights Guidelines” document on the Technical Requirements page at: http://pro.europeana.eu/technical-requirements
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (max 1)
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/europeana:isShownAt">
+        <doc path="/record/europeana:isShownAt">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			URL that will be active in the Europeana interface. It will lead users to the digital object displayed on the provider’s web site in its full information context.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (for drupal schema) (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/europeana:isShownBy">
+        <doc path="/record/europeana:isShownBy">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			URL which leads users directly to the digital object on the provider’s website where they can view or play it.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (for drupal schema) (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/europeana:object">
+        <doc path="/record/europeana:object">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			URL of a suitable source image in the best resolution available on the web site of the data provider from which small images could be generated for use in the portal. This will often be the same URL as given in europeana:isShownBy.
 In the event of video and sound files which also have an image Digitalt Fortalt for example, you can link to the image here and the sound file in “isShownBy”
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (for drupal schema) (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/dcterms:tableOfContents">
+        <doc path="/record/dcterms:tableOfContents">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			 A list of subunits of the resource, eg. <dcterms:tableOfContents>1. Introduction, 2. Contents of Elements, 3. Mapping, 4. Changes Made for MODS Version 3.2</dc:terms:tableOfContents>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/dc:publisher">
+        <doc path="/record/dc:publisher">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Refers to the publishing house but this can be interpreted more loosely for things that are not traditional books or articles etc.  dc:publisher refers only to the "original analogue or born digital object".  So for a book (or a picture in a book that has been digitised individually) then it would indeed be the name of the publishing house. 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/dc:contributor">
+        <doc path="/record/dc:contributor">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			dc:contributor varies between cultural heritage sectors and collections, e.g. Libraries may use it for all roles other than the author(s) when describing a book.  The author(s) would be dc:creator and it could be the illustrator or the person who wrote the Foreword as dc:contributor.  An academic thesis may have the Supervisor and the Examiner as contributors.  Sound recordings may have the composer as the creator and the orchestra playing the music as a contributor.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:date">
+        <doc path="/record/dc:date">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 				This date element should be used to contain the most significant date in the life of the digital object or the original physical object in the case of a digitisation. We recommend the use of ISO 8601 starting with the year and hyphenating the day and month parts: YYYY-MM-DD.
 				The values in the date elements will be used by the europeana normalisation process to generate values for europeana:year element. europeana:year will contain a standard four digit year of the Gregorian calendar (e.g. 1523). Before the Common Era, Before Christ or Before Present dates 
 				Currently, the Europeana portal cannot use BC, BCE or BP dates but such dates should be retained in the mapped metadata (i.e. dc:date) in order to be present for future development of the portal. 
@@ -592,96 +700,96 @@ In the event of video and sound files which also have an image Digitalt Fortalt 
 				which will generate: 
 				<europeana:year>1601</europeana:year> and <europeana:year>1700</europeana:year>
 							]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/dcterms:created">
+        <doc path="/record/dcterms:created">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Date of creation of the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:issued">
+        <doc path="/record/dcterms:issued">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Date of formal issuance (e.g., publication) of the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:digitised">
+        <doc path="/record/abm:digitised">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Date resource was digitised
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:temporal">
+        <doc path="/record/dcterms:temporal">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Temporal characteristics of the digital object or the original physical object in the case of a digitisation i.e. what the resource is about or depicts in terms of time. This is in contrast to dc:date which relates to an event in the life of the object itself (e.g. the creation or the art work or publication of the book.) NB. Values in this element will appear in the Time period line of a full result display in Europeana.Eg. <dcterms:temporal>Roman</dcterms:temporal>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:year">
+        <doc path="/record/europeana:year">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 Used in the Europeana timeline and the date facet. A point of time associated with an event in the life of the original analog or born digital object, e.g. 1814
 It is derived from dc:date and its refinements. It is used in the Europeana timeline and the date facet.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			N/A	
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:type">
+        <doc path="/record/dc:type">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			The nature or genre of the resource. Recommended best practice is to use a controlled vocabulary such as the DCMI Type Vocabulary [DCMITYPE]
 			Collection
 			Dataset
@@ -693,669 +801,669 @@ It is derived from dc:date and its refinements. It is used in the Europeana time
 			Sound
 			Text
 			]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:type or dc:subject or dcterms:spatial or dc:coverage			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:type">
+        <doc path="/record/europeana:type">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			All digital objects in Europeana must be classified as one of the 4
 Europeana types using upper case letters: TEXT, IMAGE, SOUND, VIDEO
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:format">
+        <doc path="/record/dc:format">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			 The file format, physical medium, or dimensions of the resource. Recommended to use a controlled vocabulary such as the list of Internet Media Types [MIME].
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:extent">
+        <doc path="/record/dcterms:extent">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Size or duration of the digital object and the original object may be recorded.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:medium">
+        <doc path="/record/dcterms:medium">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			The material or physical carrier of the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:identifier">
+        <doc path="/record/dc:identifier">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Unique identifier – URI This is the identifier for the original analog or born digital object. Use europeana:isShownBy for the URL of the digital object. If the URL is
 already included in the dc:identifier element in the existing metadata,
 keep it and repeat the information in europeana:isShownBy.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:coverage">
+        <doc path="/record/dc:coverage">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 Spatial topic and spatial applicability may be a named place or a location specified by its geographic coordinates. Temporal topic may be a named period, date, or date range. A jurisdiction may be a named administrative entity or a geographic place to which the resource applies. Recommended best practice is to use a controlled vocabulary such as the Thesaurus of Geographic Names [TGN]. Where appropriate, named places or time periods can be used in preference to numeric identifiers such as sets of coordinates or date ranges.			
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:coverage or dc:subject or dcterms:spatial or dc:type
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:spatial">
+        <doc path="/record/dcterms:spatial">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			(refinement of dc:coverage) It is preferred to use this more specific element for information about the spatial characteristics of the digital object or the original physical object in the case of a digitisation i.e. what the resource represents or depicts in terms of space. This may be a place name, a location, spatial co-ordinates or a named administrative entity. NB Values in this element will appear in the Geographic coverage line of a full result display in Europeana
 Eg.
 <dcterms:spatial>United States</dcterms:spatial> 
 <dcterms:spatial>California</dcterms:spatial> 
 <dcterms:spatial>San Francisco</dcterms:spatial>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory to supply either dc:coverage or dc:subject or dcterms:spatial or dc:type						
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:latLong">
+        <doc path="/record/abm:latLong">
             <paras>
                 <para name="Definition">
-			<![CDATA[
-		        ]]>
-                </para>    
+                    <![CDATA[
+                            ]]>
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory if you have lat/long  coordinates			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/polygon_latLong">
+        <doc path="/record/polygon_latLong">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			The abm:latLong field is the combined lat/long fields - used by the Solr GeoSearch. Format the coordinates in this field: lat,long
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/polygon_utm">
+        <doc path="/record/polygon_utm">
             <paras>
                 <para name="Definition">
-			<![CDATA[
-		        ]]>
-                </para>    
+                    <![CDATA[
+                            ]]>
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/utm">
+        <doc path="/record/utm">
             <paras>
                 <para name="Definition">
-			<![CDATA[
-		        ]]>
-                </para>    
+                    <![CDATA[
+                            ]]>
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
-    
-	<doc path="/record/abm:address">
+        </doc>
+
+        <doc path="/record/abm:address">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			o be given as a text string, if possible  according to a Syntax Encoding Scheme for addresses (yet to be specified),  or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:country">
+        <doc path="/record/abm:country">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Recommended best practice is to use country names conforming to ISO 3166, like [europeana:country]. Note: This property has to do with the topical coverage of the described resource, whereas [Europeana:country] denotes the country of the provider.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:country">
+        <doc path="/record/europeana:country">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			The name of the country of the data provider or “Europe” in the case of Europe-wide projects. 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:county">
+        <doc path="/record/abm:county">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			(Fykesnavn) To be given as a text string, if possible according to a Syntax Encoding Scheme for counties (yet to be specified) - names  conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:countyNr">
+        <doc path="/record/abm:countyNr">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			(Fylkesnummer) numbers conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:estateName">
+        <doc path="/record/abm:estateName">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Gårdsnavn : To be given as a text string, if possible according to a Syntax Encoding Scheme for landed properties (yet to be specified) -  name conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
 EXAMPLE: “Hellerud”
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:estateNr">
+        <doc path="/record/abm:estateNr">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Gårdsnummer: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
 EXAMPLE: “314”
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:propertyName">
+        <doc path="/record/abm:propertyName">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Bruksnavn: conforming to the authorised registry of landed properties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points 
 EXAMPLE: “Solbakken”
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:propertyNr">
+        <doc path="/record/abm:propertyNr">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Bruksnummer: EXAMPLE: ”013”
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:municipality">
+        <doc path="/record/abm:municipality">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			(Kommune) To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified), 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:municipalityNr">
+        <doc path="/record/abm:municipalityNr">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			(Kommunenummer) numbers conforming  to an authorised list of counties or the syntax encoding scheme DCMI Point (http://dublincore.org/documents/dcmi-point/) for spatial points
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/abm:namedPlace">
+        <doc path="/record/abm:namedPlace">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			To be given as a text string, if possible according to a Syntax Encoding Scheme for municipalities (yet to be specified), including names conforming  to an authorised list of named places or the syntax encoding scheme DCMI Point for spatial points.  EXAMPLE: Rosenhoff, Sinsen
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:language">
+        <doc path="/record/europeana:language">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			For Europeana’s language facet.
 			Expressed using the ISO 639-2 (the three-character code, e.g. “eng”)
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional - except for textual objects where a value has been provided for dc:language.			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:language">
+        <doc path="/record/dc:language">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A language of the resource.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory for Text objects.
 			Strongly recommended for other object types if there is a language aspect
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:uri">
+        <doc path="/record/europeana:uri">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 Map this element for dc:identifier
 For Europeana there is no need to provide a value for this element as it is generated by Europeana for use in their systems.  It is generated algorithmically based on a value in the source data, which is likely to be the identifier in dc:identifier, so you should ensure these are unique to each object submitted.			
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Mandatory (for drupal schema (max 1)			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/europeana:userTag">
+        <doc path="/record/europeana:userTag">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			This element is provided to support future functionality in Europeana (as for Jan 2013 not yet supported by Europeana’s system). These are tags created by registered users. <europeana:userTag>My favorite food!</europeana:userTag>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:relation">
+        <doc path="/record/dc:relation">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			This element should be used for information about resources that are related to the digital object or the original physical object in the case of a digitisation. It has been used for a wide range of relationships and it is recommended to use one of the several more specific relationship refinements see below) where appropriate. Ideally this value should be a URI but it is recognised that practice varies in this respect.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isVersionOf">
+        <doc path="/record/dcterms:isVersionOf">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 Use this element to identify a related resource of which the described resource is a version, edition, or adaptation. Changes in version imply substantive changes in content rather than differences in format.			
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:hasVersion">
+        <doc path="/record/dcterms:hasVersion">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Use this element to identify a related resource that is a version, edition or adaptation of the digital object described in the metadata. This implies changes in content rather than just a different format.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isReplacedBy">
+        <doc path="/record/dcterms:isReplacedBy">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource that supplants, displaces, or supersedes the digital object.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:replaces">
+        <doc path="/record/dcterms:replaces">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource that is supplanted, displaced, or superseded by the digital object.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isRequiredBy">
+        <doc path="/record/dcterms:isRequiredBy">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource that requires the digital object to support its function, delivery or coherence.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-    	</doc> 
+        </doc>
 
-	<doc path="/record/dcterms:requires">
+        <doc path="/record/dcterms:requires">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			a related resource that is required by the digital object to support its function, delivery or coherence.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isPartOf">
+        <doc path="/record/dcterms:isPartOf">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource in which the described resource is physically or logically included. More particularly, use this for the name of the collection of which the digital object is part, eg. <dcterms:isPartOf>Crace Collection of Maps of London</dcterms:isPartOf>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
 
-	<doc path="/record/dcterms:hasPart">
+        <doc path="/record/dcterms:hasPart">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Use this element to identify a related resource that is included either physically or logically in the digital object, eg The identifier for another map which is part of this one: <dcterms:hasPart>Maps.added.22231</dcterms:hasPart> 
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isReferencedBy">
+        <doc path="/record/dcterms:isReferencedBy">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 Use this element to identify a related resource that references, cites, or otherwise points to the digital object, eg. <dcterms:isPartOf>Crace Collection of Maps of London</dcterms:isPartOf>		
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-    	</doc> 
+        </doc>
 
-	<doc path="/record/dcterms:references">
+        <doc path="/record/dcterms:references">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource that is referenced, cited, or otherwise pointed to by the described resource. eg <dcterms:references>Honderd jaar Noorse  schilderkunst</dcterms:references>
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dc:source">
+        <doc path="/record/dc:source">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			A related resource from which the described resource is derived. The described resource may be derived from the related resource in whole or in part. Recommended best practice is to identify the related resource by means of a string conforming to a formal identification system.. The name of the content holder should no longer be recorded here as a new element, europeana:dataProvider has been defined for that purpose.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:isFormatOf">
+        <doc path="/record/dcterms:isFormatOf">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Use this element to identify a related resource that is substantially the same as the digital object but in a different format. Use when there are alternative formats and it is not clear which preceded the other.
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc> 
+        </doc>
 
-	<doc path="/record/dcterms:hasFormat">
+        <doc path="/record/dcterms:hasFormat">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Use this element to identify another resource that is substantially the same as the digital object being described by the metadata but exists in a different format. Use dcterms:hasVersion for changes in content. Purpose of this element is to give the identifier of the other resource in a different format, not to state the format of the object being described. <dcterms:hasFormat>http://upload.wikimedia.org/wikipedia/en/f/f3/Europeana_logo.png</dcterms:hasFormat> A link to another image format of a tiff image file being described.  
 		        ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>   
+        </doc>
 
-	<doc path="/record/dcterms:conformsTo">
+        <doc path="/record/dcterms:conformsTo">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			Use this element to identify standards to which the described resource conforms, eg: 	<dcterms:conformsTo>W3C WCAG 2.0</dcterms:conformsTo>
 
                     ]]>
-                </para>    
+                </para>
                 <para name="Requirements">
-		   <![CDATA[
+                    <![CDATA[
 			Optional			
                     ]]>
                 </para>
             </paras>
-        </doc>    
+        </doc>
 
-	<doc path="/record/europeana:unstored">
+        <doc path="/record/europeana:unstored">
             <paras>
                 <para name="Definition">
-			<![CDATA[
+                    <![CDATA[
 			This is a container element which includes all relevant information that
 			otherwise cannot be mapped to another element in the ESE.eg.
 			<europeana:unstored>National Gallery, London</europeana:unstored>
 			(Where the National Gallery was the previous location of the object; but there is no other element suitable for this information.)
                     ]]>
-                </para>    
-           </paras>
-        </doc>    
+                </para>
+            </paras>
+        </doc>
     </docs>
 
 </record-definition>
