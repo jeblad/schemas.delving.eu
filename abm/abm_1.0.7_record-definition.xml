@@ -307,7 +307,7 @@
         <field-marker path="/record/soundUri" check="DIGITAL_OBJECT"/>
         <field-marker path="/record/imageUri" check="DIGITAL_OBJECT"/>
         <field-marker path="/record/textUri" check="DIGITAL_OBJECT"/>
-        <field-marker path="/record/isShownBy" check="DIGITAL_OBJECT"/>
+        <field-marker path="/record/europeana:isShownBy" check="DIGITAL_OBJECT"/>
         <field-marker path="/record/dc:date" check="DATE"/>
 
 
