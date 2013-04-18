@@ -17,7 +17,7 @@
             <groovy-code>
                 <string>def utmOut = true</string>
                 <string>String string = it.toString()</string>
-                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((-?\d+),(\d+)\)/).matcher(string)</string>
+		<string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
                 <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
@@ -77,7 +77,7 @@
             <groovy-code>
                 <string>def utmOut = false</string>
                 <string>String string = it.toString()</string>
-                <string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((-?\d+),(\d+)\)/).matcher(string)</string>
+		<string>def sridMatcher = (~/\s*SRID=(\d+);POINT\((\d+)[, ](\d+)\)/).matcher(string)</string>
                 <string>def utm33Matcher = (~/(\d+) V (\d+\.\d+|\d+) *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def commaMatcher = (~/(\d+\.\d+|\d+), *(\d+\.\d+|\d+)/).matcher(string)</string>
                 <string>def spaceMatcher = (~/(\d+\.\d+|\d+) (\d+\.\d+|\d+)/).matcher(string)</string>
