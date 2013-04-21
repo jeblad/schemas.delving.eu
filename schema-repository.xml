@@ -32,10 +32,10 @@
         </version>
 	<version number="1.0.3">
             <author>Sjoerd Siebinga</author>
-            <message>added delving:geohash field</message>
-            <date>2012-11-14</date>
-            <file name="record-definition.xml" hash="50D7E7511C32739DE4987C9F928178FF"/>
-            <file name="validation.xsd" hash="B0D07B25F49559B40547780908742165"/>
+            <message>added delving:geohash field and added link check fields</message>
+            <date>2013-04-21</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
         </version>
     </schema>
     <schema prefix="abm">
@@ -117,6 +117,13 @@
             <date>2012-09-07</date>
             <file name="record-definition.xml" hash="A5897AD757CC6CE6063AC7D40CB46E57"/>
             <file name="validation.xsd" hash="BF15EEB7F611E34F4E26340CF0461D5D"/>
+        </version>
+        <version number="1.0.3">
+            <author>Sjoerd Siebinga</author>
+            <message>Updated the functions to reflect the new urls for the media server and added support for link checking</message>
+            <date></date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
         </version>
     </schema>
     <schema prefix="ese">
