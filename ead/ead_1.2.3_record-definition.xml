@@ -210,7 +210,28 @@
                 <!--NEW STRUCTURE BASED ON THE ELEM GROUP-->
                 <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
 
-                    <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id"/>
+                    <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                        <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                            <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                                <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                                    <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                                        <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+                                        </elem>
+
+                                    </elem>
+
+                                </elem>
+
+                            </elem>
+
+                        </elem>
+
+                    </elem>
 
                 </elem>
 
