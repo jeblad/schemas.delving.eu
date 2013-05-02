@@ -46,7 +46,7 @@
         <elem tag="addressline"/>
         <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
         <elem tag="corpname" attrs="authfilenumber"/>
-        <elem tag="emph" attrs="render"/>
+        <!--todo <elem tag="emph" attrs="render"/>-->
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
         <elem tag="date" attrs="era, calendar, normal, encodinganalog"/>
         <elem tag="dimensions" attrs="type, unit"/>
@@ -62,13 +62,13 @@
         <elem tag="head"/>
         <elem tag="imprint" elems="publisher, geogname, date"/>
         <elem tag="item"/>
-        <!--<elem tag="item" elems="emph, lb"/>-->
         <elem tag="language" attrs="langcode, scriptcode, encodinganalog"/>
         <elem tag="lb"/>
         <elem tag="list" elems="head, item" attrs="type, numeration"/>
         <elem tag="occupation"/>
         <elem tag="name" attrs="authfilenumber"/>
-        <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
+        <elem tag="p"/>
+        <!--todo <elem tag="p" elems="lb, emph, abbr, expan, extref"/>-->
         <elem tag="persname" attrs="authfilenumber"/>
         <elem tag="physfacet" attrs="type, type"/>
         <elem tag="publisher" attrs="encodinganalog"/>
@@ -79,7 +79,8 @@
         <elem tag="thead" elems="row"/>
         <elem tag="tbody" elems="row"/>
         <elem tag="title"/>
-        <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
+        <elem tag="titleproper" attrs="type, encodinganalog"/>
+        <!--todo <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>-->
 
         <!-- did -->
         <elem tag="did">
@@ -130,7 +131,8 @@
             <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
 
             <elem tag="controlaccess" elems="head">
-                <elem tag="p" elems="lb, emph, extref"/>
+                <elem tag="p"/>
+                <!--todo <elem tag="p" elems="lb, emph, extref"/>-->
                 <elem tag="name"/>
                 <elem tag="geogname"/>
                 <elem tag="famname"/>
@@ -152,7 +154,8 @@
             <elem tag="eadid" attrs="url, countrycode, mainagencycode, identifier  "/>
             <elem tag="filedesc">
                 <elem tag="titlestmt" elems="titleproper">
-                    <elem tag="subtitle" elems="lb, emph"/>
+                    <elem tag="subtitle"/>
+                    <!--todo <elem tag="subtitle" elems="lb, emph"/>-->
                     <elem tag="author" attrs="encodinganalog"/>
                 </elem>
                 <elem tag="publicationstmt" elems="publisher, date, address"/>
