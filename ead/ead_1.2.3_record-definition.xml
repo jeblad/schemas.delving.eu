@@ -224,6 +224,10 @@
 
                                             <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
 
+                                                <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
+
+                                                </elem>
+
                                             </elem>
 
                                         </elem>
