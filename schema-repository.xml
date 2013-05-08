@@ -13,6 +13,12 @@
             <date>2013-04-22</date>
             <file name="definition-list.xml" hash="E49AC88930C8D1F670B983E0E2763F08"/>
         </version>
+        <version number="1.0.2">
+            <author>Gerald de Jong</author>
+            <message>New licence added</message>
+            <date>2013-05-08</date>
+            <file name="definition-list.xml" hash="735F9ED50C61C633A138534AECA64A9A"/>
+        </version>
     </schema>
     <schema prefix="icn">
         <version number="1.0.0">
