@@ -295,32 +295,32 @@
 
 
     <opts>
-        <opt-list path="/mods/titleInfo" value="@type" displayName="Title Type">
+        <opt-list dictionary="TT" path="/mods/titleInfo" value="@type" displayName="Title Type">
             <opt value="abbreviated"/>
             <opt value="translated"/>
             <opt value="alternative"/>
             <opt value="uniform"/>
         </opt-list>
 
-        <opt-list path="/mods/name" value="@type" displayName="Name Type">
+        <opt-list dictionary="NT" path="/mods/name" value="@type" displayName="Name Type">
             <opt value="personal"/>
             <opt value="corporate"/>
             <opt value="conference"/>
             <opt value="family"/>
         </opt-list>
 
-        <opt-list path="/mods/location/url" value="@access" displayName="AccessType">
+        <opt-list dictionary="AT" path="/mods/location/url" value="@access" displayName="AccessType">
             <opt value="preview"/>
             <opt value="raw object"/>
             <opt value="object in context"/>
         </opt-list>
 
-        <opt-list path="/mods/name/role/roleTerm" displayName="Role Term">
+        <opt-list dictionary="RT" path="/mods/name/role/roleTerm" displayName="Role Term">
             <opt value="creator"/>
             <opt value="contributor"/>
         </opt-list>
 
-        <opt-list path="/mods/typeOfResource" displayName="Type Of Resource">
+        <opt-list dictionary="TR" path="/mods/typeOfResource" displayName="Type Of Resource">
             <opt value="text"/>
             <opt value="cartographic" hidden="true"/>
             <opt value="notated music" hidden="true"/>
