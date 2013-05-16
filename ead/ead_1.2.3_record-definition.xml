@@ -257,4 +257,18 @@
 
     </field-markers>
 
+    <!--<opts>-->
+        <!--<opt-list path="/record/findingAid/c" key="@key" value="@type" displayName="FindingAid">-->
+                <!--<opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds" value="root">-->
+                    <!--<dicts>-->
+                        <!--<dict path="/record/facets/facet" key="@key" value="@type" name="Facets">-->
+                            <!--<entry value="A"/>-->
+                            <!--<entry value="B"/>-->
+                        <!--</dict>-->
+                    <!--</dicts>-->
+                <!--</opt>-->
+            <!--</opt-list>-->
+    <!--</opts>-->
+
+
 </record-definition>
