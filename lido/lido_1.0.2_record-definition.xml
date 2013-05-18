@@ -400,11 +400,11 @@
         <!--</opt-list>-->
 
     <!--Object Category-->
-    <!--<opt-list path="/lido:lido/lido:category" displayName="Categories">-->
-        <!--<opt hidden="false" conceptID="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" conceptID/@type="URI" term="Man-Made Object" term/@xml:lang="en" value="Man-Made Object"/>-->
-        <!--<opt hidden="false" conceptID="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" conceptID/@type="URI" term="Thing" term/@xml:lang="en" value="Thing"/>-->
-    <!--</opt-list>-->
-</opts>
+        <!--<opt-list path="/lido:lido/lido:category" value="term" uri="conceptID" key="conceptID/@type" displayName="Categories" >-->
+              <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" key="URI" value="Man-Made Object"/>-->
+              <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" key="URI" value="Thing"/>-->
+        <!--</opt-list>-->
+    </opts>
 
 
     <field-markers>
