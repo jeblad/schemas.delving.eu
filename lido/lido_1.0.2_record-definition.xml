@@ -272,44 +272,139 @@
     </root>
 
     <opts>
-        <opt-list path="lido:lido/lido:descriptiveMetadata/lido:eventWrap/lido:eventSet/lido:event/lido:eventType/" value="term" displayName="Events">
-            <opt hidden="true" key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001" value="Acquisition"/>
-            <opt hidden="true" key="lido00002" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00002" value="Finding"/>
-            <opt hidden="true" key="lido00003" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00003" value="Event"/>
-            <opt hidden="true" key="lido00004" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00004" value="Activity"/>
-            <opt hidden="true" key="lido00005" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00005" value="Transfer Of Custody"/>
-            <opt hidden="true" key="lido00006" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00006" value="Modification"/>
-            <opt hidden="true" key="lido00007" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00007" value="Production"/>
-            <opt hidden="true" key="lido00008" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00008" value="Part addition"/>
-            <opt hidden="true" key="lido00009" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00009" value="Loss"/>
-            <opt hidden="true" key="lido00010" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00010" value="Collecting"/>
-            <opt hidden="true" key="lido00011" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00011" value="Use"/>
-            <opt hidden="true" key="lido00012" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00012" value="Creation"/>
-            <opt hidden="true" key="lido00013" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00013" value="Type creation"/>
-            <opt hidden="true" key="lido00021" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00021" value="Part removal"/>
-            <opt hidden="true" key="lido00022" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00022" value="Partial destruction"/>
-            <opt hidden="true" key="lido00023" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00023" value="Type assignment"/>
-            <opt hidden="true" key="lido00024" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00024" value="Attribute assignment"/>
-            <opt hidden="true" key="lido00025" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00025" value="Completion"/>
-            <opt hidden="true" key="lido00026" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00026" value="Destruction"/>
-            <opt hidden="true" key="lido00027" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00027" value="End of existence"/>
-            <opt hidden="true" key="lido00028" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00028" value="Beginning of existence"/>
-            <opt hidden="true" key="lido00029" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00029" value="Transformation"/>
-            <opt hidden="true" key="lido00030" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00030" value="Performance"/>
-            <opt hidden="true" key="lido00031" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00031" value="Execution"/>
-            <opt hidden="true" key="lido00032" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00032" value="Planning"/>
-            <opt hidden="true" key="lido00033" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00033" value="Excavation"/>
-            <opt hidden="true" key="lido00223" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00223" value="Move"/>
-            <opt hidden="true" key="lido00224" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00224" value="Designing"/>
-            <opt hidden="true" key="lido00225" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00225" value="Exhibition"/>
-            <opt hidden="true" key="lido00226" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00226" value="Commissioning"/>
-            <opt hidden="true" key="lido00227" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00227" value="Provenance"/>
-            <opt hidden="true" key="lido00228" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00228" value="Publication"/>
-            <opt hidden="true" key="lido00401" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00401" value="Marketing"/>
-            <opt hidden="true" key="lido00402" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00402" value="Conservation"/>
-        </opt-list>
-    </opts>
 
+        <!--&lt;!&ndash;Constants&ndash;&gt;-->
+        <!--<opt-list path="constant" value="" displayName="Constants">-->
+            <!--<opt value="local"/>-->
+            <!--<opt value="translated"/>-->
+            <!--<opt value="alternative"/>-->
+            <!--<opt value="uniform"/>-->
+        <!--</opt-list>-->
+
+
+        <!--&lt;!&ndash;LIDO:TYPE&ndash;&gt;-->
+        <!--<opt-list path="lido:type" value="" displayName="type">-->
+            <!--<opt value="person"/>-->
+            <!--<opt value="group"/>-->
+            <!--<opt value="family"/>-->
+            <!--<opt value="corporation"/>-->
+        <!--</opt-list>-->
+
+
+        <!--<opt-list path="#date:lido:type" value="" displayName="type">-->
+            <!--<opt value="exactDate"/>-->
+            <!--<opt value="estimatedDate"/>-->
+            <!--<opt value="deathDate"/>-->
+            <!--<opt value="birthDate"/>-->
+        <!--</opt-list>-->
+
+        <!--<opt-list path="#lido:placeSetComplexType" value="" displayName="type">-->
+            <!--<opt value="moveFrom"/>-->
+            <!--<opt value="moveTo"/>-->
+            <!--<opt value="alternative"/>-->
+        <!--</opt-list>-->
+
+        <!--<opt-list path="#periodname:lido:type" value="" displayName="type">-->
+            <!--<opt value="earliestPeriod"/>-->
+            <!--<opt value="latestPeriod"/>-->
+        <!--</opt-list>-->
+
+        <!--<opt-list path="#term:lido:type" value="" displayName="type">-->
+            <!--<opt value="preferred"/>-->
+            <!--<opt value="alternate"/>-->
+        <!--</opt-list>-->
+
+
+        <!--&lt;!&ndash;check K-Samsök&ndash;&gt;-->
+        <!--<opt-list path="#termMaterialsTech:lido:type" value="" displayName="type">-->
+            <!--<opt value="technique"/>-->
+            <!--<opt value="material"/>-->
+            <!--<opt value="implement"/>-->
+            <!--<opt value="mark"/>-->
+        <!--</opt-list>-->
+
+        <!--<opt-list path="#repositoryLocation:lido:type" value="" displayName="type">-->
+            <!--<opt value="current"/>-->
+            <!--<opt value="former"/>-->
+        <!--</opt-list>-->
+
+        <!--&lt;!&ndash;Unspec&ndash;&gt;-->
+        <!--<opt-list path="#others:lido:type" value="" displayName="type">-->
+            <!--<opt value="language"/>-->
+            <!--<opt value="local"/>-->
+            <!--<opt value="europeana:type"/> &lt;!&ndash;classification&ndash;&gt;-->
+            <!--<opt value="description"/> &lt;!&ndash;subject set / subject&ndash;&gt;-->
+            <!--<opt value="URI"/>-->
+            <!--<opt value="oai"/>-->
+            <!--<opt value="image_thumb"/>  &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value="image_master"/>  &lt;!&ndash; EuropenaInside  &ndash;&gt;-->
+            <!--<opt value="holder of image"/>  &lt;!&ndash;lido:resourceSource&ndash;&gt;-->
+            <!--<opt value=""/>-->
+            <!--<opt value=""/>-->
+        <!--</opt-list>-->
+
+        <!--&lt;!&ndash;Europeana inside        &ndash;&gt;-->
+        <!--<opt-list path="lido:type" value="" displayName="type">-->
+            <!--<opt value="object name"/> &lt;!&ndash; objectWorkTypeWrap ► objectWorkType ► term  &ndash;&gt;-->
+            <!--<opt value="collection name"/> &lt;!&ndash;  ► classificationWrap ► classification ► term &ndash;&gt;-->
+            <!--<opt value="short description"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
+            <!--<opt value="location"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
+            <!--<opt value="Is Part Of"/> &lt;!&ndash; ► relatedWorksWrap ► relatedWorkSet / relatedWorkRelType / @type="Is Part Of"  &ndash;&gt;-->
+            <!--<opt value="europeana:dataProvider"/> &lt;!&ndash; ► recordSource / @type="europeana:dataProvider"  &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+            <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--</opt-list>-->
+
+
+
+        <!--Type of event-->
+        <!--<opt-list path="/lido:lido/lido:descriptiveMetadata/lido:eventWrap/lido:eventSet/lido:event/lido:eventType" value="term" dictionary="eventType" displayName="Events">-->
+            <!--<opt hidden="false" key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001" value="Acquisition"/>-->
+            <!--<opt hidden="true" key="lido00002" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00002" value="Finding"/>-->
+            <!--<opt hidden="true" key="lido00003" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00003" value="Event"/>-->
+            <!--<opt hidden="true" key="lido00004" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00004" value="Activity"/>-->
+            <!--<opt hidden="true" key="lido00005" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00005" value="Transfer Of Custody"/>-->
+            <!--<opt hidden="true" key="lido00006" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00006" value="Modification"/>-->
+            <!--<opt hidden="true" key="lido00007" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00007" value="Production"/>-->
+            <!--<opt hidden="true" key="lido00008" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00008" value="Part addition"/>-->
+            <!--<opt hidden="true" key="lido00009" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00009" value="Loss"/>-->
+            <!--<opt hidden="true" key="lido00010" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00010" value="Collecting"/>-->
+            <!--<opt hidden="true" key="lido00011" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00011" value="Use"/>-->
+            <!--<opt hidden="true" key="lido00012" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00012" value="Creation"/>-->
+            <!--<opt hidden="true" key="lido00013" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00013" value="Type creation"/>-->
+            <!--<opt hidden="true" key="lido00021" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00021" value="Part removal"/>-->
+            <!--<opt hidden="true" key="lido00022" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00022" value="Partial destruction"/>-->
+            <!--<opt hidden="true" key="lido00023" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00023" value="Type assignment"/>-->
+            <!--<opt hidden="true" key="lido00024" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00024" value="Attribute assignment"/>-->
+            <!--<opt hidden="true" key="lido00025" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00025" value="Completion"/>-->
+            <!--<opt hidden="true" key="lido00026" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00026" value="Destruction"/>-->
+            <!--<opt hidden="true" key="lido00027" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00027" value="End of existence"/>-->
+            <!--<opt hidden="true" key="lido00028" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00028" value="Beginning of existence"/>-->
+            <!--<opt hidden="true" key="lido00029" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00029" value="Transformation"/>-->
+            <!--<opt hidden="true" key="lido00030" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00030" value="Performance"/>-->
+            <!--<opt hidden="true" key="lido00031" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00031" value="Execution"/>-->
+            <!--<opt hidden="true" key="lido00032" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00032" value="Planning"/>-->
+            <!--<opt hidden="true" key="lido00033" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00033" value="Excavation"/>-->
+            <!--<opt hidden="true" key="lido00223" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00223" value="Move"/>-->
+            <!--<opt hidden="true" key="lido00224" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00224" value="Designing"/>-->
+            <!--<opt hidden="true" key="lido00225" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00225" value="Exhibition"/>-->
+            <!--<opt hidden="true" key="lido00226" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00226" value="Commissioning"/>-->
+            <!--<opt hidden="true" key="lido00227" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00227" value="Provenance"/>-->
+            <!--<opt hidden="true" key="lido00228" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00228" value="Publication"/>-->
+            <!--<opt hidden="true" key="lido00401" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00401" value="Marketing"/>-->
+            <!--<opt hidden="true" key="lido00402" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00402" value="Conservation"/>-->
+        <!--</opt-list>-->
+
+    <!--Object Category-->
+    <!--<opt-list path="/lido:lido/lido:category" displayName="Categories">-->
+        <!--<opt hidden="false" conceptID="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" conceptID/@type="URI" term="Man-Made Object" term/@xml:lang="en" value="Man-Made Object"/>-->
+        <!--<opt hidden="false" conceptID="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" conceptID/@type="URI" term="Thing" term/@xml:lang="en" value="Thing"/>-->
+    <!--</opt-list>-->
+</opts>
 
 
     <field-markers>
