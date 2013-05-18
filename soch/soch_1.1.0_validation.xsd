@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema attributeFormDefault="unqualified"
+           elementFormDefault="qualified"
+           targetNamespace="http://schemas.delving.eu/soch/"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:soch="http://schemas.delving.eu/soch/"
+           xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+            >
+           <!--xmlns:xml="http://www.w3.org/XML/1998/namespace"-->
+           <!--xmlns:foaf="http://xmlns.com/foaf/0.1/#"-->
+           <!--xmlns:geoF="http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#"-->
+           <!--xmlns:owl="http://www.w3.org/2002/07/owl#"-->
+           <!--xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"-->
+           <!--xmlns:time="http://www.w3.org/2006/time#"-->
+           <!--xmlns:georss="http://www.georss.org/georss"-->
+           <!--xmlns:gml="http://www.opengis.net/gml"-->
+           <!--xmlns:bio="http://purl.org/vocab/bio/0.1/"-->
+           <!--xmlns:crm="http://www.cidoc-crm.org/rdfs/cidoc-crm#"-->
+
+
+    <!--<xsd:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="http://www.w3.org/2000/07/rdf.xsd"/>-->
+    <!--<xsd:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="http://www.openarchives.org/OAI/2.0/rdf.xsd"/>-->
+    <xsd:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="http://www.europeana.eu/schemas/edm/RDF.xsd"/>
+
+    <xsd:element name="Entity" type="soch:entityType"/>
+
+    <xsd:complexType name="entityType">
+        <xsd:sequence>
+            <xsd:element name="ksamsokVersion" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="serviceName" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="serviceOrganization" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="buildDate" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="itemForIndexing" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="collection" minOccurs="0" maxOccurs="1"/>
+
+        </xsd:sequence>
+        <xsd:attribute ref="rdf:about"/>
+
+    </xsd:complexType>
+
+
+</xsd:schema>

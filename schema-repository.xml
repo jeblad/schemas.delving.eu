@@ -241,6 +241,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="soch">
+        <version number="1.1.0">
+            <author>Thomas Wikman</author>
+            <message>SOCH</message>
+            <date>2013-05-18</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 
 
 </schemas>
