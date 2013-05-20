@@ -2,6 +2,7 @@
 <record-definition prefix="lido" version="1.0.2">
     <namespaces>
         <namespace prefix="lido" uri="http://www.lido-schema.org" schema="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd"/>
+        <namespace prefix="gml" uri="http://www.opengis.net/gml" schema="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
     </namespaces>
 
     <attrs>
