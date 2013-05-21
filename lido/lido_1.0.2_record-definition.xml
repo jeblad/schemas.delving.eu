@@ -274,17 +274,15 @@
 
 
     <field-markers>
-           <!--&lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;-->
-           <!--<field-marker name="CREATOR" path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordSource/lido:legalBodyName/lido:appellationValue"/>-->
-           <!--<field-marker name="TITLE" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:titleWrap/lido:titleSet/lido:appellationValue"/>-->
-           <!--<field-marker name="DESCRIPTION" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:objectDescriptionWrap/lido:objectDescriptionSet/lido:descriptiveNoteValue"/>-->
+           <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+           <field-marker name="CREATOR" path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordSource/lido:legalBodyName/lido:appellationValue"/>
+           <field-marker name="TITLE" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:titleWrap/lido:titleSet/lido:appellationValue"/>
+           <field-marker name="DESCRIPTION" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:objectDescriptionWrap/lido:objectDescriptionSet/lido:descriptiveNoteValue"/>
            <!--<field-marker name="OWNER" path="facts/provider"/>-->
            <!--<field-marker name="PROVIDER" path="facts/dataprovider"/>-->
-           <!--<field-marker name="LANDING_PAGE"/>-->
-           <!--<field-marker name="THUMBNAIL"/>-->
-           <!--<field-marker name="THUMBNAIL"/>-->
-           <!--<field-marker name="SPEC" path="facts/spec"/>-->
-           <!--<field-marker name="DEEP_ZOOM_URL"/>-->
+           <field-marker name="LANDING_PAGE"/>
+           <field-marker name="THUMBNAIL"/>
+           <field-marker name="DEEP_ZOOM_URL"/>
        </field-markers>
 
     <opts>
