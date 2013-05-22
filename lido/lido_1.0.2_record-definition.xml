@@ -283,7 +283,6 @@
            <field-marker name="LANDING_PAGE"/>
            <field-marker name="THUMBNAIL"/>
            <field-marker name="DEEP_ZOOM_URL"/>
-
         <!--link checks-->
         <field-marker name="delving:landingPage" path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordInfoSet/lido:recordInfoLink" check="LANDING_PAGE"/>
     </field-markers>
