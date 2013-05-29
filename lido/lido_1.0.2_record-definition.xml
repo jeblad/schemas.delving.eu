@@ -420,11 +420,12 @@
                     <opt hidden="true" key="lido00402" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00402" value="Conservation"/>
                 </opt-list>
 
-            <!--Object Category-->
-                <!--<opt-list path="/lido:lido/lido:category" value="term" uri="conceptID" key="conceptID/@type" displayName="Categories" >-->
-                      <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" key="URI" value="Man-Made Object"/>-->
-                      <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" key="URI" value="Thing"/>-->
-                <!--</opt-list>-->
+                <!--Object Category-->
+                <!--Dictionary, match against a mapped value from source, replace all values (value, uri, key) if mapped from source -->
+                <opt-list path="/lido:lido/lido:category" value="term" uri="conceptID" key="conceptID/@type" displayName="Categories" >
+                      <opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" key="URI" value="Man-Made Object"/>
+                      <opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" key="URI" value="Thing" />
+                </opt-list>
     </opts>
 
 
