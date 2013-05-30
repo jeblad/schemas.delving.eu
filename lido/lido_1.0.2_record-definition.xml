@@ -274,22 +274,45 @@
 
 
     <field-markers>
-           <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
-           <field-marker name="CREATOR" path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordSource/lido:legalBodyName/lido:appellationValue"/>
-           <field-marker name="TITLE" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:titleWrap/lido:titleSet/lido:appellationValue"/>
-           <field-marker name="DESCRIPTION" path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:objectDescriptionWrap/lido:objectDescriptionSet/lido:descriptiveNoteValue"/>
-           <!--<field-marker name="OWNER" path="facts/provider"/>-->
-           <!--<field-marker name="PROVIDER" path="facts/dataprovider"/>-->
-           <field-marker name="LANDING_PAGE"/>
-           <field-marker name="THUMBNAIL"/>
-           <field-marker name="DEEP_ZOOM_URL"/>
-        <!--link checks-->
-        <field-marker name="delving:landingPage" path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordInfoSet/lido:recordInfoLink" check="LANDING_PAGE"/>
-        <!--<field-marker name="delving:thumbnail" xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[type='image_thumb']/lido:linkResource" check="THUMBNAIL"/>-->
-        <!--<field-marker name="delving:ImageUrl" xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[type='image_master']/lido:linkResource" check="DIGITAL_OBJECT"/>-->
-        <!--<field-marker name="delving:ImageUrl" xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[type='image_preview']/lido:linkResource" check="DIGITAL_OBJECT"/>-->
-        <field-marker path="/lido:lido/lido:objectPublishedID" check="LOD_REFERENCE"/>
-
+        <field-marker
+                name="delving:creator"
+                path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordSource/lido:legalBodyName/lido:appellationValue"
+                />
+        <field-marker
+                name="delving:title"
+                path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:titleWrap/lido:titleSet/lido:appellationValue"
+                />
+        <field-marker
+                name="delving:description"
+                path="/lido:lido/lido:descriptiveMetadata/lido:objectIdentificationWrap/lido:objectDescriptionWrap/lido:objectDescriptionSet/lido:descriptiveNoteValue"
+                />
+        <field-marker
+                name="delving:landingPage"
+                path="/lido:lido/lido:administrativeMetadata/lido:recordWrap/lido:recordInfoSet/lido:recordInfoLink"
+                check="LANDING_PAGE"
+                />
+        <field-marker
+                name="delving:thumbnail"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_thumb']/lido:linkResource/text()"
+                check="THUMBNAIL"
+                />
+        <field-marker
+                name="delving:imageUrl"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
+                check="DIGITAL_OBJECT"
+                />
+        <!--<field-marker name="OWNER" path="facts/provider"/>-->
+        <!--<field-marker name="PROVIDER" path="facts/dataprovider"/>-->
+        <!--<field-marker-->
+                <!--name="delving:Pdf"-->
+                <!--xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@type='image_preview']/lido:linkResource"-->
+                <!--check="DIGITAL_OBJECT"-->
+                <!--/>-->
+        <!--<field-marker -->
+                <!--path="/lido:lido/lido:objectPublishedID" -->
+                <!--check="LOD_REFERENCE"-->
+                <!--/>-->
+        <!--<field-marker name="DEEP_ZOOM_URL"/>-->
     </field-markers>
 
     <opts>
@@ -380,17 +403,27 @@
                 <!--</opt-list>-->
 
         <!--Image type-->
-        <opt-list path="/input/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentatio/" value="@lido:type" displayName="Image type">
+        <opt-list
+                dictionary="ResRep"
+                path="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation"
+                value="@lido:type"
+                displayName="Image type"
+                >
             <opt value="image_thumb"/>
             <opt value="image_master"/>
-            <opt value="image_master"/>
+            <opt value="image_preview"/>
         </opt-list>
 
 
         <!--Type of event-->
         <!--2 "use cases" 1. add a new eventType-tree to the structure and map to that. 2. If leaf to leaf from the source check that the event types from the source is matched/validated against this     -->
-        <opt-list path="/lido:lido/lido:descriptiveMetadata/lido:eventWrap/lido:eventSet/lido:event/lido:eventType" value="term" dictionary="eventType" displayName="Events">
-            <opt hidden="false" key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001" value="Acquisition"/>
+        <opt-list
+                path="/lido:lido/lido:descriptiveMetadata/lido:eventWrap/lido:eventSet/lido:event/lido:eventType"
+                value="term"
+                dictionary="EventType"
+                displayName="Events"
+                >
+            <opt key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001" value="Acquisition"/>
             <opt hidden="true" key="lido00002" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00002" value="Finding"/>
             <opt hidden="true" key="lido00003" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00003" value="Event"/>
             <opt hidden="true" key="lido00004" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00004" value="Activity"/>
@@ -428,7 +461,14 @@
 
         <!--Object Category-->
         <!--Dictionary, match against a mapped value from source, replace all values (value, uri, key) if mapped from source -->
-        <opt-list path="/lido:lido/lido:category" value="term" uri="conceptID" key="conceptID/@type" displayName="Categories">
+        <opt-list
+                dictionary="Cat"
+                path="/lido:lido/lido:category"
+                value="term"
+                uri="conceptID"
+                key="conceptID/@type"
+                displayName="Categories"
+                >
             <opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" key="URI" value="Man-Made Object"/>
             <opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" key="URI" value="Thing"/>
         </opt-list>
