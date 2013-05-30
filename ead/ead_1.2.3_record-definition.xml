@@ -78,7 +78,8 @@
         <elem tag="thead" elems="row"/>
         <elem tag="tbody" elems="row"/>
         <elem tag="title"/>
-        <elem tag="titleproper" elems="lb, emph" attrs="encodinganalog, type"/>
+        <!-- <elem tag="titleproper" elems="lb, emph" attrs="encodinganalog, type"/> TODO -->
+        <elem tag="titleproper" attrs="encodinganalog, type"/>
 
         <!-- did -->
         <elem tag="did">
@@ -97,7 +98,6 @@
         </elem>
 
     </elems>
-
 
     <elem-groups>
 
@@ -143,6 +143,8 @@
 
     </elem-groups>
 
+
+
     <root tag="ead" attrs="audience">
 
         <elem tag="eadheader" attrs="langencoding, scriptencoding, dateencoding, countryencoding, repositoryencoding, relatedencoding">
@@ -161,8 +163,7 @@
                 <elem tag="langusage" elems="language"/>
                 <elem tag="descrules"/>
             </elem>
-            <elem tag="revisiondesc" attrs="encodinganalog">
-                <!--<elem tag="list" elems="head, item"/>  &lt;!&ndash; ITEM contatins LIST acc to XSD CHECK AGAIN&ndash;&gt;-->
+            <elem tag="revisiondesc" elems="list" attrs="encodinganalog">
                 <elem tag="change" elems="date, item"/>
             </elem>
         </elem>
