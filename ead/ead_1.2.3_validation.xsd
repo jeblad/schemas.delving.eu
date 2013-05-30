@@ -946,6 +946,8 @@
                     <xs:enumeration value="item"/>
                     <xs:enumeration value="series"/>
                     <xs:enumeration value="subseries"/>
+                    <xs:enumeration value="otherlevel"/> <!--added by tw-->
+
                 </xs:restriction>
             </xs:simpleType>
 		</xs:attribute>
