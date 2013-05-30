@@ -101,35 +101,60 @@
 
 
     <elem-groups>
-        <elem-group name="c_group">
 
-            <elem tag="appraisal" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="processinfo" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="custodhist" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="bioghist" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="arrangement" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="fileplan" elems="head, list, table, p"/> <!-- THE ONLY BIG P -->
+        <elem-group name="m.desc.base.lowlevels">
+
+            <elem tag="accessrestrict" elems="head, list, table, p" attrs="encodinganalog"/>
             <elem tag="accruals" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="acqinfo" elems="head, list, table, p" attrs="encodinganalog"/>
             <elem tag="altformavail" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="relatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="separatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="appraisal" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+            <elem tag="controlaccess" elems="head, p, corpname, geogname, famname, name, occupation, persname, subject, function, title"/>
+            <elem tag="custodhist" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="odd" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="otherfindaid" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+            <elem tag="processinfo" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="scopecontent" elems="head, list, table, p, table" attrs="encodinganalog"/>
+            <elem tag="userestrict" elems="head, list, table, p" attrs="encodinganalog"/>
+
+        </elem-group>
+
+
+        <elem-group name="m.desc.base.highlevels">
+
+            <elem tag="acqinfo" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="arrangement" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
+            <elem tag="fileplan" elems="head, list, table, p"/> <!-- THE ONLY BIG P -->
             <elem tag="originalsloc" elems="head, list, table, p" attrs="encodinganalog"/>
             <elem tag="prefercite" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="otherfindaid" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="accessrestrict" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="userestrict" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+            <elem tag="relatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="separatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
 
-            <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
+        </elem-group>
 
+        <elem-group name="c_group">
+
+            <elem tag="acqinfo" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="arrangement" elems="head, list, table, p" attrs="encodinganalog"/>
             <elem tag="bibliography" attrs="encodinganalog">
                 <elem tag="head"/>
                 <elem tag="p"/>
                 <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
             </elem>
-            <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
+            <elem tag="fileplan" elems="head, list, table, p"/> <!-- THE ONLY BIG P -->
+            <elem tag="originalsloc" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="prefercite" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="relatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="separatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
 
+
+            <elem tag="accessrestrict" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="accruals" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="altformavail" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="appraisal" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="bioghist" elems="head, list, table, p" attrs="encodinganalog"/>
             <elem tag="controlaccess" elems="head">
                 <elem tag="p"/>
                 <!--todo <elem tag="p" elems="lb, emph, extref"/>-->
@@ -144,6 +169,14 @@
                 <elem tag="title"/>
                 <elem tag="genreform"/>
             </elem>
+            <elem tag="custodhist" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
+            <elem tag="otherfindaid" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+            <elem tag="processinfo" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="scopecontent" elems="head, list, table, p" attrs="encodinganalog"/>
+            <elem tag="userestrict" elems="head, list, table, p" attrs="encodinganalog"/>
+
         </elem-group>
     </elem-groups>
 
@@ -175,75 +208,29 @@
         </elem>
 
         <!-- Archival description -->
-        <elem tag="archdesc" elems="did" attrs="level, type, encodinganalog, relatedencoding">
-
-
-            <!--m.desc.base.lowlevels-->
-            <elem tag="accessrestrict" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="accruals" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="altformavail" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="appraisal" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-            <elem tag="controlaccess" elems="head, p, corpname, geogname, famname, name, occupation, persname, subject, function, title"/>
-            <elem tag="custodhist" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="odd" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="otherfindaid" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
-            <elem tag="processinfo" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="scopecontent" elems="head, list, table, p, table" attrs="encodinganalog"/>
-            <elem tag="userestrict" elems="head, list, table, p" attrs="encodinganalog"/>
-
-            <!--m.desc.base.highlevels-->
-            <elem tag="acqinfo" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="arrangement" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
-            <elem tag="fileplan" elems="head, list, table, p"/> <!-- THE ONLY BIG P -->
-            <elem tag="originalsloc" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="prefercite" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="relatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
-            <elem tag="separatedmaterial" elems="head, list, table, p" attrs="encodinganalog"/>
+        <elem tag="archdesc" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, type, encodinganalog, relatedencoding">
 
             <!-- Detailed descriptions -->
             <elem tag="dsc" elems="head, list, table, p" attrs="type">
 
-
-                <!--NEW STRUCTURE BASED ON THE ELEM GROUP-->
                 <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                     <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                         <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                             <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                 <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                     <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                         <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                             <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                                 <elem tag="c" elems="did" elem-groups="c_group" attrs="level, encodinganalog, id">
-
                                                 </elem>
-
                                             </elem>
-
                                         </elem>
-
                                     </elem>
-
                                 </elem>
-
                             </elem>
-
                         </elem>
-
                     </elem>
-
                 </elem>
-
             </elem>
         </elem>
 
