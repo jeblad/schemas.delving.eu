@@ -946,7 +946,7 @@
                     <xs:enumeration value="item"/>
                     <xs:enumeration value="series"/>
                     <xs:enumeration value="subseries"/>
-                    <xs:enumeration value="otherlevel"/> <!--OBS OBS OBS added by tw-->
+                    <xs:enumeration value="otherlevel"/> <!--added by tw-->
 
                 </xs:restriction>
             </xs:simpleType>
@@ -1399,7 +1399,7 @@
 		<xs:sequence>
 			<xs:element minOccurs="0" name="head" type="head"/>
 			<xs:choice maxOccurs="unbounded">
-                <xs:group ref="m.blocks"/>
+                <xs:group ref="m.blocks"/>				
 				<xs:element name="bibref" type="bibref"/>
 			</xs:choice>
 		</xs:sequence>
