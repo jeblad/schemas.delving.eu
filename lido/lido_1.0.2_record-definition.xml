@@ -298,8 +298,12 @@
                 />
         <field-marker
                 name="delving:imageUrl"
-                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_preview']/lido:linkResource"
                 check="DIGITAL_OBJECT"
+		/>
+        <field-marker
+                name="delving:fullTextObjectUrl"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
                 />
         <!--<field-marker name="OWNER" path="facts/provider"/>-->
         <!--<field-marker name="PROVIDER" path="facts/dataprovider"/>-->
