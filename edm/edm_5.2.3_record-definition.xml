@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<record-definition prefix="rdf" version="5.2.3" flat="false">
+<record-definition prefix="edm" version="5.2.3" flat="false">
 
     <namespaces>
         <namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
@@ -176,7 +176,7 @@
 
 
     <opts>
-        <!--<opt-list dictionary="HHCat" path="/record/edm:ProvidedCHO/dc:title" displayName="Category">-->
+        <!--<opt-list dictionary="HHCat" path="/RDF/edm:ProvidedCHO/dc:title" displayName="Category">-->
             <!--<opt value="Archeology"/>-->
             <!--<opt value="Animals"/>-->
             <!--<opt value="Plant"/>-->
@@ -191,723 +191,728 @@
 
     <field-markers>
 
-          <!--<field-marker name="CREATOR" path="/record/dc:creator"/>-->
-          <!--<field-marker name="delving:title" path="/record/edm:ProvidedCHO/dc:title"/>-->
-          <!--<field-marker name="DESCRIPTION" path="/record/dc:description"/>-->
-          <!--<field-marker name="OWNER" path="/record/europeana:dataProvider"/>-->
-          <!--<field-marker name="PROVIDER" path="/record/europeana:provider"/>-->
-          <!--<field-marker name="LANDING_PAGE" path="/record/europeana:isShownAt"/>-->
-          <!--<field-marker name="THUMBNAIL" path="/record/europeana:object"/>-->
-          <!--<field-marker name="GEOHASH" path="/record/abm:geo"/>-->
-          <!--<field-marker name="ADDRESS" path="/record/abm:address"/>-->
+          <!--<field-marker name="CREATOR" path="/RDF/dc:creator"/>-->
+          <!--<field-marker name="delving:title" path="/RDF/edm:ProvidedCHO/dc:title"/>-->
+          <!--<field-marker name="DESCRIPTION" path="/RDF/dc:description"/>-->
+          <!--<field-marker name="OWNER" path="/RDF/europeana:dataProvider"/>-->
+          <!--<field-marker name="PROVIDER" path="/RDF/europeana:provider"/>-->
+          <!--<field-marker name="LANDING_PAGE" path="/RDF/europeana:isShownAt"/>-->
+          <!--<field-marker name="THUMBNAIL" path="/RDF/europeana:object"/>-->
+          <!--<field-marker name="GEOHASH" path="/RDF/abm:geo"/>-->
+          <!--<field-marker name="ADDRESS" path="/RDF/abm:address"/>-->
 
           <!--&lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;-->
           <!--<field-marker name="SPEC"/>-->
           <!--<field-marker name="DEEP_ZOOM_URL"/>-->
 
-          <!--<field-marker type="search" name="SNIPPET" path="/record/dc:subject"/>-->
-          <!--<field-marker type="search" name="SNIPPET" path="/record/dcterms:alternative"/>-->
-          <!--<field-marker type="search" name="SNIPPET" path="/record/europeana:collectionTitle"/>-->
+          <!--<field-marker type="search" name="SNIPPET" path="/RDF/dc:subject"/>-->
+          <!--<field-marker type="search" name="SNIPPET" path="/RDF/dcterms:alternative"/>-->
+          <!--<field-marker type="search" name="SNIPPET" path="/RDF/europeana:collectionTitle"/>-->
 
-          <!--<field-marker type="fact" name="spec" path="/record/europeana:collectionName"/>-->
-          <!--<field-marker type="fact" name="name" path="/record/europeana:collectionTitle"/>-->
-          <!--<field-marker type="fact" name="country" path="/record/europeana:country"/>-->
-          <!--<field-marker type="fact" name="dataProvider" path="/record/europeana:dataProvider"/>-->
-          <!--<field-marker type="fact" name="language" path="/record/europeana:language"/>-->
-          <!--<field-marker type="fact" name="provider" path="/record/europeana:provider"/>-->
-          <!--<field-marker type="fact" name="rights" path="/record/europeana:rights"/>-->
-          <!--<field-marker type="fact" name="type" path="/record/europeana:type"/>-->
+          <!--<field-marker type="fact" name="spec" path="/RDF/europeana:collectionName"/>-->
+          <!--<field-marker type="fact" name="name" path="/RDF/europeana:collectionTitle"/>-->
+          <!--<field-marker type="fact" name="country" path="/RDF/europeana:country"/>-->
+          <!--<field-marker type="fact" name="dataProvider" path="/RDF/europeana:dataProvider"/>-->
+          <!--<field-marker type="fact" name="language" path="/RDF/europeana:language"/>-->
+          <!--<field-marker type="fact" name="provider" path="/RDF/europeana:provider"/>-->
+          <!--<field-marker type="fact" name="rights" path="/RDF/europeana:rights"/>-->
+          <!--<field-marker type="fact" name="type" path="/RDF/europeana:type"/>-->
 
       </field-markers>
 
 
     <docs>
-        <!--<doc path="/record/edm:ProvidedCHO">-->
-            <!--<string name="Note">These are the properties that can be used for the class of edm:ProvidedCHO.  This means that they are the attributes of the original cultural heritage object (CHO) itself, not the digital representation of it.  E.g. attributes of the Mona Lisa, not the digitised image of the painting.  Note that the greyed out properties will not be used in the first implementation so any values provided for them will not be used.</string>-->
+        <doc path="/edm:RDF/edm:ProvidedCHO">
+            <paras>
+                <para name="Note">
+        <![CDATA[These are the properties that can be used for the class of edm:ProvidedCHO.  This means that they are the attributes of the original cultural heritage object (CHO) itself, not the digital representation of it.  E.g. attributes of the Mona Lisa, not the digitised image of the painting.  Note that the greyed out properties will not be used in the first implementation so any values provided for them will not be used. ]]></para>
+            </paras>
+        </doc>
+
+
+        <!--<doc path="/RDF/edm:ProvidedCHO/owl:sameAs">-->
+            <!--<para name="Note">Use to point to your own (linked data) representation of the object, if you have already minted a URI identifier for it.  It is also possible to provide URIs minted by third‐parties for the object.</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/owl:sameAs">-->
-            <!--<string name="Note">Use to point to your own (linked data) representation of the object, if you have already minted a URI identifier for it.  It is also possible to provide URIs minted by third‐parties for the object.</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/rdf:type">-->
+            <!--<para name="Note">Use to indicate if this resource is of a given “real‐world object” type – it could be edm:PhysicalThing or a more specific class.</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/rdf:type">-->
-            <!--<string name="Note">Use to indicate if this resource is of a given “real‐world object” type – it could be edm:PhysicalThing or a more specific class.</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:contributor">-->
+            <!--<para name="Note">For contributors to the CHO.  If possible supply the identifier of the contributor from an authority source.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:contributor">-->
-            <!--<string name="Note">For contributors to the CHO.  If possible supply the identifier of the contributor from an authority source.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:coverage">-->
+            <!--<para name="Note">The spatial or temporal topic of the CHO.  Use the more precise dcterms:spatial or dcterms:temporal properties if the data will support it.  One of dc:coverage or dc:subject or dc:type or dcterms:spatial must be provided.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:coverage">-->
-            <!--<string name="Note">The spatial or temporal topic of the CHO.  Use the more precise dcterms:spatial or dcterms:temporal properties if the data will support it.  One of dc:coverage or dc:subject or dc:type or dcterms:spatial must be provided.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:creator">-->
+            <!--<para name="Note">For the creator of the CHO.  If possible supply the identifier of the creator from an authority source.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:creator">-->
-            <!--<string name="Note">For the creator of the CHO.  If possible supply the identifier of the creator from an authority source.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:date">-->
+            <!--<para name="Note">Use for a significant date in the life of the CHO.  Consider the sub‐properties of dcterms:created or dcterms:issued</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:date">-->
-            <!--<string name="Note">Use for a significant date in the life of the CHO.  Consider the sub‐properties of dcterms:created or dcterms:issued</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:description">-->
+            <!--<para name="Note">A description of the CHO.  Either dc:description or dc:title must be provided</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:description">-->
-            <!--<string name="Note">A description of the CHO.  Either dc:description or dc:title must be provided</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:format">-->
+            <!--<para name="Note">Use for the format of a born digital cultural heritage objects or for other terms applied to the CHO</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:format">-->
-            <!--<string name="Note">Use for the format of a born digital cultural heritage objects or for other terms applied to the CHO</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:identifier">-->
+            <!--<para name="Note">An identifier of the original CHO.</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:identifier">-->
-            <!--<string name="Note">An identifier of the original CHO.</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:language">-->
+            <!--<para name="Note">The language of text CHOs and also for other types of CHO if there is a language aspect. Mandatory for TEXT objects, strongly recommended for other object types with a language element.</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:language">-->
-            <!--<string name="Note">The language of text CHOs and also for other types of CHO if there is a language aspect. Mandatory for TEXT objects, strongly recommended for other object types with a language element.</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:publisher">-->
+            <!--<para name="Note">The name of the publisher of the CHO.  If possible supply the identifier of the publisher from an authority source.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:publisher">-->
-            <!--<string name="Note">The name of the publisher of the CHO.  If possible supply the identifier of the publisher from an authority source.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:relation">-->
+            <!--<para name="Note">The name or identifier of a related resource, generally used for other related CHOs.  Cf edm:isRelatedT</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:relation">-->
-            <!--<string name="Note">The name or identifier of a related resource, generally used for other related CHOs.  Cf edm:isRelatedT</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:rights">-->
+            <!--<para name="Note">Use to give the name of the rights holder of the CHO if possible or for more general rights information.  Note the difference between this property and the use of the controlled edm:rights property which relates to the digital objects (see WebResource and Aggregation tables).</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:rights">-->
-            <!--<string name="Note">Use to give the name of the rights holder of the CHO if possible or for more general rights information.  Note the difference between this property and the use of the controlled edm:rights property which relates to the digital objects (see WebResource and Aggregation tables).</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:source">-->
+            <!--<para name="Note">The source of the original CHO.  This property should no longer be used for the name of the content holder: for this, see edm:dataProvider in the ore:Aggregation table belo</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:source">-->
-            <!--<string name="Note">The source of the original CHO.  This property should no longer be used for the name of the content holder: for this, see edm:dataProvider in the ore:Aggregation table belo</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:subject">-->
+            <!--<para name="Note">The subject of the CHO.  One of dc:subject or dc:coverage or dc:type or dcterms:spatial must be provided</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:subject">-->
-            <!--<string name="Note">The subject of the CHO.  One of dc:subject or dc:coverage or dc:type or dcterms:spatial must be provided</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:title">-->
+            <!--<para name="Note">The title of the CHO.  Either dc:title or dc:description must be provided.</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:title">-->
-            <!--<string name="Note">The title of the CHO.  Either dc:title or dc:description must be provided.</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dc:type">-->
+            <!--<para name="Note">The nature or genre of the CHO.  Ideally the term(s) will be taken from a controlled vocabulary.  One of dc:type or dc:subject or dc:coverage or dcterms:spatial must be provided</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dc:type">-->
-            <!--<string name="Note">The nature or genre of the CHO.  Ideally the term(s) will be taken from a controlled vocabulary.  One of dc:type or dc:subject or dc:coverage or dcterms:spatial must be provided</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:alternative">-->
+            <!--<para name="Note">Any alternative title of the CHO including abbreviations or translations.</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:alternative">-->
-            <!--<string name="Note">Any alternative title of the CHO including abbreviations or translations.</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:conformsTo">-->
+            <!--<para name="Note">An established standard to which the CHO conforms.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:conformsTo">-->
-            <!--<string name="Note">An established standard to which the CHO conforms.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:created">-->
+            <!--<para name="Note">The date of creation of the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:created">-->
-            <!--<string name="Note">The date of creation of the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:extent">-->
+            <!--<para name="Note">The size or duration of the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:extent">-->
-            <!--<string name="Note">The size or duration of the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:hasFormat">-->
+            <!--<para name="Note">A resource related to the CHO that is substantially the same as the CHO but in another format.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:hasFormat">-->
-            <!--<string name="Note">A resource related to the CHO that is substantially the same as the CHO but in another format.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:hasPart">-->
+            <!--<para name="Note">A resource that is included either physically or logically in the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:hasPart">-->
-            <!--<string name="Note">A resource that is included either physically or logically in the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:hasVersion">-->
+            <!--<para name="Note">Another resource that is a version, edition or adaptation of the CHO demonstrating substantive changes in content rather than format.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:hasVersion">-->
-            <!--<string name="Note">Another resource that is a version, edition or adaptation of the CHO demonstrating substantive changes in content rather than format.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isFormatOf">-->
+            <!--<para name="Note">Another resource that is substantially the same as the CHO but in another format.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isFormatOf">-->
-            <!--<string name="Note">Another resource that is substantially the same as the CHO but in another format.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isPartOf">-->
+            <!--<para name="Note">A resource in which the CHO is physically or logically included.  This property can be used for objects that are part of a hierarchy and will be used to support an appropriate display in the portal.  For that purpose it will be necessary to supply an identifier as the value.  </para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isPartOf">-->
-            <!--<string name="Note">A resource in which the CHO is physically or logically included.  This property can be used for objects that are part of a hierarchy and will be used to support an appropriate display in the portal.  For that purpose it will be necessary to supply an identifier as the value.  </string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isReferencedBy">-->
+            <!--<para name="Note">Another resource that references, cites or otherwise points to the CHO</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isReferencedBy">-->
-            <!--<string name="Note">Another resource that references, cites or otherwise points to the CHO</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isReplacedBy">-->
+            <!--<para name="Note">Another resource that supplants , displaces, or supersedes the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isReplacedBy">-->
-            <!--<string name="Note">Another resource that supplants , displaces, or supersedes the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isRequiredBy">-->
+            <!--<para name="Note">Another related resource that requires the CHO to support its function, delivery or coherence</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isRequiredBy">-->
-            <!--<string name="Note">Another related resource that requires the CHO to support its function, delivery or coherence</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:issued">-->
+            <!--<para name="Note">Date of formal issuance or publication of the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:issued">-->
-            <!--<string name="Note">Date of formal issuance or publication of the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:isVersionOf">-->
+            <!--<para name="Note">Another resource of which the CHO is a version, edition or adaptation, demonstrating substantive changes in content rather than format.</para>-->
+            <!--<para name="Value type">literal or rel</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:isVersionOf">-->
-            <!--<string name="Note">Another resource of which the CHO is a version, edition or adaptation, demonstrating substantive changes in content rather than format.</string>-->
-            <!--<string name="Value type">literal or rel</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:medium">-->
+            <!--<para name="Note">The material or physical carrier of the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:medium">-->
-            <!--<string name="Note">The material or physical carrier of the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:provenance">-->
+            <!--<para name="Note">A statement of changes in ownership and custody of the CHO since its creation. Significant for authenticity, integrity and interpretation.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:provenance">-->
-            <!--<string name="Note">A statement of changes in ownership and custody of the CHO since its creation. Significant for authenticity, integrity and interpretation.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:references">-->
+            <!--<para name="Note">Other resources referenced, cited or otherwise pointed to by the CHO.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:references">-->
-            <!--<string name="Note">Other resources referenced, cited or otherwise pointed to by the CHO.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:replaces">-->
+            <!--<para name="Note">A related resource that is supplanted, displaced, or superseded by the CHO.  </para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:replaces">-->
-            <!--<string name="Note">A related resource that is supplanted, displaced, or superseded by the CHO.  </string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:requires">-->
+            <!--<para name="Note">Another resource that is required by the described resource to support its function, delivery or coherence.</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:requires">-->
-            <!--<string name="Note">Another resource that is required by the described resource to support its function, delivery or coherence.</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:spatial">-->
+            <!--<para name="Note">Spatial characteristics of the CHO. i.e. what the CHO represents or depicts in terms of space (e.g. a location, co‐ordinate or place).  Either dcterms:spatial or dc:type or dc:subject or dc:coverage must be provided</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:spatial">-->
-            <!--<string name="Note">Spatial characteristics of the CHO. i.e. what the CHO represents or depicts in terms of space (e.g. a location, co‐ordinate or place).  Either dcterms:spatial or dc:type or dc:subject or dc:coverage must be provided</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:tableOfContents">-->
+            <!--<para name="Note">sA list of sub‐units of the CHO.</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:tableOfContents">-->
-            <!--<string name="Note">sA list of sub‐units of the CHO.</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/dcterms:temporal">-->
+            <!--<para name="Note">Temporal characteristics of the CHO. i.e. what the CHO is about or depicts in terms of time (e.g. a period, date or date range.)</para>-->
+            <!--<para name="Value type">literal or ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/dcterms:temporal">-->
-            <!--<string name="Note">Temporal characteristics of the CHO. i.e. what the CHO is about or depicts in terms of time (e.g. a period, date or date range.)</string>-->
-            <!--<string name="Value type">literal or ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:type">-->
+            <!--<para name="Note">The provided object is one of the types accepted by Europeana and will govern which facet it appears under in the portal ‐ TEXT, VIDEO, SOUND, IMAGE, (3D after January 2012)</para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 1, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:type">-->
-            <!--<string name="Note">The provided object is one of the types accepted by Europeana and will govern which facet it appears under in the portal ‐ TEXT, VIDEO, SOUND, IMAGE, (3D after January 2012)</string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 1, max 1</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:unstored">-->
+            <!--<para name="Note"></para>-->
+            <!--<para name="Value type">literal</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:unstored">-->
-            <!--<string name="Note"></string>-->
-            <!--<string name="Value type">literal</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:currentLocation">-->
+            <!--<para name="Note">The geographic location whose boundaries presently include the CHO.  If the name of a repository, building, site, or other entity is used then it should include an indication of its geographic location</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:currentLocation">-->
-            <!--<string name="Note">The geographic location whose boundaries presently include the CHO.  If the name of a repository, building, site, or other entity is used then it should include an indication of its geographic location</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:hasMet">-->
+            <!--<para name="Note">The identifier of an agent, a place, a time period or any other identifiable entity that the CHO may have “met” in its life. </para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:hasMet">-->
-            <!--<string name="Note">The identifier of an agent, a place, a time period or any other identifiable entity that the CHO may have “met” in its life. </string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:hasType">-->
+            <!--<para name="Note">The identifier of a concept, or a word or phrase from a controlled vocabulary (thesaurus etc) giving the type of the CHO.  E.g. Painting from the AAT thesaurus.  This property can be seen as a super‐property of e.g. dc:format or dc:type to support “What” questions</para>-->
+            <!--<para name="Value type">ref or litera</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:hasType">-->
-            <!--<string name="Note">The identifier of a concept, or a word or phrase from a controlled vocabulary (thesaurus etc) giving the type of the CHO.  E.g. Painting from the AAT thesaurus.  This property can be seen as a super‐property of e.g. dc:format or dc:type to support “What” questions</string>-->
-            <!--<string name="Value type">ref or litera</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:incorporates">-->
+            <!--<para name="Note">The identifier of another resource that is incorporated in the described CHO. E.g. the movie “A Clockwork Orange” incorporates Rossini’s La Gazza Ladra” in its soundtrack</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:incorporates">-->
-            <!--<string name="Note">The identifier of another resource that is incorporated in the described CHO. E.g. the movie “A Clockwork Orange” incorporates Rossini’s La Gazza Ladra” in its soundtrack</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isDerivativeOf">-->
+            <!--<para name="Note">The identifier of another resource from which the described CHO has been derived. E.g. the identifier of Moby Dick when the Italian translation is the described CHO</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isDerivativeOf">-->
-            <!--<string name="Note">The identifier of another resource from which the described CHO has been derived. E.g. the identifier of Moby Dick when the Italian translation is the described CHO</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isNextInSequence">-->
+            <!--<para name="Note">The identifier of the preceding object where both objects are part of the same overall resource. Use this for objects that are part of a hierarchy or sequence to ensure correct display in the portal</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isNextInSequence">-->
-            <!--<string name="Note">The identifier of the preceding object where both objects are part of the same overall resource. Use this for objects that are part of a hierarchy or sequence to ensure correct display in the portal</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isRelatedTo">-->
+            <!--<para name="Note">The identifier or name of a concept or other resource to which the described CHO is related.  E.g. Moby Dick is related to XIX Century literature. Cf dc:relation.</para>-->
+            <!--<para name="Value type">ref or literal </para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isRelatedTo">-->
-            <!--<string name="Note">The identifier or name of a concept or other resource to which the described CHO is related.  E.g. Moby Dick is related to XIX Century literature. Cf dc:relation.</string>-->
-            <!--<string name="Value type">ref or literal </string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isRepresentationOf">-->
+            <!--<para name="Note">The identifier of another object of which the described CHO is a representation. E.g. the identifier of the statue when the CHO being described is a painting of that statue</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence"> min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isRepresentationOf">-->
-            <!--<string name="Note">The identifier of another object of which the described CHO is a representation. E.g. the identifier of the statue when the CHO being described is a painting of that statue</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence"> min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isSimilarTo">-->
+            <!--<para name="Note">The identifier of another resource to which the described CHO is similar</para>-->
+            <!--<para name="Value type">ref</para>-->
+            <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isSimilarTo">-->
-            <!--<string name="Note">The identifier of another resource to which the described CHO is similar</string>-->
-            <!--<string name="Value type">ref</string>-->
-            <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:isSuccessorOf">-->
+                <!--<para name="Note">The identifier of a resource to which the described CHO is a successor.  E.g. issue 53 of “Le Temps” isSuccessorOf issue 52. </para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:isSuccessorOf">-->
-                <!--<string name="Note">The identifier of a resource to which the described CHO is a successor.  E.g. issue 53 of “Le Temps” isSuccessorOf issue 52. </string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:realizes">-->
+                <!--<para name="Note">If the CHO described is of type edm:PhysicalThing it may realize an information object.  E.g. a copy of the Gutenberg publication realizes the Bible</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence"> min 0, max unbounde</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:realizes">-->
-                <!--<string name="Note">If the CHO described is of type edm:PhysicalThing it may realize an information object.  E.g. a copy of the Gutenberg publication realizes the Bible</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence"> min 0, max unbounde</string>-->
-        <!--</doc>-->
-        <!--<doc path="/record/edm:ProvidedCHO/edm:wasPresentAt">-->
-                <!--<string name="Note">The identifier of an event at which the described object was present.  E.g. the Stone of Scone was present at the coronation of King James I of England</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:ProvidedCHO/edm:wasPresentAt">-->
+                <!--<para name="Note">The identifier of an event at which the described object was present.  E.g. the Stone of Scone was present at the coronation of King James I of England</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
          <!--</doc>-->
 
          <!--&lt;!&ndash;&lt;!&ndash;edm:WebResource&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">These are the properties that can be used for the class of edm:WebResource. This means that they are attributes of the digital representation of the provided cultural heritage object, not the cultural heritage object itself.   &ndash;&gt;-->
-                <!--&lt;!&ndash;There may be more than one edm:WebResource for each edm:ProvidedCHO and they will be associated via the ore:Aggregation using edm:isShownBy, edm:isShownAt, edm:hasView or edm:object.  Each web resource provided should have its own set of properties."</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">These are the properties that can be used for the class of edm:WebResource. This means that they are attributes of the digital representation of the provided cultural heritage object, not the cultural heritage object itself.   &ndash;&gt;-->
+                <!--&lt;!&ndash;There may be more than one edm:WebResource for each edm:ProvidedCHO and they will be associated via the ore:Aggregation using edm:isShownBy, edm:isShownAt, edm:hasView or edm:object.  Each web resource provided should have its own set of properties."</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dc:description">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">Use for an account or description of this digital representation.</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounde</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dc:description">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">Use for an account or description of this digital representation.</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounde</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dc:rights">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">Use for the name of the rights holder of this digital representation if possible or for more general rights information.  Note the difference between this property and the use of the mandatory, controlled edm:rights property below</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dc:rights">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">Use for the name of the rights holder of this digital representation if possible or for more general rights information.  Note the difference between this property and the use of the mandatory, controlled edm:rights property below</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dc:source">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">A related resource from which this web resource is derived in whole or in part. This property should no longer be used for the name of the content holder: for this, see edm:dataProvider in the ore:Aggregation table below. </string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence"> min 0, max unbounde</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dc:source">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">A related resource from which this web resource is derived in whole or in part. This property should no longer be used for the name of the content holder: for this, see edm:dataProvider in the ore:Aggregation table below. </para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence"> min 0, max unbounde</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dcterms:extent">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note"> The size or duration of the web resourc</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence"> min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dcterms:extent">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note"> The size or duration of the web resourc</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence"> min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dcterms:issued">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note"> Date of formal issuance or publication of the web resource</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dcterms:issued">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note"> Date of formal issuance or publication of the web resource</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dcterms:conformsTo">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">An established standard to which the web resource conforms.</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dcterms:conformsTo">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">An established standard to which the web resource conforms.</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dcterms:isFormatOf">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">Another resource that is substantially the same as the web resource but in another format</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dcterms:isFormatOf">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">Another resource that is substantially the same as the web resource but in another format</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/edm:rights">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">The value in this element will indicate the usage and access rights that apply to this digital representation. For the first implementation of EDM only the rights associated with the ore:Aggregation class will be implemented.  Later implementations will be able to use the edm:rights associated with individual WebResources so it is strongly recommended that a value is supplied for this property for each instance of a WebResource.  &ndash;&gt;-->
-                   <!--&lt;!&ndash;See also edm:rights in the ore:Aggregation table</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/edm:rights">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">The value in this element will indicate the usage and access rights that apply to this digital representation. For the first implementation of EDM only the rights associated with the ore:Aggregation class will be implemented.  Later implementations will be able to use the edm:rights associated with individual WebResources so it is strongly recommended that a value is supplied for this property for each instance of a WebResource.  &ndash;&gt;-->
+                   <!--&lt;!&ndash;See also edm:rights in the ore:Aggregation table</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/dcterms:hasPart">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">A resource that is included either physically or logically in the web resource</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">literal or ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 0, max unbounded</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/dcterms:hasPart">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">A resource that is included either physically or logically in the web resource</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">literal or ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 0, max unbounded</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:WebResource/edm:isNextInSequence">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">Where one CHO has several web resources, shown by multiple instances of the edm:hasView property on the ore:Aggregation, then this property can be used to show the sequence of the objects</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence"> min 0, max</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:WebResource/edm:isNextInSequence">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">Where one CHO has several web resources, shown by multiple instances of the edm:hasView property on the ore:Aggregation, then this property can be used to show the sequence of the objects</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence"> min 0, max</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
 
         <!--&lt;!&ndash; ore:Aggregation &ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/ore:Aggregation">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">These are the properties that can be used for the class of ore:Aggregation. This means that they are attributes that apply to the whole set of related resources about one particular provided CHO. For each ore:Aggregation a set of these properties should be provided. </string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/ore:Aggregation">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">These are the properties that can be used for the class of ore:Aggregation. This means that they are attributes that apply to the whole set of related resources about one particular provided CHO. For each ore:Aggregation a set of these properties should be provided. </para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/ore:Aggregation/ore:aggregates">-->
-                <!--<string name="Note">This property exists in principle only as it is stated through edm:aggregatedCHO and edm:hasView statement</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/ore:aggregates">-->
+                <!--<para name="Note">This property exists in principle only as it is stated through edm:aggregatedCHO and edm:hasView statement</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:aggregatedCHO">-->
-                <!--<string name="Note">The identifier of the source object e.g. the Mona Lisa itself.  This could be a full linked open data URI or an internal identifier</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence"> min 1, max 1</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:aggregatedCHO">-->
+                <!--<para name="Note">The identifier of the source object e.g. the Mona Lisa itself.  This could be a full linked open data URI or an internal identifier</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence"> min 1, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:dataProvider">-->
-                <!--<string name="Note">The name or identifier of the data provider of the object (i.e. the organisation providing data to an aggregator).  Identifiers will not be available until Europeana has implemented its Organisation profile</string>-->
-                <!--<string name="Value type">literal or ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 1, max 1</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:dataProvider">-->
+                <!--<para name="Note">The name or identifier of the data provider of the object (i.e. the organisation providing data to an aggregator).  Identifiers will not be available until Europeana has implemented its Organisation profile</para>-->
+                <!--<para name="Value type">literal or ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 1, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:hasView">-->
-                <!--<string name="Note">The URL of a web resource which is a digital representation of the CHO.  This may be the source object itself in the case of a born digital cultural heritage object. -->
-                    <!--edm:hasView  should only be used where there are several views of the CHO and one (or both) of the mandatory edm:isShownAt or edm:isShownBy properties have already been used.  It is for cases where one CHO has several views of the same object.  (e.g. a shoe and a detail of the label of the shoe)</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:hasView">-->
+                <!--<para name="Note">The URL of a web resource which is a digital representation of the CHO.  This may be the source object itself in the case of a born digital cultural heritage object. -->
+                    <!--edm:hasView  should only be used where there are several views of the CHO and one (or both) of the mandatory edm:isShownAt or edm:isShownBy properties have already been used.  It is for cases where one CHO has several views of the same object.  (e.g. a shoe and a detail of the label of the shoe)</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:isShownBy">-->
-                <!--<string name="Note">The URL of a web view of the object.  Either edm:isShownAt or edm:isShownBy is mandatory.  For the rights that will apply to previews please see edm:rights below</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:isShownBy">-->
+                <!--<para name="Note">The URL of a web view of the object.  Either edm:isShownAt or edm:isShownBy is mandatory.  For the rights that will apply to previews please see edm:rights below</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:isShownAt">-->
-                <!--<string name="Note">The URL of a web view of the object in full information context. Either edm:isShownAt or edm:isShownBy is mandatory. For the rights that will apply to  previews please see edm:rights below</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:isShownAt">-->
+                <!--<para name="Note">The URL of a web view of the object in full information context. Either edm:isShownAt or edm:isShownBy is mandatory. For the rights that will apply to  previews please see edm:rights below</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:object">-->
-                <!--<string name="Note">The URL of a representation of the CHO which will be used for generating previews for use in the Europeana portal.  This may be the same URL as edm:isShownBy.-->
-                    <!--See Europeana Portal Image Guidelines (http://version1.europeana.eu/web/guest/technical‐requirements/) for information regarding the specifications of previews</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:object">-->
+                <!--<para name="Note">The URL of a representation of the CHO which will be used for generating previews for use in the Europeana portal.  This may be the same URL as edm:isShownBy.-->
+                    <!--See Europeana Portal Image Guidelines (http://version1.europeana.eu/web/guest/technical‐requirements/) for information regarding the specifications of previews</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/edm:provider">-->
-                <!--<string name="Note">The name or identifier of the provider of the object (i.e. the organisation providing data directly to Europeana).  Identifiers will not be available until Europeana has implemented its Organisation profile</string>-->
-                <!--<string name="Value type">literal or ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 1, max</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:provider">-->
+                <!--<para name="Note">The name or identifier of the provider of the object (i.e. the organisation providing data directly to Europeana).  Identifiers will not be available until Europeana has implemented its Organisation profile</para>-->
+                <!--<para name="Value type">literal or ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 1, max</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/ore:Aggregation/dc:rights">-->
-                <!--<string name="Note">Ideally this should be applied to the edm:WebResource or the edm:ProvidedCHO.  It is included here for the conversion of data from ESE where it is not known which object the rights apply t</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/dc:rights">-->
+                <!--<para name="Note">Ideally this should be applied to the edm:WebResource or the edm:ProvidedCHO.  It is included here for the conversion of data from ESE where it is not known which object the rights apply t</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--&lt;!&ndash;<doc path="/record/ore:Aggregation/edm:rights">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">This is a mandatory property and the value given here should be the rights statement that applies to the digital representation at the URL given in edm:object or edm:isShownAt/By. The value should be taken from one of those listed in the Europeana Rights Guidelines (http://version1.europeana.eu/web/guest/technical‐requirements/) The rights statement given in this property will also apply to the previews used in the portal and will be the source of:&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/ore:Aggregation/edm:rights">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">This is a mandatory property and the value given here should be the rights statement that applies to the digital representation at the URL given in edm:object or edm:isShownAt/By. The value should be taken from one of those listed in the Europeana Rights Guidelines (http://version1.europeana.eu/web/guest/technical‐requirements/) The rights statement given in this property will also apply to the previews used in the portal and will be the source of:&ndash;&gt;-->
                     <!--&lt;!&ndash;* the entry in the Rights facet in the portal&ndash;&gt;-->
                     <!--&lt;!&ndash;* the license badge that appears under the preview on the result page  &ndash;&gt;-->
     <!--&lt;!&ndash;  &ndash;&gt;-->
                     <!--&lt;!&ndash;Where there are several web resources attached to one edm:ProvidedCHO the rights statement given here will be regarded as the “reference” value for all the web resources so a suitable value should be chosen if the rights statements vary between different resources. In future implementations it is hoped to handle rights statements for separate web resources associated with one CHO separately.&ndash;&gt;-->
-                <!--&lt;!&ndash;</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Value type">ref</string>&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Obligation and Occurrence">min 1, max 1</string>&ndash;&gt;-->
+                <!--&lt;!&ndash;</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Value type">ref</para>&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Obligation and Occurrence">min 1, max 1</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/ore:Aggregation/edm:unstored">-->
-                <!--<string name="Note">Ideally this should be applied to the edm:WebResource or the edm:ProvidedCHO.  It is only included here for the conversion of data from ESE where it is not known which object the data applies to</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/ore:Aggregation/edm:unstored">-->
+                <!--<para name="Note">Ideally this should be applied to the edm:WebResource or the edm:ProvidedCHO.  It is only included here for the conversion of data from ESE where it is not known which object the data applies to</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
 
         <!--&lt;!&ndash; edm:Agent &ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:Agent">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">The class edm:Agent comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.  Please refer to the EDM Definition 5.2.2 for a fuller definition of the EDM properties</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:Agent">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">The class edm:Agent comprises people, either individually or in groups, who have the potential to perform intentional actions for which they can be held responsible.  Please refer to the EDM Definition 5.2.2 for a fuller definition of the EDM properties</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/edm:Agent/edm:wasPresentAt">-->
-                <!--<string name="Note">The identifier of an event at which the agent was present.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/edm:wasPresentAt">-->
+                <!--<para name="Note">The identifier of an event at which the agent was present.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/edm:hasMet">-->
-                <!--<string name="Note">The identifier of another entity which the agent has “met” in a broad sense</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/edm:hasMet">-->
+                <!--<para name="Note">The identifier of another entity which the agent has “met” in a broad sense</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/edm:isRelatedTo">-->
-                <!--<string name="Note">The identifier of other entities, particularly other agents, with whom the agent is related in a generic sense</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/edm:isRelatedTo">-->
+                <!--<para name="Note">The identifier of other entities, particularly other agents, with whom the agent is related in a generic sense</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/skos:prefLabel">-->
-                <!--<string name="Note">The preferred form of the name of the agent.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence"> min 0, max 1 per lang tag</string>-->
+        <!--<doc path="/RDF/edm:Agent/skos:prefLabel">-->
+                <!--<para name="Note">The preferred form of the name of the agent.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence"> min 0, max 1 per lang tag</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/skos:altLabel">-->
-                <!--<string name="Note">Alternative forms of the name of the agent</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/skos:altLabel">-->
+                <!--<para name="Note">Alternative forms of the name of the agent</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/skos:note">-->
-                <!--<string name="Note"> A note about the agent e.g. biographical note</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/skos:note">-->
+                <!--<para name="Note"> A note about the agent e.g. biographical note</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/skos:hiddenLabel">-->
-                <!--<string name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search functions</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounde</string>-->
+        <!--<doc path="/RDF/edm:Agent/skos:hiddenLabel">-->
+                <!--<para name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search functions</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounde</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/owl:sameAs">-->
-                <!--<string name="Note">The URI of an agent.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/owl:sameAs">-->
+                <!--<para name="Note">The URI of an agent.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/foaf:name">-->
-                <!--<string name="Note">The name of the agent as a simple textual string</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/foaf:name">-->
+                <!--<para name="Note">The name of the agent as a simple textual string</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/dc:date">-->
-                <!--<string name="Note">A significant date associated with the Agent.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/dc:date">-->
+                <!--<para name="Note">A significant date associated with the Agent.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/dc:identifier">-->
-                <!--<string name="Note">An identifier of the agent.</string>-->
-                <!--<string name="Value type">ref  </string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/dc:identifier">-->
+                <!--<para name="Note">An identifier of the agent.</para>-->
+                <!--<para name="Value type">ref  </para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:dateOfBirth">-->
-                <!--<string name="Note">The date the agent (person) was born.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:dateOfBirth">-->
+                <!--<para name="Note">The date the agent (person) was born.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:dateOfDeath">-->
-                <!--<string name="Note">The date the agent (person) died.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence"> min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:dateOfDeath">-->
+                <!--<para name="Note">The date the agent (person) died.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence"> min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:dateOfEstablishment">-->
-                <!--<string name="Note">The date on which the agent (corporate body) was established or founded</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence"> min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:dateOfEstablishment">-->
+                <!--<para name="Note">The date on which the agent (corporate body) was established or founded</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence"> min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:dateOfTermination">-->
-                <!--<string name="Note">The date on which the agent (corporate body) was terminated or dissolved</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:dateOfTermination">-->
+                <!--<para name="Note">The date on which the agent (corporate body) was terminated or dissolved</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:gender">-->
-                <!--<string name="Note">The gender with which the agent identifies.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:gender">-->
+                <!--<para name="Note">The gender with which the agent identifies.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:professionOrOccupation">-->
-                <!--<string name="Note">The profession or occupation in which the agent works or has worked</string>-->
-                <!--<string name="Value type">literal or ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:professionOrOccupation">-->
+                <!--<para name="Note">The profession or occupation in which the agent works or has worked</para>-->
+                <!--<para name="Value type">literal or ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/rdaGr2:biographicalInformation">-->
-                <!--<string name="Note">Information pertaining to the life or history of the agent.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Agent/rdaGr2:biographicalInformation">-->
+                <!--<para name="Note">Information pertaining to the life or history of the agent.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/edm:begin">-->
-                <!--<string name="Note">The date the agent was born/established.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max</string>-->
+        <!--<doc path="/RDF/edm:Agent/edm:begin">-->
+                <!--<para name="Note">The date the agent was born/established.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Agent/edm:end">-->
-                <!--<string name="Note">The date the agent died/terminated.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max</string>-->
+        <!--<doc path="/RDF/edm:Agent/edm:end">-->
+                <!--<para name="Note">The date the agent died/terminated.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max</para>-->
         <!--</doc>-->
 
         <!--&lt;!&ndash; edm:Place &ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:Place">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">A spatial location identified by the provider and named according to some vocabulary or local convention.</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:Place">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">A spatial location identified by the provider and named according to some vocabulary or local convention.</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/edm:Place/wgs84_pos:lat">-->
-                <!--<string name="Note">The latitude of a spatial thing (decimal degrees).</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Place/wgs84_pos:lat">-->
+                <!--<para name="Note">The latitude of a spatial thing (decimal degrees).</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/wgs84_pos:long">-->
-                <!--<string name="Note">The longitude of a spatial thing (decimal degrees.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Place/wgs84_pos:long">-->
+                <!--<para name="Note">The longitude of a spatial thing (decimal degrees.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/wgs84_pos:alt">-->
-                <!--<string name="Note">The altitude of a spatial thing (decimal metres above the reference</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Place/wgs84_pos:alt">-->
+                <!--<para name="Note">The altitude of a spatial thing (decimal metres above the reference</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/wgs84_pos:lat_long">-->
-                <!--<string name="Note">A comma separated representation of a latitude, longitude co‐ordinate</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:Place/wgs84_pos:lat_long">-->
+                <!--<para name="Note">A comma separated representation of a latitude, longitude co‐ordinate</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/skos:prefLabel">-->
-                <!--<string name="Note"> The preferred form of the name of the place.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1 per lang tag</string>-->
+        <!--<doc path="/RDF/edm:Place/skos:prefLabel">-->
+                <!--<para name="Note"> The preferred form of the name of the place.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1 per lang tag</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/skos:altLabel">-->
-                <!--<string name="Note">Alternative forms of the name of the place.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/skos:altLabel">-->
+                <!--<para name="Note">Alternative forms of the name of the place.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/skos:note">-->
-                <!--<string name="Note">Information relating to the place.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/skos:note">-->
+                <!--<para name="Note">Information relating to the place.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/skos:hiddenLabel">-->
-                <!--<string name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search functions</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/skos:hiddenLabel">-->
+                <!--<para name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search functions</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/dcterms:hasPart">-->
-                <!--<string name="Note">identifier of a place that is part of the place being described.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/dcterms:hasPart">-->
+                <!--<para name="Note">identifier of a place that is part of the place being described.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/dcterms:isPartOf">-->
-                <!--<string name="Note">identifier of a place that the described place is part of.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/dcterms:isPartOf">-->
+                <!--<para name="Note">identifier of a place that the described place is part of.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:Place/owl:sameAs">-->
-                <!--<string name="Note">URI of a Place.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:Place/owl:sameAs">-->
+                <!--<para name="Note">URI of a Place.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
 
         <!--&lt;!&ndash; edm:TimeSpan &ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/edm:TimeSpan">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">A period of time having a beginning, an end and a duration.</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/edm:TimeSpan">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">A period of time having a beginning, an end and a duration.</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/edm:TimeSpan/skos:prefLabel">-->
-                <!--<string name="Note">The preferred form of the name of the timespan or period</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1 per lang tag</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/skos:prefLabel">-->
+                <!--<para name="Note">The preferred form of the name of the timespan or period</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1 per lang tag</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/skos:altLabel">-->
-                <!--<string name="Note"> Alternative forms of the name of the timespan or period.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/skos:altLabel">-->
+                <!--<para name="Note"> Alternative forms of the name of the timespan or period.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/skos:note">-->
-                <!--<string name="Note">Information relating to the timespan or period.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/skos:note">-->
+                <!--<para name="Note">Information relating to the timespan or period.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/dcterms:hasPart">-->
-                <!--<string name="Note">The identifier of a timespan which is part of the described timespan.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/dcterms:hasPart">-->
+                <!--<para name="Note">The identifier of a timespan which is part of the described timespan.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/dcterms:isPartOf">-->
-                <!--<string name="Note">/The identifier of a timespan of which the described timespan is a part.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/dcterms:isPartOf">-->
+                <!--<para name="Note">/The identifier of a timespan of which the described timespan is a part.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/owl:sameAs">-->
-                <!--<string name="Note">The URI of a timespan.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/owl:sameAs">-->
+                <!--<para name="Note">The URI of a timespan.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/crm:P79F.beginning_is_qualified_by">-->
-                <!--<string name="Note">Qualifying information about the start of the timespan – such as degree of certainty, precision, source etc</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/crm:P79F.beginning_is_qualified_by">-->
+                <!--<para name="Note">Qualifying information about the start of the timespan – such as degree of certainty, precision, source etc</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/crm:P80F.end_is_qualified_by">-->
-                <!--<string name="Note">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/crm:P80F.end_is_qualified_by">-->
+                <!--<para name="Note">Qualifying information about the end of the timespan – such as degree of certainty, precision, source etc</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/edm:begin">-->
-                <!--<string name="Note"> The date the timespan started.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/edm:begin">-->
+                <!--<para name="Note"> The date the timespan started.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/edm:TimeSpan/edm:end">-->
-                <!--<string name="Note">The date the timespan finished.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1</string>-->
+        <!--<doc path="/RDF/edm:TimeSpan/edm:end">-->
+                <!--<para name="Note">The date the timespan finished.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1</para>-->
         <!--</doc>-->
 
         <!--&lt;!&ndash; skos:Concept &ndash;&gt;-->
-        <!--&lt;!&ndash;<doc path="/record/skos:Concept">&ndash;&gt;-->
-                <!--&lt;!&ndash;<string name="Note">A unit of thought or meaning that comes from an organised knowledge base (such as subject terms from a thesaurus or controlled vocabulary) where URIs or local identifiers have been created to represent each concept.  In the cultural heritage world there are many such controlled vocabularies such as the Library of Congress Subject Headings or AAT</string>&ndash;&gt;-->
+        <!--&lt;!&ndash;<doc path="/RDF/skos:Concept">&ndash;&gt;-->
+                <!--&lt;!&ndash;<para name="Note">A unit of thought or meaning that comes from an organised knowledge base (such as subject terms from a thesaurus or controlled vocabulary) where URIs or local identifiers have been created to represent each concept.  In the cultural heritage world there are many such controlled vocabularies such as the Library of Congress Subject Headings or AAT</para>&ndash;&gt;-->
         <!--&lt;!&ndash;</doc>&ndash;&gt;-->
-        <!--<doc path="/record/skos:Concept/skos:prefLabel">-->
-                <!--<string name="Note">The preferred form of the name of the concept.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max 1 per lang tag</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:prefLabel">-->
+                <!--<para name="Note">The preferred form of the name of the concept.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max 1 per lang tag</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:altLabel">-->
-                <!--<string name="Note">Alternative forms of the name of the concept.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:altLabel">-->
+                <!--<para name="Note">Alternative forms of the name of the concept.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:broader">-->
-                <!--<string name="Note">The identifier of a broader concept in the same thesaurus or controlled vocabulary.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:broader">-->
+                <!--<para name="Note">The identifier of a broader concept in the same thesaurus or controlled vocabulary.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:narrower">-->
-                <!--<string name="Note">The identifier of a narrower concept.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:narrower">-->
+                <!--<para name="Note">The identifier of a narrower concept.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:related">-->
-                <!--<string name="Note">The identifier of a related concept.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:related">-->
+                <!--<para name="Note">The identifier of a related concept.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:note">-->
-                <!--<string name="Note">Information relating to the concept.</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:note">-->
+                <!--<para name="Note">Information relating to the concept.</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:hiddenLabel">-->
-                <!--<string name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search function</string>-->
-                <!--<string name="Value type">literal</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:hiddenLabel">-->
+                <!--<para name="Note">Used for non‐standard forms of the name, such as misspellings, usually in text‐based search function</para>-->
+                <!--<para name="Value type">literal</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:broadMatch">-->
-                <!--<string name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:broadMatch">-->
+                <!--<para name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:narrowMatch">-->
-                <!--<string name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:narrowMatch">-->
+                <!--<para name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:relatedMatch">-->
-                <!--<string name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:relatedMatch">-->
+                <!--<para name="Note">The identifier of a broader, narrower or related matching concepts from other concept scheme.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:exactMatch">-->
-                <!--<string name="Note">The identifier of close or exactly matching concepts from other concept schemes.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:exactMatch">-->
+                <!--<para name="Note">The identifier of close or exactly matching concepts from other concept schemes.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:closeMatch">-->
-                <!--<string name="Note">The identifier of close or exactly matching concepts from other concept schemes.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:closeMatch">-->
+                <!--<para name="Note">The identifier of close or exactly matching concepts from other concept schemes.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:notation">-->
-                <!--<string name="Note">The notation in which the concept is represented.  This may not be words in natural language for some knowledge organisation systems e.g. algebr</string>-->
-                <!--<string name="Value type">string (+ rdf:datatype attribute)</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:notation">-->
+                <!--<para name="Note">The notation in which the concept is represented.  This may not be words in natural language for some knowledge organisation systems e.g. algebr</para>-->
+                <!--<para name="Value type">string (+ rdf:datatype attribute)</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
-        <!--<doc path="/record/skos:Concept/skos:inScheme">-->
-                <!--<string name="Note">The URI of a concept scheme.</string>-->
-                <!--<string name="Value type">ref</string>-->
-                <!--<string name="Obligation and Occurrence">min 0, max unbounded</string>-->
+        <!--<doc path="/RDF/skos:Concept/skos:inScheme">-->
+                <!--<para name="Note">The URI of a concept scheme.</para>-->
+                <!--<para name="Value type">ref</para>-->
+                <!--<para name="Obligation and Occurrence">min 0, max unbounded</para>-->
         <!--</doc>-->
 
     </docs>
