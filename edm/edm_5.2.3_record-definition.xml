@@ -1,4 +1,5 @@
 <?xml version="1.0"?>
+
 <record-definition prefix="edm" version="5.2.3" flat="false">
 
     <namespaces>
@@ -175,7 +176,6 @@
         </elem>
     </root>
 
-
     <opts>
         <!--<opt-list dictionary="HHCat" path="/RDF/edm:ProvidedCHO/dc:title" displayName="Category">-->
             <!--<opt value="Archeology"/>-->
@@ -202,22 +202,6 @@
           <!--<field-marker name="GEOHASH" path="/RDF/abm:geo"/>-->
           <!--<field-marker name="ADDRESS" path="/RDF/abm:address"/>-->
 
-          <!--&lt;!&ndash; todo: these should have paths, currently they are checked for presence but not resolved&ndash;&gt;-->
-          <!--<field-marker name="SPEC"/>-->
-          <!--<field-marker name="DEEP_ZOOM_URL"/>-->
-
-          <!--<field-marker type="search" name="SNIPPET" path="/RDF/dc:subject"/>-->
-          <!--<field-marker type="search" name="SNIPPET" path="/RDF/dcterms:alternative"/>-->
-          <!--<field-marker type="search" name="SNIPPET" path="/RDF/europeana:collectionTitle"/>-->
-
-          <!--<field-marker type="fact" name="spec" path="/RDF/europeana:collectionName"/>-->
-          <!--<field-marker type="fact" name="name" path="/RDF/europeana:collectionTitle"/>-->
-          <!--<field-marker type="fact" name="country" path="/RDF/europeana:country"/>-->
-          <!--<field-marker type="fact" name="dataProvider" path="/RDF/europeana:dataProvider"/>-->
-          <!--<field-marker type="fact" name="language" path="/RDF/europeana:language"/>-->
-          <!--<field-marker type="fact" name="provider" path="/RDF/europeana:provider"/>-->
-          <!--<field-marker type="fact" name="rights" path="/RDF/europeana:rights"/>-->
-          <!--<field-marker type="fact" name="type" path="/RDF/europeana:type"/>-->
 
       </field-markers>
 
