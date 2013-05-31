@@ -40,6 +40,13 @@
         <attr tag="xlink:title"/>
     </attrs>
 
+    <attr-groups>
+            <attr-group name="a.common">
+                <string>id</string>
+                <string>audience</string>
+            </attr-group>
+    </attr-groups>
+
     <elems>
         <elem tag="abbr" attrs="expan"/>
         <elem tag="address" elems="addressline"/>
@@ -69,7 +76,7 @@
         <elem tag="name" attrs="authfilenumber"/>
         <elem tag="p"/>
         <elem tag="persname" attrs="authfilenumber"/>
-        <elem tag="physfacet" attrs="type, type"/>
+        <elem tag="physfacet" attrs="type"/>
         <elem tag="publisher" attrs="encodinganalog"/>
         <elem tag="row" elems="entry"/>
         <elem tag="subject"/>
@@ -145,7 +152,7 @@
 
 
 
-    <root tag="ead" attrs="audience">
+    <root tag="ead" attr-groups="a.common">
 
         <elem tag="eadheader" attrs="langencoding, scriptencoding, dateencoding, countryencoding, repositoryencoding, relatedencoding">
             <elem tag="eadid" attrs="url, countrycode, mainagencycode, identifier  "/>
@@ -161,10 +168,10 @@
             <elem tag="profiledesc">
                 <elem tag="creation" elems="date"/>
                 <elem tag="langusage" elems="language"/>
-                <elem tag="descrules"/>
+                <elem tag="descrules" attr-groups="a.common" attrs="encodinganalog"/>
             </elem>
-            <elem tag="revisiondesc" elems="list" attrs="encodinganalog">
-                <elem tag="change" elems="date, item"/>
+            <elem tag="revisiondesc" elems="list" attr-groups="a.common" attrs="encodinganalog">
+                <elem tag="change" elems="date, item" attr-groups="a.common" attrs="encodinganalog"/>
             </elem>
         </elem>
 
