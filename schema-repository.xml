@@ -250,6 +250,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="crm">
+        <version number="5.1.0">
+            <author>Thomas Wikman</author>
+            <message>CRM/message</message>
+            <date>2013-05-31</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 
 
 </schemas>
