@@ -29,6 +29,8 @@
     	<include schemaLocation="http://www.europeana.eu/schemas/edm/EDM-COMMON-MAIN.xsd" />
     	<include schemaLocation="http://www.europeana.eu/schemas/edm/CONTEXTS.xsd"/>
 
+    <element name="RDF" type="edm:RDF"/>
+
     	<complexType name="RDF">
     		<annotation>
     			<documentation> The RDF root element declaration </documentation>
