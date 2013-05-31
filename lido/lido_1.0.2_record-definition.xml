@@ -1,13 +1,17 @@
 <?xml version="1.0"?>
 <record-definition prefix="lido" version="1.0.2">
     <namespaces>
-        <namespace prefix="lido" uri="http://www.lido-schema.org" schema="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd"/>
-        <namespace prefix="gml" uri="http://www.opengis.net/gml" schema="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+        <namespace prefix="lido" uri="http://www.lido-schema.org"
+                   schema="http://www.lido-schema.org/schema/v1.0/lido-v1.0.xsd"/>
+        <namespace prefix="gml" uri="http://www.opengis.net/gml"
+                   schema="http://schemas.opengis.net/gml/3.1.1/base/gml.xsd"/>
+        <namespace prefix="delving" uri="http://schemas.delving.eu/" schema="delving-1.2.xsd"/>
     </namespaces>
 
     <attrs>
         <attr tag="relatedencoding"/>
-        <attr tag="type"/>  <!--required="true"-->
+        <attr tag="type"/>
+        <!--required="true"-->
         <attr tag="politicalEntity"/>
         <attr tag="geographicalEntity"/>
         <attr tag="addedSearchTerm"/>
@@ -56,7 +60,7 @@
         <elem tag="date" elems="earliestDate, latestDate" singular="true"/>
 
         <!-- legal stuff and text for testing commit-->
-        <elem tag="legalBodyID"  attr-groups="id"/>
+        <elem tag="legalBodyID" attr-groups="id"/>
         <elem tag="legalBodyName" elems="appellationValue, appellationName"/>
         <elem tag="legalBodyWeblink" attr-groups="lang" attrs="pref, formatResource"/>
 
@@ -102,9 +106,12 @@
             <elem tag="gml:Polygon" singular="true"/>
         </elem>
         <elem tag="placeClassification" elems="conceptID, term" attrs="type"/>
-        <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification" attrs="politicalEntity, geographicalEntity">
-            <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification" attrs="politicalEntity, geographicalEntity">
-                <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification" attrs="politicalEntity, geographicalEntity"/>
+        <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification"
+              attrs="politicalEntity, geographicalEntity">
+            <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification"
+                  attrs="politicalEntity, geographicalEntity">
+                <elem tag="partOfPlace" elems="placeID, namePlaceSet, gml, placeClassification"
+                      attrs="politicalEntity, geographicalEntity"/>
                 <!--avoid the infinite by stopping here-->
             </elem>
         </elem>
@@ -140,17 +147,23 @@
         <elem tag="eventMethod" elems="conceptID, term" attrs="sortorder"/>
         <elem tag="eventMaterialsTech" elems="displayMaterialsTech, materialsTech" attrs="sortorder"/>
         <elem tag="thingPresent" elems="displayObject, object" attrs="sortorder"/>
-        <elem tag="event" elems="eventId, eventType, roleInEvent, eventName, eventActor, culture, eventDate, periodName, eventPlace, eventMethod, eventMaterialsTech, thingPresent" singular="true">
+        <elem tag="event"
+              elems="eventId, eventType, roleInEvent, eventName, eventActor, culture, eventDate, periodName, eventPlace, eventMethod, eventMaterialsTech, thingPresent"
+              singular="true">
             <elem tag="relatedEventSet" attrs="sortorder">
                 <elem elems="displayEvent" tag="relatedEvent">
-                    <elem tag="event" elems="eventId, eventType, roleInEvent, eventName, eventActor, culture, eventDate, periodName, eventPlace, eventMethod, eventMaterialsTech, thingPresent" singular="true">
+                    <elem tag="event"
+                          elems="eventId, eventType, roleInEvent, eventName, eventActor, culture, eventDate, periodName, eventPlace, eventMethod, eventMaterialsTech, thingPresent"
+                          singular="true">
                         <!-- avoid the infinite by not including relatedEventSet here -->
-                        <elem tag="eventDescriptionSet" elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote" singular="true"/>
+                        <elem tag="eventDescriptionSet"
+                              elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote" singular="true"/>
                     </elem>
                 </elem>
                 <elem tag="relatedEventRelType" elems="conceptID, term"/>
             </elem>
-            <elem tag="eventDescriptionSet" elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote" singular="true"/>
+            <elem tag="eventDescriptionSet" elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote"
+                  singular="true"/>
         </elem>
 
     </elems>
@@ -165,12 +178,13 @@
                     <elem tag="objectWorkType" elems="conceptID, term" attrs="type, sortorder" required="true"/>
                 </elem>
                 <elem tag="classificationWrap" singular="true">
-                    <elem tag="classification" elems="conceptID, term" attrs="type, sortorder" />
+                    <elem tag="classification" elems="conceptID, term" attrs="type, sortorder"/>
                 </elem>
             </elem>
             <elem tag="objectIdentificationWrap" required="true" singular="true">
                 <elem tag="titleWrap" required="true" singular="true">
-                    <elem tag="titleSet" elems="appellationValue, sourceAppellation" attrs="type, sortorder" required="true"/>
+                    <elem tag="titleSet" elems="appellationValue, sourceAppellation" attrs="type, sortorder"
+                          required="true"/>
                 </elem>
                 <elem tag="inscriptionsWrap" singular="true">
                     <elem tag="inscriptions" attrs="type, sortorder">
@@ -184,10 +198,13 @@
                 </elem>
                 <elem tag="repositoryWrap" singular="true">
                     <elem tag="repositorySet" attrs="type, sortorder">
-                        <elem tag="repositoryName" elems="legalBodyID, legalBodyName, legalBodyWeblink" singular="true"/>
+                        <elem tag="repositoryName" elems="legalBodyID, legalBodyName, legalBodyWeblink"
+                              singular="true"/>
                         <elem tag="workID" attrs="type, sortorder, encodinganalog, label"/>
                         <!--todo: repositoryLocation looks just like place! placeComplexType -->
-                        <elem tag="repositoryLocation" elems="placeID, namePlaceSet, gml, partOfPlace, placeClassification" attrs="politicalEntity, geographicalEntity" singular="true"/>
+                        <elem tag="repositoryLocation"
+                              elems="placeID, namePlaceSet, gml, partOfPlace, placeClassification"
+                              attrs="politicalEntity, geographicalEntity" singular="true"/>
                     </elem>
                 </elem>
                 <elem tag="displayStateEditionWrap" singular="true">
@@ -196,13 +213,16 @@
                     <elem tag="sourceStateEdition" attr-groups="lang"/>
                 </elem>
                 <elem tag="objectDescriptionWrap" singular="true">
-                    <elem tag="objectDescriptionSet" elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote" attrs="type, sortorder"/>
+                    <elem tag="objectDescriptionSet"
+                          elems="descriptiveNoteID, descriptiveNoteValue, sourceDescriptiveNote"
+                          attrs="type, sortorder"/>
                 </elem>
                 <elem tag="objectMeasurementsWrap" singular="true">
                     <elem tag="objectMeasurementsSet" attrs="sortorder">
                         <elem tag="displayObjectMeasurements" attr-groups="lang"/>
                         <elem tag="objectMeasurements" singular="true">
-                            <elem tag="measurementsSet" elems="measurementType, measurementUnit, measurementValue" attrs="sortorder"/>
+                            <elem tag="measurementsSet" elems="measurementType, measurementUnit, measurementValue"
+                                  attrs="sortorder"/>
                             <elem tag="extentMeasurements" attrs="sortorder"/>
                             <elem tag="qualifierMeasurements" attrs="sortorder"/>
                             <elem tag="formatMeasurements" attrs="sortorder"/>
@@ -240,13 +260,14 @@
         </elem>
         <elem tag="administrativeMetadata" attrs="xml:lang" required="true">
             <elem tag="rightsWorkWrap" singular="true">
-                <elem tag="rightsWorkSet" elems="rightsType, rightsDate, rightsHolder, creditLine" attrs="sortorder" singular="true"/>
+                <elem tag="rightsWorkSet" elems="rightsType, rightsDate, rightsHolder, creditLine" attrs="sortorder"
+                      singular="true"/>
             </elem>
             <elem tag="recordWrap" singular="true">
                 <elem tag="recordID" attr-groups="id" required="true"/>
                 <elem tag="recordType" elems="conceptID, term" required="true" singular="true"/>
                 <elem tag="recordSource" elems="legalBodyID, legalBodyName, legalBodyWeblink" attrs="type, sortorder"/>
-                <elem tag="recordRights" elems="rightsType, rightsDate, rightsHolder, creditLine" />
+                <elem tag="recordRights" elems="rightsType, rightsDate, rightsHolder, creditLine"/>
                 <elem tag="recordInfoSet" attrs="type">
                     <elem tag="recordInfoID" attr-groups="id"/>
                     <elem tag="recordInfoLink" attr-groups="lang" attrs="pref, formatResource" fieldType="link"/>
@@ -257,16 +278,20 @@
                 <elem tag="resourceSet" attrs="sortorder">
                     <elem tag="resourceID" attr-groups="id" singular="true"/>
                     <elem tag="resourceRepresentation" attrs="type">
-                        <elem tag="linkResource" attrs="pref, formatResource, xml:lang, encodinganalog, label, codecResource" required="true" singular="true"/>
-                        <elem tag="resourceMeasurementsSet" elems="measurementType, measurementUnit, measurementValue" />
+                        <elem tag="linkResource"
+                              attrs="pref, formatResource, xml:lang, encodinganalog, label, codecResource"
+                              required="true" singular="true"/>
+                        <elem tag="resourceMeasurementsSet" elems="measurementType, measurementUnit, measurementValue"/>
                     </elem>
                     <elem tag="resourceType" elems="conceptID, term" singular="true"/>
                     <elem tag="resourceRelType" elems="conceptID, term" singular="true"/>
                     <elem tag="resourcePerspective" elems="conceptID, term"/>
                     <elem tag="resourceDescription" attrs="type, sortorder"/>
                     <elem tag="resourceDateTaken" elems="displayDate, date"/>
-                    <elem tag="resourceSource" elems="legalBodyID, legalBodyName, legalBodyWeblink" attrs="type, sortorder"/>
-                    <elem tag="rightsResource" elems="rightsType, rightsDate, rightsHolder, creditLine" singular="true"/>
+                    <elem tag="resourceSource" elems="legalBodyID, legalBodyName, legalBodyWeblink"
+                          attrs="type, sortorder"/>
+                    <elem tag="rightsResource" elems="rightsType, rightsDate, rightsHolder, creditLine"
+                          singular="true"/>
                 </elem>
             </elem>
         </elem>
@@ -298,109 +323,113 @@
                 />
         <field-marker
                 name="delving:imageUrl"
-                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_preview']/lido:linkResource"
                 check="DIGITAL_OBJECT"
+                />
+        <field-marker
+                name="delving:fullTextObjectUrl"
+                xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@lido:type='image_master']/lido:linkResource"
                 />
         <!--<field-marker name="OWNER" path="facts/provider"/>-->
         <!--<field-marker name="PROVIDER" path="facts/dataprovider"/>-->
         <!--<field-marker-->
-                <!--name="delving:Pdf"-->
-                <!--xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@type='image_preview']/lido:linkResource"-->
-                <!--check="DIGITAL_OBJECT"-->
-                <!--/>-->
+        <!--name="delving:Pdf"-->
+        <!--xpath="/lido:lido/lido:administrativeMetadata/lido:resourceWrap/lido:resourceSet/lido:resourceRepresentation[@type='image_preview']/lido:linkResource"-->
+        <!--check="DIGITAL_OBJECT"-->
+        <!--/>-->
         <!--<field-marker -->
-                <!--path="/lido:lido/lido:objectPublishedID" -->
-                <!--check="LOD_REFERENCE"-->
-                <!--/>-->
+        <!--path="/lido:lido/lido:objectPublishedID" -->
+        <!--check="LOD_REFERENCE"-->
+        <!--/>-->
         <!--<field-marker name="DEEP_ZOOM_URL"/>-->
     </field-markers>
 
     <opts>
         <!--&lt;!&ndash;Constants&ndash;&gt;-->
-                <!--<opt-list path="constant" value="" displayName="Constants">-->
-                    <!--<opt value="local"/>-->
-                    <!--<opt value="translated"/>-->
-                    <!--<opt value="alternative"/>-->
-                    <!--<opt value="uniform"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="constant" value="" displayName="Constants">-->
+        <!--<opt value="local"/>-->
+        <!--<opt value="translated"/>-->
+        <!--<opt value="alternative"/>-->
+        <!--<opt value="uniform"/>-->
+        <!--</opt-list>-->
 
 
-                <!--&lt;!&ndash;LIDO:TYPE&ndash;&gt;-->
-                <!--<opt-list path="lido:type" value="" displayName="type">-->
-                    <!--<opt value="person"/>-->
-                    <!--<opt value="group"/>-->
-                    <!--<opt value="family"/>-->
-                    <!--<opt value="corporation"/>-->
-                <!--</opt-list>-->
+        <!--&lt;!&ndash;LIDO:TYPE&ndash;&gt;-->
+        <!--<opt-list path="lido:type" value="" displayName="type">-->
+        <!--<opt value="person"/>-->
+        <!--<opt value="group"/>-->
+        <!--<opt value="family"/>-->
+        <!--<opt value="corporation"/>-->
+        <!--</opt-list>-->
 
 
-                <!--<opt-list path="#date:lido:type" value="" displayName="type">-->
-                    <!--<opt value="exactDate"/>-->
-                    <!--<opt value="estimatedDate"/>-->
-                    <!--<opt value="deathDate"/>-->
-                    <!--<opt value="birthDate"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="#date:lido:type" value="" displayName="type">-->
+        <!--<opt value="exactDate"/>-->
+        <!--<opt value="estimatedDate"/>-->
+        <!--<opt value="deathDate"/>-->
+        <!--<opt value="birthDate"/>-->
+        <!--</opt-list>-->
 
-                <!--<opt-list path="#lido:placeSetComplexType" value="" displayName="type">-->
-                    <!--<opt value="moveFrom"/>-->
-                    <!--<opt value="moveTo"/>-->
-                    <!--<opt value="alternative"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="#lido:placeSetComplexType" value="" displayName="type">-->
+        <!--<opt value="moveFrom"/>-->
+        <!--<opt value="moveTo"/>-->
+        <!--<opt value="alternative"/>-->
+        <!--</opt-list>-->
 
-                <!--<opt-list path="#periodname:lido:type" value="" displayName="type">-->
-                    <!--<opt value="earliestPeriod"/>-->
-                    <!--<opt value="latestPeriod"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="#periodname:lido:type" value="" displayName="type">-->
+        <!--<opt value="earliestPeriod"/>-->
+        <!--<opt value="latestPeriod"/>-->
+        <!--</opt-list>-->
 
-                <!--<opt-list path="#term:lido:type" value="" displayName="type">-->
-                    <!--<opt value="preferred"/>-->
-                    <!--<opt value="alternate"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="#term:lido:type" value="" displayName="type">-->
+        <!--<opt value="preferred"/>-->
+        <!--<opt value="alternate"/>-->
+        <!--</opt-list>-->
 
 
-                <!--&lt;!&ndash;check K-Samsök&ndash;&gt;-->
-                <!--<opt-list path="#termMaterialsTech:lido:type" value="" displayName="type">-->
-                    <!--<opt value="technique"/>-->
-                    <!--<opt value="material"/>-->
-                    <!--<opt value="implement"/>-->
-                    <!--<opt value="mark"/>-->
-                <!--</opt-list>-->
+        <!--&lt;!&ndash;check K-Samsök&ndash;&gt;-->
+        <!--<opt-list path="#termMaterialsTech:lido:type" value="" displayName="type">-->
+        <!--<opt value="technique"/>-->
+        <!--<opt value="material"/>-->
+        <!--<opt value="implement"/>-->
+        <!--<opt value="mark"/>-->
+        <!--</opt-list>-->
 
-                <!--<opt-list path="#repositoryLocation:lido:type" value="" displayName="type">-->
-                    <!--<opt value="current"/>-->
-                    <!--<opt value="former"/>-->
-                <!--</opt-list>-->
+        <!--<opt-list path="#repositoryLocation:lido:type" value="" displayName="type">-->
+        <!--<opt value="current"/>-->
+        <!--<opt value="former"/>-->
+        <!--</opt-list>-->
 
-                <!--&lt;!&ndash;Unspec&ndash;&gt;-->
-                <!--<opt-list path="#others:lido:type" value="" displayName="type">-->
-                    <!--<opt value="language"/>-->
-                    <!--<opt value="local"/>-->
-                    <!--<opt value="europeana:type"/> &lt;!&ndash;classification&ndash;&gt;-->
-                    <!--<opt value="description"/> &lt;!&ndash;subject set / subject&ndash;&gt;-->
-                    <!--<opt value="URI"/>-->
-                    <!--<opt value="oai"/>-->
-                    <!--<opt value="image_thumb"/>  &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value="image_master"/>  &lt;!&ndash; EuropenaInside  &ndash;&gt;-->
-                    <!--<opt value="holder of image"/>  &lt;!&ndash;lido:resourceSource&ndash;&gt;-->
-                    <!--<opt value=""/>-->
-                    <!--<opt value=""/>-->
-                <!--</opt-list>-->
+        <!--&lt;!&ndash;Unspec&ndash;&gt;-->
+        <!--<opt-list path="#others:lido:type" value="" displayName="type">-->
+        <!--<opt value="language"/>-->
+        <!--<opt value="local"/>-->
+        <!--<opt value="europeana:type"/> &lt;!&ndash;classification&ndash;&gt;-->
+        <!--<opt value="description"/> &lt;!&ndash;subject set / subject&ndash;&gt;-->
+        <!--<opt value="URI"/>-->
+        <!--<opt value="oai"/>-->
+        <!--<opt value="image_thumb"/>  &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value="image_master"/>  &lt;!&ndash; EuropenaInside  &ndash;&gt;-->
+        <!--<opt value="holder of image"/>  &lt;!&ndash;lido:resourceSource&ndash;&gt;-->
+        <!--<opt value=""/>-->
+        <!--<opt value=""/>-->
+        <!--</opt-list>-->
 
-                <!--&lt;!&ndash;Europeana inside        &ndash;&gt;-->
-                <!--<opt-list path="lido:type" value="" displayName="type">-->
-                    <!--<opt value="object name"/> &lt;!&ndash; objectWorkTypeWrap ► objectWorkType ► term  &ndash;&gt;-->
-                    <!--<opt value="collection name"/> &lt;!&ndash;  ► classificationWrap ► classification ► term &ndash;&gt;-->
-                    <!--<opt value="short description"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
-                    <!--<opt value="location"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
-                    <!--<opt value="Is Part Of"/> &lt;!&ndash; ► relatedWorksWrap ► relatedWorkSet / relatedWorkRelType / @type="Is Part Of"  &ndash;&gt;-->
-                    <!--<opt value="europeana:dataProvider"/> &lt;!&ndash; ► recordSource / @type="europeana:dataProvider"  &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                    <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
-                <!--</opt-list>-->
+        <!--&lt;!&ndash;Europeana inside        &ndash;&gt;-->
+        <!--<opt-list path="lido:type" value="" displayName="type">-->
+        <!--<opt value="object name"/> &lt;!&ndash; objectWorkTypeWrap ► objectWorkType ► term  &ndash;&gt;-->
+        <!--<opt value="collection name"/> &lt;!&ndash;  ► classificationWrap ► classification ► term &ndash;&gt;-->
+        <!--<opt value="short description"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
+        <!--<opt value="location"/> &lt;!&ndash; ► objectDescriptionWrap ► objectDescriptionSet ► descriptiveNoteValue  &ndash;&gt;-->
+        <!--<opt value="Is Part Of"/> &lt;!&ndash; ► relatedWorksWrap ► relatedWorkSet / relatedWorkRelType / @type="Is Part Of"  &ndash;&gt;-->
+        <!--<opt value="europeana:dataProvider"/> &lt;!&ndash; ► recordSource / @type="europeana:dataProvider"  &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--<opt value=""/> &lt;!&ndash;   &ndash;&gt;-->
+        <!--</opt-list>-->
 
         <!--Image type-->
         <opt-list
@@ -423,40 +452,74 @@
                 dictionary="EventType"
                 displayName="Events"
                 >
-            <opt key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001" value="Acquisition"/>
-            <opt hidden="true" key="lido00002" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00002" value="Finding"/>
-            <opt hidden="true" key="lido00003" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00003" value="Event"/>
-            <opt hidden="true" key="lido00004" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00004" value="Activity"/>
-            <opt hidden="true" key="lido00005" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00005" value="Transfer Of Custody"/>
-            <opt hidden="true" key="lido00006" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00006" value="Modification"/>
-            <opt hidden="true" key="lido00007" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00007" value="Production"/>
-            <opt hidden="true" key="lido00008" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00008" value="Part addition"/>
-            <opt hidden="true" key="lido00009" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00009" value="Loss"/>
-            <opt hidden="true" key="lido00010" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00010" value="Collecting"/>
-            <opt hidden="true" key="lido00011" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00011" value="Use"/>
-            <opt hidden="true" key="lido00012" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00012" value="Creation"/>
-            <opt hidden="true" key="lido00013" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00013" value="Type creation"/>
-            <opt hidden="true" key="lido00021" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00021" value="Part removal"/>
-            <opt hidden="true" key="lido00022" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00022" value="Partial destruction"/>
-            <opt hidden="true" key="lido00023" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00023" value="Type assignment"/>
-            <opt hidden="true" key="lido00024" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00024" value="Attribute assignment"/>
-            <opt hidden="true" key="lido00025" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00025" value="Completion"/>
-            <opt hidden="true" key="lido00026" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00026" value="Destruction"/>
-            <opt hidden="true" key="lido00027" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00027" value="End of existence"/>
-            <opt hidden="true" key="lido00028" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00028" value="Beginning of existence"/>
-            <opt hidden="true" key="lido00029" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00029" value="Transformation"/>
-            <opt hidden="true" key="lido00030" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00030" value="Performance"/>
-            <opt hidden="true" key="lido00031" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00031" value="Execution"/>
-            <opt hidden="true" key="lido00032" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00032" value="Planning"/>
-            <opt hidden="true" key="lido00033" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00033" value="Excavation"/>
-            <opt hidden="true" key="lido00223" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00223" value="Move"/>
-            <opt hidden="true" key="lido00224" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00224" value="Designing"/>
-            <opt hidden="true" key="lido00225" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00225" value="Exhibition"/>
-            <opt hidden="true" key="lido00226" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00226" value="Commissioning"/>
-            <opt hidden="true" key="lido00227" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00227" value="Provenance"/>
-            <opt hidden="true" key="lido00228" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00228" value="Publication"/>
-            <opt hidden="true" key="lido00401" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00401" value="Marketing"/>
-            <opt hidden="true" key="lido00402" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00402" value="Conservation"/>
+            <opt key="lido00001" schema="lido-evenType" schemaUri="http://terminology.lido-schema.org/lido00001"
+                 value="Acquisition"/>
+            <opt hidden="true" key="lido00002" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00002" value="Finding"/>
+            <opt hidden="true" key="lido00003" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00003" value="Event"/>
+            <opt hidden="true" key="lido00004" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00004" value="Activity"/>
+            <opt hidden="true" key="lido00005" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00005" value="Transfer Of Custody"/>
+            <opt hidden="true" key="lido00006" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00006" value="Modification"/>
+            <opt hidden="true" key="lido00007" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00007" value="Production"/>
+            <opt hidden="true" key="lido00008" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00008" value="Part addition"/>
+            <opt hidden="true" key="lido00009" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00009" value="Loss"/>
+            <opt hidden="true" key="lido00010" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00010" value="Collecting"/>
+            <opt hidden="true" key="lido00011" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00011" value="Use"/>
+            <opt hidden="true" key="lido00012" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00012" value="Creation"/>
+            <opt hidden="true" key="lido00013" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00013" value="Type creation"/>
+            <opt hidden="true" key="lido00021" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00021" value="Part removal"/>
+            <opt hidden="true" key="lido00022" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00022" value="Partial destruction"/>
+            <opt hidden="true" key="lido00023" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00023" value="Type assignment"/>
+            <opt hidden="true" key="lido00024" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00024" value="Attribute assignment"/>
+            <opt hidden="true" key="lido00025" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00025" value="Completion"/>
+            <opt hidden="true" key="lido00026" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00026" value="Destruction"/>
+            <opt hidden="true" key="lido00027" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00027" value="End of existence"/>
+            <opt hidden="true" key="lido00028" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00028" value="Beginning of existence"/>
+            <opt hidden="true" key="lido00029" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00029" value="Transformation"/>
+            <opt hidden="true" key="lido00030" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00030" value="Performance"/>
+            <opt hidden="true" key="lido00031" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00031" value="Execution"/>
+            <opt hidden="true" key="lido00032" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00032" value="Planning"/>
+            <opt hidden="true" key="lido00033" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00033" value="Excavation"/>
+            <opt hidden="true" key="lido00223" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00223" value="Move"/>
+            <opt hidden="true" key="lido00224" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00224" value="Designing"/>
+            <opt hidden="true" key="lido00225" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00225" value="Exhibition"/>
+            <opt hidden="true" key="lido00226" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00226" value="Commissioning"/>
+            <opt hidden="true" key="lido00227" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00227" value="Provenance"/>
+            <opt hidden="true" key="lido00228" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00228" value="Publication"/>
+            <opt hidden="true" key="lido00401" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00401" value="Marketing"/>
+            <opt hidden="true" key="lido00402" schema="lido-evenType"
+                 schemaUri="http://terminology.lido-schema.org/lido00402" value="Conservation"/>
         </opt-list>
 
         <!--Object Category-->
@@ -898,7 +961,8 @@
         </doc>
         <doc tag="inscriptionsWrap">
             <para name="Definition">
-                A wrapper for information about inscriptions and other marks.</para>
+                A wrapper for information about inscriptions and other marks.
+            </para>
         </doc>
         <doc tag="inscriptionTranscription">
             <para name="Definition">Transcription of the inscription.</para>
