@@ -40,6 +40,13 @@
         <attr tag="xlink:title"/>
     </attrs>
 
+    <attr-groups>
+            <attr-group name="a.common">
+                <string>id</string>
+                <string>audience</string>
+            </attr-group>
+    </attr-groups>
+
     <elems>
         <elem tag="abbr" attrs="expan"/>
         <elem tag="address" elems="addressline"/>
@@ -48,7 +55,7 @@
         <elem tag="corpname" attrs="authfilenumber"/>
         <elem tag="emph" attrs="render"/>
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
-        <elem tag="date" attrs="era, calendar, normal, encodinganalog"/>
+        <elem tag="date" attrs="encodinganalog, era, calendar, normal "/>
         <elem tag="dimensions" attrs="type, unit"/>
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="entry"/>
@@ -62,45 +69,90 @@
         <elem tag="head"/>
         <elem tag="imprint" elems="publisher, geogname, date"/>
         <elem tag="item"/>
-        <!--<elem tag="item" elems="emph, lb"/>-->
-        <elem tag="language" attrs="langcode, scriptcode, encodinganalog"/>
+        <elem tag="language" attrs="encodinganalog, langcode, scriptcode"/>
         <elem tag="lb"/>
         <elem tag="list" elems="head, item" attrs="type, numeration"/>
         <elem tag="occupation"/>
         <elem tag="name" attrs="authfilenumber"/>
-        <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
+        <elem tag="p"/>
         <elem tag="persname" attrs="authfilenumber"/>
-        <elem tag="physfacet" attrs="type, type"/>
+        <elem tag="physfacet" attrs="type"/>
         <elem tag="publisher" attrs="encodinganalog"/>
         <elem tag="row" elems="entry"/>
-        <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
         <elem tag="subject"/>
         <elem tag="table" elems="head, tgroup"/>
         <elem tag="tgroup" elems="thead, tbody" attrs="cols"/>
         <elem tag="thead" elems="row"/>
         <elem tag="tbody" elems="row"/>
         <elem tag="title"/>
-        <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
+        <!-- <elem tag="titleproper" elems="lb, emph" attrs="encodinganalog, type"/> TODO -->
+        <elem tag="titleproper" attrs="encodinganalog, type"/>
 
         <!-- did -->
         <elem tag="did">
+            <elem tag="container" attrs="type"/>
+            <elem tag="dao" attrs="xlink:href, xlink:title"/>
+            <elem tag="langmaterial" elems="language" attrs="encodinganalog"/>
+            <elem tag="materialspec"/>
+            <elem tag="note" elems="p" attrs="encodinganalog, label"/>
+            <elem tag="origination" elems="corpname, famname, persname, name" attrs="encodinganalog, label"/>
+            <elem tag="physdesc" elems="genreform, dimensions, physfacet, extent" attrs="encodinganalog"/>
+            <elem tag="physloc" attrs="label"/>
+            <elem tag="repository" elems="address"/>
+            <elem tag="unitdate" attrs="encodinganalog, calendar, era, normal "/>
             <elem tag="unitid" attrs="encodinganalog, type"/>
             <elem tag="unittitle" attrs="encodinganalog"/>
-            <elem tag="unitdate" attrs="calendar, era, normal, encodinganalog"/>
-            <elem tag="origination" elems="corpname, famname, persname, name" attrs="label, encodinganalog"/>
-            <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
-            <elem tag="repository" elems="address"/>
-            <elem tag="physloc" attrs="label"/>
-            <elem tag="materialspec"/>
-            <elem tag="container" attrs="type"/>
-            <elem tag="physdesc" elems="genreform, dimensions, physfacet, extent" attrs="encodinganalog"/>
-            <elem tag="dao" attrs="xlink:href, xlink:title"/>
-            <elem tag="note" elems="p" attrs="encodinganalog, label"/>
         </elem>
+
     </elems>
 
+    <elem-groups>
 
-    <root tag="ead" attrs="audience">
+        <elem-group name="h.m.blocks">
+            <elem tag="head"/>
+            <elem tag="list" elems="head, item" attrs="type, numeration"/>
+            <elem tag="table" elems="head, tgroup"/>
+            <elem tag="p"/>
+        </elem-group>
+
+        <elem-group name="m.desc.base.lowlevels">
+
+            <elem tag="accessrestrict" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="accruals" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="altformavail" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="appraisal" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
+            <elem tag="controlaccess" elems="head, p, corpname, famname, geogname, name, occupation, persname, subject, function, title"/>
+            <elem tag="custodhist" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="odd" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="otherfindaid" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
+            <elem tag="processinfo" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="scopecontent" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="userestrict" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+
+        </elem-group>
+
+        <elem-group name="m.desc.base.highlevels">
+
+            <elem tag="acqinfo" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="arrangement" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="bibliography" elems="head, bibref, p" attrs="encodinganalog"/>
+            <elem tag="fileplan" elems="head, list, table">
+                <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
+            </elem>
+            <elem tag="originalsloc" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="prefercite" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="relatedmaterial" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="separatedmaterial" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+
+        </elem-group>
+
+    </elem-groups>
+
+
+
+    <root tag="ead" attr-groups="a.common">
 
         <elem tag="eadheader" attrs="langencoding, scriptencoding, dateencoding, countryencoding, repositoryencoding, relatedencoding">
             <elem tag="eadid" attrs="url, countrycode, mainagencycode, identifier  "/>
@@ -116,166 +168,35 @@
             <elem tag="profiledesc">
                 <elem tag="creation" elems="date"/>
                 <elem tag="langusage" elems="language"/>
-                <elem tag="descrules"/>
+                <elem tag="descrules" attr-groups="a.common" attrs="encodinganalog"/>
             </elem>
-            <elem tag="revisiondesc" attrs="encodinganalog">
-                <!--<elem tag="list" elems="head, item"/>  &lt;!&ndash; ITEM contatins LIST acc to XSD CHECK AGAIN&ndash;&gt;-->
-                <elem tag="change" elems="date, item"/>
-
+            <elem tag="revisiondesc" elems="list" attr-groups="a.common" attrs="encodinganalog">
+                <elem tag="change" elems="date, item" attr-groups="a.common" attrs="encodinganalog"/>
             </elem>
         </elem>
 
-        <!-- Archival description -->
-        <elem tag="archdesc" elems="did" attrs="level, type, encodinganalog, relatedencoding">
+        <elem tag="archdesc" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="encodinganalog, level, relatedencoding, type">
 
+            <elem tag="dsc" elem-groups="h.m.blocks" attrs="type">
 
-            <!--m.desc.base.highlevels-->
-            <elem tag="acqinfo" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="arrangement" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="fileplan" elems="head, p, list, table"/>
-            <elem tag="originalsloc" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="prefercite" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="separatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
-
-            <!--m.desc.base.lowlevels-->
-            <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="bibliography" elems="head, p, bibref" attrs="encodinganalog"/>
-            <elem tag="bioghist" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-            <elem tag="controlaccess" elems="head, p, corpname, geogname, famname, name, occupation, persname, subject, function, title"/>
-            <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="otherfindaid" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
-            <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
-            <elem tag="scopecontent" elems="head, p, list, dao, table" attrs="encodinganalog"/>
-            <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-
-
-            <!-- Detailed descriptions -->
-            <elem tag="dsc" elems="head, p" attrs="type">
-
-                <!-- Fonds -->
-                <elem tag="c" elems="did" attrs="level, encodinganalog, id">
-
-                    <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="bioghist" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="arrangement" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="fileplan" elems="head, p, list, table"/>
-                    <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="acqinfo" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="separatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="originalsloc" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="prefercite" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="otherfindaid" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
-
-
-                    <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
-                    <elem tag="bibliography" attrs="encodinganalog">
-                        <elem tag="head"/>
-                        <elem tag="p"/>
-                        <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
-                    </elem>
-                    <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
-
-                    <elem tag="controlaccess" elems="head">
-                        <elem tag="p" elems="lb, emph, extref"/>
-                        <elem tag="name"/>
-                        <elem tag="geogname"/>
-                        <elem tag="famname"/>
-                        <elem tag="subject"/>
-                        <elem tag="corpname"/>
-                        <elem tag="persname"/>
-                        <elem tag="occupation"/>
-                        <elem tag="function"/>
-                        <elem tag="title"/>
-                        <elem tag="genreform"/>
-                    </elem>
-
-
-                    <elem tag="c" attrs="level, encodinganalog, id">
-
-                        <elem tag="did">
-                            <elem tag="unitid" attrs="encodinganalog, type"/>
-                            <elem tag="exptr" attrs="xlink:href, xlink:title"/>
-                            <elem tag="unittitle" elems="abbr, expan" attrs="encodinganalog"/>
-                            <elem tag="unitdate" attrs="calendar, era, normal, encodinganalog"/>
-                            <elem tag="dao" attrs="xlink:href, xlink:title"/>
-                            <elem tag="unitid" attrs="type">
-                                <elem tag="title"/>
+                <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                    <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                        <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                            <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                    <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                        <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                            <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                                <elem tag="c" elems="did" elem-groups="m.desc.base.lowlevels, m.desc.base.highlevels" attrs="level, encodinganalog, id">
+                                                </elem>
+                                            </elem>
+                                        </elem>
+                                    </elem>
+                                </elem>
                             </elem>
-                            <elem tag="unitid" attrs="type">
-                                <elem tag="title"/>
-                            </elem>
-                            <elem tag="physdesc" attrs="encodinganalog">
-                                <elem tag="physfacet" attrs="type, type"/>
-                                <elem tag="extent" attrs="unit"/>
-                                <elem tag="genreform"/>
-                                <elem tag="dimensions" attrs="type, unit"/>
-                            </elem>
-                            <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
-                            <!-- OBS check weird def in EAD table, encode attr to langmaterial -->
-                            <elem tag="repository" elems="address"/>
-                            <elem tag="physloc" attrs="label"/>
-                            <elem tag="container" attrs="type"/>
-                            <elem tag="materialspec"/>
-                            <elem tag="origination" attrs="label, label, label, encodinganalog"> <!---OBS!!! -->
-                                <elem tag="corpname" attrs="authfilenumber"/>
-                                <elem tag="persname" attrs="authfilenumber"/>
-                                <elem tag="famname" attrs="authfilenumber"/>
-                                <elem tag="name" attrs="authfilenumber"/>
-                            </elem>
-                            <elem tag="note" elems="p" attrs="encodinganalog, label"/>
                         </elem>
-
-                        <elem tag="scopecontent" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="appraisal" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="processinfo" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="custodhist" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="bioghist" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="accruals" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="altformavail" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="relatedmaterial" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="accessrestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="userestrict" elems="head, p, list, table" attrs="encodinganalog"/>
-                        <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
-
-
-                        <elem tag="bibliography" attrs="encodinganalog">
-                            <elem tag="head"/>
-                            <elem tag="p"/>
-                            <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
-                        </elem>
-                        <elem tag="odd" elems="head, p, list, table" attrs="encodinganalog"/>
-
-                        <elem tag="controlaccess" elems="head">
-                            <elem tag="p" elems="lb, emph, extref"/>
-                            <elem tag="name"/>
-                            <elem tag="geogname"/>
-                            <elem tag="famname"/>
-                            <elem tag="subject"/>
-                            <elem tag="corpname"/>
-                            <elem tag="persname"/>
-                            <elem tag="occupation"/>
-                            <elem tag="function"/>
-                            <elem tag="title"/>
-                            <elem tag="genreform"/>
-                        </elem>
-
                     </elem>
-
                 </elem>
-
             </elem>
         </elem>
 
@@ -288,5 +209,19 @@
         <!--<field-marker name="provider" type="fact" path="/record/admin/displayProvider"/>-->
 
     </field-markers>
+
+    <!--<opts>-->
+        <!--<opt-list path="/record/findingAid/c" key="@key" value="@type" displayName="FindingAid">-->
+                <!--<opt hidden="true" key="http://id.culturecloud.eu/concepts/#fonds" value="root">-->
+                    <!--<dicts>-->
+                        <!--<dict path="/record/facets/facet" key="@key" value="@type" name="Facets">-->
+                            <!--<entry value="A"/>-->
+                            <!--<entry value="B"/>-->
+                        <!--</dict>-->
+                    <!--</dicts>-->
+                <!--</opt>-->
+            <!--</opt-list>-->
+    <!--</opts>-->
+
 
 </record-definition>
