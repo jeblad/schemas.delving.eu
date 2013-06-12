@@ -80,12 +80,12 @@
         <elem tag="thead" elems="row"/>
         <elem tag="tbody" elems="row"/>
         <elem tag="title"/>
-        <elem tag="titleproper" elems="lb, emph" attrs="type, encodinganalog"/>
+        <elem tag="titleproper" required="true" attrs="type, encodinganalog"/>
 
         <!-- did -->
         <elem tag="did">
             <elem tag="unitid" attrs="encodinganalog, type"/>
-            <elem tag="unittitle" attrs="encodinganalog"/>
+            <elem tag="unittitle" required="true" attrs="encodinganalog"/>
             <elem tag="unitdate" attrs="calendar, era, normal, encodinganalog"/>
             <elem tag="origination" elems="corpname, famname, persname, name" attrs="label, encodinganalog"/>
             <elem tag="langmaterial" attrs="encodinganalog" elems="language"/>
@@ -283,10 +283,19 @@
 
 
     <field-markers>
-        <!--<field-marker name="dataProvider" type="fact" path="/record/admin/displayDataProvider"/>-->
-        <!--<field-marker name="country" type="fact" path="/record/admin/displayDataProviderCountry"/>-->
-        <!--<field-marker name="provider" type="fact" path="/record/admin/displayProvider"/>-->
-
+        <field-marker name="delving:owner" path="/ead:ead/ead:archdesc/ead:did/ead:origination/ead:corpname"/>
+        <field-marker name="delving:title" path="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:titleproper"/>
+        <field-marker name="delving:description" path="/ead:ead/ead:archdesc/ead:odd/ead:p"/>
     </field-markers>
+
+    <assertion-list>
+        <assert xpath="/ead:ead/ead:eadheader/ead:filedesc/ead:titlestmt/ead:titleproper/text()">
+            <on-fail>Empty titleproper for this finding aid</on-fail>
+        </assert>
+        <assert xpath="//ead:unittitle/text()">
+            <on-fail>Empty titleproper for this finding aid</on-fail>
+        </assert>
+    </assertion-list>
+
 
 </record-definition>
