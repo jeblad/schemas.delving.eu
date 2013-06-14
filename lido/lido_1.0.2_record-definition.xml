@@ -477,8 +477,6 @@
               <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E22_Man-Made_Object" key="URI" value="Man-Made Object"/>-->
               <!--<opt uri="http://www.cidoc-crm.org.org/cidoc-crm/E70_Thing" key="URI" value="Thing"/>-->
         <!--</opt-list>-->
-    </opts>
-
 
         <!--&lt;!&ndash;LIDO:TYPE&ndash;&gt;-->
         <!--<opt-list path="lido:type" value="" displayName="type">-->
