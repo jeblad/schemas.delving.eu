@@ -38,6 +38,7 @@
         <attr tag="unit"/>
         <attr tag="xlink:href"/>
         <attr tag="xlink:title"/>
+        <attr tag="xlink:role"/>
     </attrs>
 
     <attr-groups>
@@ -45,23 +46,24 @@
                 <string>id</string>
                 <string>audience</string>
             </attr-group>
+
+            <attr-group name="xlink.simplelink">
+                <string>xlink:href</string>
+                <string>xlink:role</string>
+            </attr-group>
     </attr-groups>
 
     <elems>
-        <elem tag="abbr" attrs="expan"/>
         <elem tag="address" elems="addressline"/>
         <elem tag="addressline"/>
         <elem tag="bibref" attrs="xlink:href" elems="name, title, imprint"/>
         <elem tag="corpname" attrs="authfilenumber"/>
-        <elem tag="emph" attrs="render"/>
         <elem tag="dao" attrs="xlink:href, xlink:title"/>
         <elem tag="date" attrs="encodinganalog, era, calendar, normal "/>
         <elem tag="dimensions" attrs="type, unit"/>
         <elem tag="descrules" attrs="encodinganalog"/>
         <elem tag="entry"/>
-        <elem tag="expan" attrs="abbr"/>
         <elem tag="extent" attrs="unit"/>
-        <elem tag="extref" attrs="xlink:href, xlink:title"/>
         <elem tag="famname" attrs="authfilenumber"/>
         <elem tag="function"/>
         <elem tag="genreform"/>
@@ -70,11 +72,19 @@
         <elem tag="imprint" elems="publisher, geogname, date"/>
         <elem tag="item"/>
         <elem tag="language" attrs="encodinganalog, langcode, scriptcode"/>
-        <elem tag="lb"/>
         <elem tag="list" elems="head, item" attrs="type, numeration"/>
         <elem tag="occupation"/>
         <elem tag="name" attrs="authfilenumber"/>
-        <elem tag="p"/>
+
+        <!--<elem tag="p" elems="emph, lb, abbr, expan, extref"/> TODO-->
+        <elem tag="p" elems="extref"/>
+            <elem tag="emph" attrs="render"/>
+            <elem tag="lb"/>
+            <elem tag="abbr" attrs="expan"/>
+            <elem tag="expan" attrs="abbr"/>
+            <elem tag="extref" attr-groups="xlink.simplelink"/>
+
+
         <elem tag="persname" attrs="authfilenumber"/>
         <elem tag="physfacet" attrs="type"/>
         <elem tag="publisher" attrs="encodinganalog"/>
@@ -112,6 +122,7 @@
             <elem tag="head"/>
             <elem tag="list" elems="head, item" attrs="type, numeration"/>
             <elem tag="table" elems="head, tgroup"/>
+            <!--<elem tag="p" elems="emph, lb, abbr, expan, extref"/> TODO-->
             <elem tag="p"/>
         </elem-group>
 
@@ -125,7 +136,12 @@
             <elem tag="controlaccess" elems="head, p, corpname, famname, geogname, name, occupation, persname, subject, function, title"/>
             <elem tag="custodhist" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="odd" elem-groups="h.m.blocks" attrs="encodinganalog"/>
-            <elem tag="otherfindaid" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="otherfindaid" elem-groups="h.m.blocks" attrs="encodinganalog">
+                <elem tag="head"/>
+                <elem tag="list" elems="head, item" attrs="type, numeration"/>
+                <elem tag="table" elems="head, tgroup"/>
+                <elem tag="p" elems="extref"/>
+            </elem>
             <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
             <elem tag="processinfo" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="scopecontent" elem-groups="h.m.blocks" attrs="encodinganalog"/>
@@ -138,9 +154,7 @@
             <elem tag="acqinfo" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="arrangement" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="bibliography" elems="head, bibref, p" attrs="encodinganalog"/>
-            <elem tag="fileplan" elems="head, list, table">
-                <elem tag="p" elems="lb, emph, abbr, expan, extref"/>
-            </elem>
+            <elem tag="fileplan" elems="head, list, table, p"/>
             <elem tag="originalsloc" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="prefercite" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="relatedmaterial" elem-groups="h.m.blocks" attrs="encodinganalog"/>
