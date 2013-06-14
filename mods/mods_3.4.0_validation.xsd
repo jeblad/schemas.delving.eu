@@ -23,7 +23,7 @@ Modified:
                                                              Changes from version 3.3
                                                          *************************************
 
-1.   <form> as sublement of <location><holdingsSimple><copyInformation> is changed to conform to the <form> element defined for the MODS namespace.  The effect of this change is attribute ID is now allowed for <form>. Since it is optional this will not affect existing instances.
+1.   <form> as sublement of <location><holdingsSimple><copyInformation> is changed to conform to the <form> element defined for the MODS namespace.  The effect of this change is attribute ID is now allowed for <form>. Since it is optional thx§is will not affect existing instances.
 
 2. The attribute 'displayLabel' has been added to the definitions of several top level elements, so that all top level elements now have this attribute. Specifically 'displayLabel' has been added to the definitions of: <extension>, <genre>, <location>, <language>, <name>, <originInfo>, <part>, <physicalDescription>, <recordInfo>, <subject>, <targetAudience>, <typeOfResource>.
 

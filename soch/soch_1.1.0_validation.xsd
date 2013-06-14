@@ -22,21 +22,38 @@
     <!--<xsd:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="http://www.openarchives.org/OAI/2.0/rdf.xsd"/>-->
     <xsd:import namespace="http://www.w3.org/1999/02/22-rdf-syntax-ns#" schemaLocation="http://www.europeana.eu/schemas/edm/RDF.xsd"/>
 
-    <xsd:element name="Entity" type="soch:entityType"/>
+    <xsd:element name="start" type="soch:rootTypes"/>
+
+
+    <xsd:complexType name="rootTypes">
+        <xsd:sequence>
+            <xsd:element name="Entity" type="soch:entityType"/>
+            <xsd:element name="Context" type="soch:ContextType"/>
+        </xsd:sequence>
+    </xsd:complexType>
 
     <xsd:complexType name="entityType">
         <xsd:sequence>
-            <xsd:element name="ksamsokVersion" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="serviceName" minOccurs="1" maxOccurs="1"/>
-            <xsd:element name="serviceOrganization" minOccurs="1" maxOccurs="1"/>
+            <xsd:element name="ksamsokVersion" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="serviceName" minOccurs="0" maxOccurs="1"/>
+            <xsd:element name="serviceOrganization" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="buildDate" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="itemForIndexing" minOccurs="0" maxOccurs="1"/>
             <xsd:element name="collection" minOccurs="0" maxOccurs="1"/>
-
         </xsd:sequence>
         <xsd:attribute ref="rdf:about"/>
-
     </xsd:complexType>
 
+    <xsd:complexType name="ContextType">
+        <xsd:sequence>
+            <!--<xsd:element name="ksamsokVersion" minOccurs="0" maxOccurs="1"/>-->
+            <!--<xsd:element name="serviceName" minOccurs="0" maxOccurs="1"/>-->
+            <!--<xsd:element name="serviceOrganization" minOccurs="0" maxOccurs="1"/>-->
+            <!--<xsd:element name="buildDate" minOccurs="0" maxOccurs="1"/>-->
+            <!--<xsd:element name="itemForIndexing" minOccurs="0" maxOccurs="1"/>-->
+            <!--<xsd:element name="collection" minOccurs="0" maxOccurs="1"/>-->
+        </xsd:sequence>
+        <xsd:attribute ref="rdf:nodeID"/>
+    </xsd:complexType>
 
 </xsd:schema>

@@ -7,6 +7,18 @@
             <date>2012-08-24</date>
             <file name="definition-list.xml" hash="D4530C50CB9A399BCA9B2A18F331221C"/>
         </version>
+        <version number="1.0.1">
+            <author>Gerald de Jong</author>
+            <message>Countries capitalized</message>
+            <date>2013-04-22</date>
+            <file name="definition-list.xml" hash="E49AC88930C8D1F670B983E0E2763F08"/>
+        </version>
+        <version number="1.0.2">
+            <author>Gerald de Jong</author>
+            <message>New licence added</message>
+            <date>2013-05-08</date>
+            <file name="definition-list.xml" hash="735F9ED50C61C633A138534AECA64A9A"/>
+        </version>
     </schema>
     <schema prefix="icn">
         <version number="1.0.0">
@@ -32,10 +44,10 @@
         </version>
 	<version number="1.0.3">
             <author>Sjoerd Siebinga</author>
-            <message>added delving:geohash field</message>
-            <date>2012-11-14</date>
-            <file name="record-definition.xml" hash="50D7E7511C32739DE4987C9F928178FF"/>
-            <file name="validation.xsd" hash="B0D07B25F49559B40547780908742165"/>
+            <message>added delving:geohash field and added link check fields</message>
+            <date>2013-04-21</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
         </version>
     </schema>
     <schema prefix="abm">
@@ -118,13 +130,20 @@
             <file name="record-definition.xml" hash="A5897AD757CC6CE6063AC7D40CB46E57"/>
             <file name="validation.xsd" hash="BF15EEB7F611E34F4E26340CF0461D5D"/>
         </version>
+        <version number="1.0.3">
+            <author>Sjoerd Siebinga</author>
+            <message>Updated the functions to reflect the new urls for the media server and added support for link checking</message>
+            <date></date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
     </schema>
     <schema prefix="ese">
         <version number="3.4.0">
             <author>Europeana</author>
             <message>Initial version for Delving</message>
             <date>2012-08-08</date>
-            <file name="record-definition.xml" hash="7351D761D11F7A6FB88F52C3D156E524"/>
+            <file name="record-definition.xml" hash="B3B72469CCE87492057AA5100AD58552"/>
             <file name="validation.xsd" hash="9AC2878055418BD8074AA7FF35922A7F"/>
         </version>
     </schema>
@@ -193,7 +212,7 @@
             <message>Initial version for Delving</message>
             <date>2012-10-21</date>
             <file name="record-definition.xml" hash=""/>
-            <file name="validation.xsd" hash="8B028AD67294C0B6DF87BC845F435C64"/>
+            <file name="validation.xsd" hash=""/>
         </version>
     </schema>
     <schema prefix="abc">
