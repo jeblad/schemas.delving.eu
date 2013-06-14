@@ -123,7 +123,7 @@
             <elem tag="list" elems="head, item" attrs="type, numeration"/>
             <elem tag="table" elems="head, tgroup"/>
             <!--<elem tag="p" elems="emph, lb, abbr, expan, extref"/> TODO-->
-            <elem tag="p" elems="extref"/>
+            <elem tag="p"/>
         </elem-group>
 
         <elem-group name="m.desc.base.lowlevels">
@@ -136,7 +136,12 @@
             <elem tag="controlaccess" elems="head, p, corpname, famname, geogname, name, occupation, persname, subject, function, title"/>
             <elem tag="custodhist" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="odd" elem-groups="h.m.blocks" attrs="encodinganalog"/>
-            <elem tag="otherfindaid" elem-groups="h.m.blocks" attrs="encodinganalog"/>
+            <elem tag="otherfindaid" elem-groups="h.m.blocks" attrs="encodinganalog">
+                <elem tag="head"/>
+                <elem tag="list" elems="head, item" attrs="type, numeration"/>
+                <elem tag="table" elems="head, tgroup"/>
+                <elem tag="p" elems="extref"/>
+            </elem>
             <elem tag="phystech" elems="head, p" attrs="encodinganalog"/>
             <elem tag="processinfo" elem-groups="h.m.blocks" attrs="encodinganalog"/>
             <elem tag="scopecontent" elem-groups="h.m.blocks" attrs="encodinganalog"/>
