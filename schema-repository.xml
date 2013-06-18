@@ -111,8 +111,8 @@
             <author>Delving</author>
             <message>Added additional fields to the category field, and added new field for introduction and classification</message>
             <date>2013-06-18</date>
-            <file name="record-definition.xml" hash="BCD438A9258332F82A58AF0CB5CEE876"/>
-            <file name="validation.xsd" hash="9DC2A6525CF55C155F56319BD8A77F92"/>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
         </version>
     </schema>
     <schema prefix="tib">
