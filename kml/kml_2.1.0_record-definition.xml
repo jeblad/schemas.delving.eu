@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<record-definition prefix="kml" version="2.1.0" elementFormDefaultQualified="true" attributeFormDefaultQualified="false">
+    <namespaces>
+        <namespace prefix="kml" uri="http://earth.google.com/kml/2.1"
+                   schema="http://www.loc.gov/standards/mods/v3/mods-3-4.xsd"/>
+        <namespace prefix="xlink" uri="http://www.w3.org/1999/xlink"
+                   schema="http://www.loc.gov/standards/xlink/xlink.xsd"/>
+    </namespaces>
+
+    <attrs>
+        <attr tag="name"/>
+        <attr tag="xlink:simpleLink"/>
+        <attr tag="lang"/>
+        <attr tag="xml:lang"/>
+        <attr tag="type"/>
+        <attr tag="id"/>
+        <attr tag="schemaUrl"/>
+    </attrs>
+
+    <attr-groups>
+        <attr-group name="base-four">
+            <string>lang</string>
+            <string>xml:lang</string>
+        </attr-group>
+    </attr-groups>
+
+
+    <root tag="kml">
+	    <elem tag="Document">
+		    <elem tag="Folder">
+			    <elem tag="name"/>
+			    <elem tag="Placemark" attrs="id">
+				    <elem tag="name"/>
+				    <elem tag="Point">
+					    <elem tag="coordinates"/>
+				    </elem>
+				    <elem tag="ExtendedData">
+					    <elem tag="Data" attrs="name"/>
+				    </elem>
+			    </elem>
+		    </elem>	    
+	    </elem>
+    </root>
+
+
+    <field-markers>
+        <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
+        <field-marker name="CREATOR"/>
+        <field-marker name="TITLE"/>
+        <field-marker name="DESCRIPTION"/>
+        <field-marker name="OWNER"/>
+        <field-marker name="PROVIDER"/>
+        <field-marker name="LANDING_PAGE"/>
+        <field-marker name="THUMBNAIL"/>
+        <field-marker name="THUMBNAIL"/>
+        <field-marker name="SPEC"/>
+        <field-marker name="DEEP_ZOOM_URL"/>
+    </field-markers>
+
+
+    <opts>
+    </opts>
+
+
+    <docs>
+        <doc tag="@lang">
+            <paras>
+                <para name="Definition">
+                    <![CDATA[This attribute is used to specify the language used within individual elements, using the codes from ISO 639-2/b. This is equivalent to authority="iso639-2b" used with the <language> element (which gives a language of the resource described in the record), but is applied to the language used as content of the metadata elements. There is no MARC 21 equivalent for this attribute since language cannot be currently indicated at the element level.]]></para>
+                <para name="Examples">
+                    <![CDATA[
+               <name type="personal">
+                   <namePart type="given">Jack</namePart>
+                   <namePart type="family">May</namePart>
+                   <namePart type="termsOfAddress">I</namePart>
+                   <description lang="eng">District Commissioner</description>
+                   <description lang="fre">Préfet de région</description>
+               </name>
+               ]]>
+                </para>
+            </paras>
+        </doc>
+    </docs>
+
+</record-definition>

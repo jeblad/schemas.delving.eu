@@ -189,6 +189,7 @@
         <elem tag="delving:thumbnail" fieldType="link" function="smallThumbnail"/>
         <elem tag="delving:fullTextObjectUrl" fieldType="link"/>
         <elem tag="delving:fullText"/>
+        <elem tag="delving:geohash"/>
     </root>
 
     <field-markers>
@@ -204,7 +205,8 @@
 
         <!-- todo: these should have paths, currently they are checked for presence but not resolved-->
         <field-marker name="SPEC"/>
-	<field-marker path="/record/delving:deepZoomUrl" check="DIGITAL_OBJECT"/>
+	<field-marker path="/record/delving:deepZoomUrl" check="DEEP_ZOOM"/>
+	<field-marker path="/record/delving:geohash" check="GEO_COORDINATE"/>
 
 	<!-- simple links for link checking-->
 	<field-marker path="/record/delving:fullTextObjectUrl" check="DIGITAL_OBJECT"/>

@@ -107,6 +107,13 @@
             <file name="record-definition.xml" hash="95EDFA2A44F27C688918343A1126B513"/>
             <file name="validation.xsd" hash="15A0534C39011519D513383B2F6A14FF"/>
         </version>
+	<version number="1.0.8">
+            <author>Delving</author>
+            <message>Added additional fields to the category field, and added new field for introduction and classification</message>
+            <date>2013-06-18</date>
+            <file name="record-definition.xml" hash="BCD438A9258332F82A58AF0CB5CEE876"/>
+            <file name="validation.xsd" hash="9DC2A6525CF55C155F56319BD8A77F92"/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
@@ -269,6 +276,13 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
-
-
+    <schema prefix="kml">
+        <version number="2.1.0">
+            <author>Sjoerd Siebinga</author>
+	    <message>First iteration of the KML record definition</message>
+            <date>2013-06-05</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 </schemas>
