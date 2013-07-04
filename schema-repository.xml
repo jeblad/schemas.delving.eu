@@ -269,6 +269,15 @@
             <file name="validation.xsd" hash=""/>
         </version>
     </schema>
+    <schema prefix="nbphot">
+        <version number="1.0.0">
+            <author>Thomas Wikman</author>
+            <message>nbPhotos</message>
+            <date>2013-07-04</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
+    </schema>
 
 
 </schemas>

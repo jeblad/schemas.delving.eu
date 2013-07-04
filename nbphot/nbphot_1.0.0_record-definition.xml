@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<record-definition prefix="nbphot" version="1.0.0" flat="false">
+
+    <namespaces>
+        <!--<namespace prefix="ese" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-3.4.xsd"/>-->
+        <!--<namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>-->
+        <!--<namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>-->
+        <!--<namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>-->
+    </namespaces>
+
+    <attrs>
+        <attr tag="sps_browse"/>
+        <attr tag="sps_id" required="true"/>
+        <attr tag="sps_type" required="true"/>
+        <attr tag="sps_vocabulary" required="true"/>
+        <attr tag="sps_fixed" required="true"/>
+        <attr tag="sps_link"/>
+        <attr tag="x"/>
+        <attr tag="y"/>
+        <attr tag="isUnpublished"/>
+
+    </attrs>
+
+    <attr-groups>
+        <attr-group name="term">
+            <string>sps_id</string>
+            <string>sps_vocabulary</string>
+        </attr-group>
+        <attr-group name="link">
+            <string>sps_id</string>
+            <string>sps_type</string>
+        </attr-group>
+        <attr-group name="date">
+            <string>x</string>
+            <string>y</string>
+        </attr-group>
+        <attr-group name="thumb">
+            <string>sps_browse</string>
+        </attr-group>
+    </attr-groups>
+
+    <elems>
+        <elem tag="IdentificationNumber" elems="URI, AnyOtherNumber"/>
+        <elem tag="URI" attrs="sps_fixed"/>
+        <elem tag="AnyOtherNumber">
+            <elem tag="IdentificationNumber" attr-groups="term"/>
+            <elem tag="Link"/>
+        </elem>
+
+        <elem tag="Entity">
+            <elem tag="EntityId" attr-groups="link"/>
+            <elem tag="Relation" attr-groups="term"/>
+        </elem>
+    </elems>
+
+    <elem-groups>
+        <elem-group name="location">
+            <elem tag="GeopoliticalHierarchy" attr-groups="term"/>
+            <elem tag="Link" attr-groups="link"/>
+        </elem-group>
+        <elem-group name="admin">
+            <elem tag="id"/>
+            <elem tag="uri_id"/>
+            <elem tag="lang"/>
+            <elem tag="organization"/>
+            <elem tag="creator"/>
+            <elem tag="saved"/>
+            <elem tag="locked"/>
+            <elem tag="status"/>
+            <elem tag="versions">
+                <elem tag="numOfVersions"/>
+                <elem tag="webVersion"/>
+                <elem tag="versionId"/>
+                <elem tag="versionUser"/>
+                <elem tag="versionDate"/>
+            </elem>
+            <elem tag="read"/>
+            <elem tag="write"/>
+            <elem tag="info"/>
+            <elem tag="translationFrom"/>
+            <elem tag="entityType"/>
+            <elem tag="publicationEnable"/>
+            <elem tag="schemaVersion"/>
+            <elem tag="refs">
+                <elem tag="ref" attrs="sps_type, sps_id"/>
+            </elem>
+            <elem tag="refs_by" attrs="sps_type, sps_id, isUnpublished"/>
+            <elem tag="createdAt"/>
+            <elem tag="lastModified"/>
+            <elem tag="versionFrom"/>
+        </elem-group>
+    </elem-groups>
+
+    <root tag="PhotoObject">
+
+        <elem tag="IdentificationNumber"/>
+        <elem tag="Title"/>
+        <elem tag="Type"/>
+        <elem tag="ShortDescription"/>
+        <elem tag="Authenticity" singular="true"/>
+        <elem tag="Condition"/>
+        <elem tag="Purpose"/>
+        <elem tag="Collection"/>
+        <elem tag="DigitalFile">
+            <elem tag="File" attrs="sps_browse"/>
+            <elem tag="Comment"/>
+        </elem>
+        <elem tag="DigitalRights" attr-groups="term"/>
+        <elem tag="Source" elems="IdentificationNumber">
+            <elem tag="Type" attr-groups="term"/>
+            <elem tag="Title"/>
+            <elem tag="Description"/>
+        </elem>
+        <elem tag="StorageLocation">
+            <elem tag="Type" attr-groups="term" maxOccurs="1"/>
+            <elem tag="Name"/>
+            <elem tag="Description"/>
+        </elem>
+        <elem tag="CreationEvent">
+            <elem tag="CreationDate" attrs="x, y"/>
+            <elem tag="Creator" attr-groups="link"/>
+            <elem tag="CreationPlace" elem-groups="location"/>
+            <elem tag="ObjectRelated">
+                <elem tag="Type" attr-groups="term"/>
+                <elem tag="Comment" />
+            </elem>
+            <elem tag="Technique" attr-groups="term"/>
+            <elem tag="Material" attr-groups="term"/>
+            <elem tag="TechnicalDescription">
+                <elem tag="Dimension">
+                    <elem tag="Pixels_X_axis"/>
+                    <elem tag="Pixels_Y_axis"/>
+                </elem>
+                <elem tag="CharacteristicsOfPhotograph">
+                    <elem tag="ISO"/>
+                    <elem tag="ExposureTime"/>
+                    <elem tag="LensAperture"/>
+                    <elem tag="FocalLength"/>
+                </elem>
+                <elem tag="CharacteristicsOfDigitization">
+                    <elem tag="DPIResolution"/>
+                    <elem tag="ColorDepth"/>
+                </elem>
+                <elem tag="Exif"/>
+            </elem>
+        </elem>
+        <elem tag="ReferenceTo" elems="Entity">
+            <elem tag="Subject" attr-groups="term"/>
+            <elem tag="Note"/>
+        </elem>
+        <elem tag="OtherRelatedEvents" elems="Entity"/>
+        <elem tag="OtherIdentificationNumbers">
+            <elem tag="Value"/>
+            <elem tag="DateAssigned" attr-groups="date"/>
+            <elem tag="EntityAssigned">
+                <elem tag="Link" attr-groups="link"/>
+            </elem>
+        </elem>
+        <elem tag="IsReferencedBy">
+            <elem tag="Entity">
+                <elem tag="Link" attr-groups="link"/>
+                <elem tag="RelationType" attr-groups="term"/>
+                <elem tag="Comment"/>
+            </elem>
+        </elem>
+        <elem tag="admin" elem-groups="admin"/>
+    </root>
+
+  <field-markers>
+    </field-markers>
+    <docs>
+    </docs>
+
+
+</record-definition>
+
+
+
