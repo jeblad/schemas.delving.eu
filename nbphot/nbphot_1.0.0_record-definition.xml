@@ -18,7 +18,6 @@
         <attr tag="x"/>
         <attr tag="y"/>
         <attr tag="isUnpublished"/>
-
     </attrs>
 
     <attr-groups>

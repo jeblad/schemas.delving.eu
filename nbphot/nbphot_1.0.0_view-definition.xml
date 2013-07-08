@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<record-definition prefix="nbphot" version="1.0.0" flat="false">
+
+    <namespaces>
+        <!--<namespace prefix="ese" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-3.4.xsd"/>-->
+        <!--<namespace prefix="dc" uri="http://purl.org/dc/elements/1.1/" schema="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>-->
+        <!--<namespace prefix="dcterms" uri="http://purl.org/dc/terms/" schema="http://dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>-->
+        <!--<namespace prefix="europeana" uri="http://www.europeana.eu/schemas/ese/" schema="http://www.europeana.eu/schemas/ese/ESE-V3.4.xsd"/>-->
+    </namespaces>
+
+    <attrs>
+        <attr tag="sps_browse"/>
+        <attr tag="sps_id" required="true"/>
+        <attr tag="sps_type" required="true"/>
+        <attr tag="sps_vocabulary" required="true"/>
+        <attr tag="sps_fixed" required="true"/>
+        <attr tag="sps_link"/>
+        <attr tag="x"/>
+        <attr tag="y"/>
+        <attr tag="isUnpublished"/>
+    </attrs>
+
+    <attr-groups>
+        <attr-group name="term">
+            <string>sps_id</string>
+            <string>sps_vocabulary</string>
+        </attr-group>
+        <attr-group name="link">
+            <string>sps_id</string>
+            <string>sps_type</string>
+        </attr-group>
+        <attr-group name="date">
+            <string>x</string>
+            <string>y</string>
+        </attr-group>
+        <attr-group name="thumb">
+            <string>sps_browse</string>
+        </attr-group>
+    </attr-groups>
+
+    <PhotoObject>
+
+        <IdentificationNumber/>
+        <Title/>
+        <Type/>
+        <ShortDescription/>
+        <Authenticity singular="true"/>
+        <Condition/>
+        <Purpose/>
+        <Collection/>
+        <DigitalFile>
+            <File attrs="sps_browse"/>
+            <Comment/>
+        </DigitalFile>
+        <DigitalRights attr-groups="term"/>
+        <Source>
+            <IdentificationNumber>
+                <URI attrs="sps_fixed"/>
+                <AnyOtherNumber>
+                    <IdentificationNumber attr-groups="term"/>
+                    <Link/>
+                </AnyOtherNumber>
+            </IdentificationNumber>
+            <Type attr-groups="term"/>
+            <Title/>
+            <Description/>
+        </Source>
+        <StorageLocation>
+            <Type attr-groups="term"/>
+            <Name/>
+            <Description/>
+        </StorageLocation>
+        <CreationEvent>
+            <CreationDate attrs="x, y"/>
+            <Creator attr-groups="link"/>
+            <CreationPlace>
+                <GeopoliticalHierarchy attr-groups="term"/>
+                <Link attr-groups="link"/>
+            </CreationPlace>
+            <ObjectRelated>
+                <Type attr-groups="term"/>
+                <Comment/>
+            </ObjectRelated>
+            <Technique attr-groups="term"/>
+            <Material attr-groups="term"/>
+            <TechnicalDescription>
+                <Dimension>
+                    <Pixels_X_axis/>
+                    <Pixels_Y_axis/>
+                </Dimension>
+                <elem tag="CharacteristicsOfPhotograph">
+                    <ISO/>
+                    <ExposureTime/>
+                    <LensAperture/>
+                    <FocalLength/>
+                </elem>
+                <CharacteristicsOfDigitization>
+                    <DPIResolution/>
+                    <ColorDepth/>
+                </CharacteristicsOfDigitization>
+                <Exif/>
+            </TechnicalDescription>
+        </CreationEvent>
+        <ReferenceTo>
+            <Entity>
+                <EntityId attr-groups="link"/>
+                <Relation attr-groups="term"/>
+            </Entity>
+            <Subject attr-groups="term"/>
+            <Note/>
+        </ReferenceTo>
+        <OtherRelatedEvents>
+            <Entity>
+                <EntityId attr-groups="link"/>
+                <Relation attr-groups="term"/>
+            </Entity>
+        </OtherRelatedEvents>
+        <OtherIdentificationNumbers>
+            <Value/>
+            <DateAssigned attr-groups="date"/>
+            <EntityAssigned>
+            <Link attr-groups="link"/>
+            </EntityAssigned>
+        </OtherIdentificationNumbers>
+        <IsReferencedBy>
+            <Entity>
+                <Link attr-groups="link"/>
+                <RelationType attr-groups="term"/>
+                <Comment/>
+            </Entity>
+        </IsReferencedBy>
+        <admin>
+            <id/>
+            <uri_id/>
+            <lang/>
+            <organization/>
+            <creator/>
+            <saved/>
+            <locked/>
+            <status/>
+            <versions>
+                <numOfVersions/>
+                <webVersion/>
+                <versionId/>
+                <versionUser/>
+                <versionDate/>
+            </versions>
+            <read/>
+            <write/>
+            <info/>
+            <translationFrom/>
+            <entityType/>
+            <publicationEnable/>
+            <schemaVersion/>
+            <refs>
+                <ref attrs="sps_type, sps_id"/>
+            </refs>
+            <refs_by attrs="sps_type, sps_id, isUnpublished"/>
+            <createdAt/>
+            <lastModified/>
+            <versionFrom/>
+        </admin>
+    </PhotoObject>
+
+  <field-markers>
+    </field-markers>
+    <docs>
+    </docs>
+
+
+</record-definition>
+
+
+
