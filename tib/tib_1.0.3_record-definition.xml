@@ -109,6 +109,7 @@
         <elem tag="tib:place"/>
         <elem tag="tib:technique" function="lowercase" fieldType="string"/>
         <elem tag="tib:color" function="lowercase" fieldType="string"/>
+        <elem tag="tib:colorHex" function="lowercase" fieldType="string"/>
         <elem tag="tib:design" function="lowercase" fieldType="string"/>
         <elem tag="tib:exhibition" function="lowercase" fieldType="string"/>
         <elem tag="tib:subjectDepicted" function="lowercase" fieldType="string"/>

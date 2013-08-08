@@ -89,6 +89,7 @@
             <xs:element name="place" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="technique" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="color" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="colorHex" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="design" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="exhibition" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="subjectDepicted" minOccurs="0" maxOccurs="unbounded"/>
