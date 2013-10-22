@@ -114,6 +114,13 @@
             <file name="record-definition.xml" hash=""/>
             <file name="validation.xsd" hash=""/>
         </version>
+	<version number="1.0.9">
+            <author>jeblad</author>
+            <message>Corrected the URI for the ABM namespace</message>
+            <date>2013-10-22</date>
+            <file name="record-definition.xml" hash=""/>
+            <file name="validation.xsd" hash=""/>
+        </version>
     </schema>
     <schema prefix="tib">
         <version number="1.0.0">
